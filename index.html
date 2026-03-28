@@ -348,6 +348,61 @@ section { padding: 100px 0; }
 .float-reserve:hover { transform: translateX(-50%) translateY(-2px); }
 @media (max-width: 768px) { .float-reserve { display: block; } }
 @media(max-width:900px){.nav-links{display:none!important}.price-grid,.why-grid,.pain-grid{grid-template-columns:1fr!important}section{padding:64px 5vw!important}}
+
+/* ---------- TRUST BADGES ---------- */
+.trust { background: var(--white); }
+.trust-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 900px; margin: 0 auto;
+}
+.trust-item {
+  text-align: center; padding: 32px 16px; background: var(--teal-bg); border-radius: 16px;
+  transition: transform 0.3s;
+}
+.trust-item:hover { transform: translateY(-4px); }
+.trust-icon { font-size: 2.4rem; margin-bottom: 12px; }
+.trust-num {
+  font-family: 'Shippori Mincho', serif; font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700; color: var(--teal-dark); line-height: 1.2;
+}
+.trust-num span { font-size: 0.6em; font-weight: 500; }
+.trust-label { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; }
+@media (max-width: 768px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- STAFF ---------- */
+.staff { background: var(--teal-bg); }
+.staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto; }
+.staff-card {
+  background: var(--white); border-radius: 20px; overflow: hidden;
+  box-shadow: var(--shadow); text-align: center; transition: transform 0.3s;
+}
+.staff-card:hover { transform: translateY(-4px); }
+.staff-avatar {
+  width: 100%; height: 220px; background: linear-gradient(135deg, var(--teal-pale), var(--teal-bg));
+  display: flex; align-items: center; justify-content: center; font-size: 4rem;
+}
+.staff-info { padding: 28px 24px; }
+.staff-name { font-family: 'Shippori Mincho', serif; font-size: 1.2rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+.staff-role { font-size: 0.85rem; color: var(--teal-mid); font-weight: 500; margin-bottom: 12px; }
+.staff-quals { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 12px; }
+.staff-qual {
+  display: inline-block; padding: 4px 12px; background: var(--teal-pale);
+  border-radius: 50px; font-size: 0.75rem; color: var(--teal-dark); font-weight: 500;
+}
+.staff-desc { font-size: 0.88rem; color: var(--text-light); line-height: 1.8; }
+
+/* ---------- INSTAGRAM ---------- */
+.instagram { background: var(--white); }
+.ig-container { max-width: 600px; margin: 0 auto; text-align: center; }
+.ig-link {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 20px 48px; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: #fff; text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(131, 58, 180, 0.3);
+}
+.ig-link:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(131, 58, 180, 0.4); }
+.ig-link svg { width: 24px; height: 24px; fill: #fff; }
+.ig-desc { font-size: 0.92rem; color: var(--text-light); margin-top: 20px; }
 </style>
 
 <!-- JSON-LD -->
@@ -388,6 +443,7 @@ section { padding: 100px 0; }
       <li><a href="#reasons">選ばれる理由</a></li>
       <li><a href="#flow">施術の流れ</a></li>
       <li><a href="#pricing">料金</a></li>
+      <li><a href="#staff">スタッフ</a></li>
       <li><a href="#faq">よくある質問</a></li>
       <li><a href="#area">対応エリア</a></li>
     </ul>
@@ -453,6 +509,37 @@ section { padding: 100px 0; }
   </div>
 </section>
 
+<!-- TRUST BADGES -->
+<section class="trust" id="trust">
+  <div class="container text-center">
+    <div class="section-label fade-in">Trust</div>
+    <h2 class="section-title fade-in">選ばれている理由を数字で</h2>
+    <p class="section-desc fade-in"></p>
+    <div class="trust-grid">
+      <div class="trust-item fade-in">
+        <div class="trust-icon">&#x1F3E5;</div>
+        <div class="trust-num">100<span>%</span></div>
+        <div class="trust-label">看護師資格保有率</div>
+      </div>
+      <div class="trust-item fade-in">
+        <div class="trust-icon">&#x1F9D1;&#x200D;&#x2695;&#xFE0F;</div>
+        <div class="trust-num">10<span>年以上</span></div>
+        <div class="trust-label">医療・介護現場経験</div>
+      </div>
+      <div class="trust-item fade-in">
+        <div class="trust-icon">&#x2728;</div>
+        <div class="trust-num">0<span>円</span></div>
+        <div class="trust-label">出張費・追加料金</div>
+      </div>
+      <div class="trust-item fade-in">
+        <div class="trust-icon">&#x1F697;</div>
+        <div class="trust-num">8<span>市町</span></div>
+        <div class="trust-label">出張対応エリア</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- REASONS -->
 <section class="reasons" id="reasons">
   <div class="container text-center">
@@ -491,6 +578,43 @@ section { padding: 100px 0; }
       <p>B/Sスパンゲ法に出会い、「切らない・痛くない」施術があることを知った時、これこそ私たちが届けるべきケアだと確信しました。</p>
       <p>カタツムリのように、ゆっくりでも確実に。一歩ずつ、痛みのない日常を取り戻すお手伝いをしたい。それが「Snail」という名前に込めた想いです。</p>
       <div class="story-signature">巻き爪矯正サロン Snail スタッフ一同</div>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section class="staff" id="staff">
+  <div class="container text-center">
+    <div class="section-label fade-in">Staff</div>
+    <h2 class="section-title fade-in">スタッフ紹介</h2>
+    <p class="section-desc fade-in">全員が看護師資格を持つ、巻き爪ケアの専門スタッフです。</p>
+    <div class="staff-grid">
+      <div class="staff-card fade-in">
+        <div class="staff-avatar">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
+        <div class="staff-info">
+          <div class="staff-name">代表スタッフ</div>
+          <div class="staff-role">巻き爪矯正サロン Snail 代表</div>
+          <div class="staff-quals">
+            <span class="staff-qual">看護師免許</span>
+            <span class="staff-qual">B/Sスパンゲ技術者</span>
+            <span class="staff-qual">介護現場10年以上</span>
+          </div>
+          <p class="staff-desc">長年の看護・介護経験を活かし、お一人おひとりの足の状態に合わせた丁寧な施術を心がけています。「痛くなかった！」の声が何よりの喜びです。</p>
+        </div>
+      </div>
+      <div class="staff-card fade-in">
+        <div class="staff-avatar">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
+        <div class="staff-info">
+          <div class="staff-name">スタッフ</div>
+          <div class="staff-role">看護師・巻き爪矯正担当</div>
+          <div class="staff-quals">
+            <span class="staff-qual">看護師免許</span>
+            <span class="staff-qual">B/Sスパンゲ技術者</span>
+            <span class="staff-qual">フットケア研修修了</span>
+          </div>
+          <p class="staff-desc">高齢者のフットケアを専門に学び、肥厚爪のケアも得意としています。ご自宅でリラックスしながら施術を受けていただけるよう努めています。</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -654,6 +778,22 @@ section { padding: 100px 0; }
       <span class="area-tag">多古町</span>
     </div>
     <p class="area-note fade-in">※ 上記エリア外もご相談に応じます。お気軽にお問い合わせください。</p>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="instagram" id="instagram">
+  <div class="container text-center">
+    <div class="section-label fade-in">Instagram</div>
+    <h2 class="section-title fade-in">施術事例・日常を発信中</h2>
+    <p class="section-desc fade-in">Instagramで施術のビフォーアフターやサロンの日常をお届けしています。</p>
+    <div class="ig-container fade-in">
+      <a href="https://www.instagram.com/snail_makizume/" class="ig-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @snail_makizume
+      </a>
+      <p class="ig-desc">フォローしていただくと、最新の施術事例やキャンペーン情報をお届けします。</p>
+    </div>
   </div>
 </section>
 
