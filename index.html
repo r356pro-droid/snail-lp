@@ -3,9 +3,905 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>巻き爪矯正サロン Snail｜香取市・銚子 出張専門 看護師施術</title>
+<title>巻き爪矯正サロン Snail｜香取市・銚子エリア 出張専門 看護師施術</title>
 <meta name="description" content="千葉県香取市・銚子エリアの巻き爪矯正専門サロン。看護師資格保有スタッフが自宅・施設へ出張。切らない・痛くないB/Sスパンゲ法。初診料¥3,000＋初回1本¥8,000〜。">
+<meta name="keywords" content="巻き爪,矯正,香取市,銚子,出張,看護師,B/Sスパンゲ,痛くない,切らない">
 <link rel="canonical" href="https://www.ingrown-nails-katori.com/">
+<meta property="og:title" content="巻き爪矯正サロン Snail｜香取市・銚子エリア 出張専門 看護師施術">
+<meta property="og:description" content="切らない・痛くない巻き爪矯正。看護師が自宅まで出張対応。香取市・旭市・匝瑳市・銚子市・神栖市・成田市。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ingrown-nails-katori.com/">
+<meta property="og:locale" content="ja_JP">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --teal-dark: #0B4F5E;
+  --teal-mid: #177A74;
+  --teal-light: #2EB8AE;
+  --teal-pale: #E8F6F5;
+  --teal-bg: #F4FAFA;
+  --white: #FFFFFF;
+  --text: #2D2D2D;
+  --text-light: #5A5A5A;
+  --gold: #C4A265;
+  --shadow: 0 4px 24px rgba(11, 79, 94, 0.10);
+  --shadow-lg: 0 8px 40px rgba(11, 79, 94, 0.15);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: 'Shippori Mincho', serif; line-height: 1.4; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- NAV ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(11,79,94,0.08);
+  transition: box-shadow 0.3s;
+}
+.nav.scrolled { box-shadow: 0 2px 20px rgba(11,79,94,0.10); }
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--teal-dark); }
+.nav-logo img { height: 40px; width: auto; }
+.nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.15rem; font-weight: 700; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--text-light); font-size: 0.85rem; font-weight: 500;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--teal-mid); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--teal-dark); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta-btn {
+  display: inline-block; padding: 10px 24px; background: var(--teal-mid); color: #fff;
+  text-decoration: none; border-radius: 50px; font-size: 0.85rem; font-weight: 700;
+  transition: background 0.3s, transform 0.2s;
+}
+.nav-cta-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--teal-dark); margin: 6px 0; transition: 0.3s; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+/* ---------- HERO ---------- */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal-mid) 50%, var(--teal-light) 100%);
+  position: relative; overflow: hidden; padding-top: 72px;
+}
+.hero::before {
+  content: ''; position: absolute; top: -50%; right: -30%; width: 80%; height: 200%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.07) 0%, transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(to top, var(--white), transparent);
+}
+.hero-content { position: relative; z-index: 1; text-align: center; color: #fff; padding: 60px 24px; }
+.hero-badge {
+  display: inline-block; padding: 8px 24px; border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50px; font-size: 0.85rem; margin-bottom: 28px; letter-spacing: 0.1em;
+  backdrop-filter: blur(4px); background: rgba(255,255,255,0.08);
+}
+.hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 700; margin-bottom: 12px; letter-spacing: 0.04em; }
+.hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.3rem); font-weight: 400; opacity: 0.9;
+  margin-bottom: 40px; font-family: 'Shippori Mincho', serif;
+}
+.hero-features { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-feature { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; font-weight: 500; }
+.hero-feature-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+@keyframes pulse{0%,100%{box-shadow:0 4px 24px rgba(0,0,0,0.15)}50%{box-shadow:0 4px 32px rgba(255,255,255,0.4)}}
+.hero-cta {
+  display: inline-block; padding: 18px 48px; background: var(--white); color: var(--teal-dark);
+  text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  animation: pulse 2s infinite;
+}
+.hero-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+/* ---------- NUMBER BAR ---------- */
+.number-bar {
+  background: var(--teal-dark); color: #fff; padding: 48px 0;
+}
+.number-bar-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  max-width: 900px; margin: 0 auto; text-align: center;
+}
+.number-item {}
+.number-val {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2;
+}
+.number-val span { font-size: 0.5em; font-weight: 500; }
+.number-label { font-size: 0.82rem; opacity: 0.8; margin-top: 4px; }
+
+/* ---------- SECTIONS COMMON ---------- */
+section { padding: 100px 0; }
+.section-label {
+  display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
+  color: var(--teal-mid); text-transform: uppercase; margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: var(--teal-dark);
+  margin-bottom: 16px;
+}
+.section-desc { color: var(--text-light); max-width: 640px; margin: 0 auto 56px; font-size: 1rem; }
+.text-center { text-align: center; }
+
+/* ---------- WORRIES ---------- */
+.worries { background: var(--teal-bg); }
+.worry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.worry-card {
+  background: var(--white); padding: 32px 28px; border-radius: 16px;
+  box-shadow: var(--shadow); transition: transform 0.3s;
+}
+.worry-card:hover { transform: translateY(-4px); }
+.worry-icon { font-size: 2.2rem; margin-bottom: 16px; }
+.worry-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--teal-dark); }
+.worry-card p { font-size: 0.92rem; color: var(--text-light); }
+
+/* ---------- REASONS ---------- */
+.reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+.reason-card { text-align: center; padding: 40px 28px; }
+.reason-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
+  color: #fff; font-family: 'Shippori Mincho', serif; font-size: 1.4rem; font-weight: 700;
+  margin-bottom: 20px;
+}
+.reason-card h3 { font-size: 1.2rem; margin-bottom: 12px; color: var(--teal-dark); }
+.reason-card p { font-size: 0.92rem; color: var(--text-light); }
+
+/* ---------- VOICE ---------- */
+.voice { background: var(--teal-bg); }
+.voice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; max-width: 960px; margin: 0 auto; }
+.voice-card {
+  background: var(--white); border-radius: 16px; padding: 32px 28px;
+  box-shadow: var(--shadow); position: relative;
+}
+.voice-stars { color: #F5A623; font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+.voice-text { font-size: 0.92rem; color: var(--text); line-height: 1.9; margin-bottom: 16px; font-style: italic; }
+.voice-meta { font-size: 0.82rem; color: var(--text-light); text-align: right; }
+
+/* ---------- INSTAGRAM ---------- */
+.instagram { background: var(--white); }
+.ig-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  max-width: 640px; margin: 0 auto 32px;
+}
+.ig-grid a {
+  display: block; aspect-ratio: 1; border-radius: 8px; overflow: hidden;
+  background: var(--teal-pale); position: relative; transition: transform 0.3s;
+}
+.ig-grid a:hover { transform: scale(1.03); }
+.ig-grid a::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(11,79,94,0.0); transition: background 0.3s;
+}
+.ig-grid a:hover::after { background: rgba(11,79,94,0.15); }
+.ig-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; background: linear-gradient(135deg, var(--teal-pale), #d4efed);
+}
+.ig-follow {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 16px 40px; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: #fff; text-decoration: none; border-radius: 50px; font-size: 1rem; font-weight: 700;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(131, 58, 180, 0.3);
+}
+.ig-follow:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(131, 58, 180, 0.4); }
+.ig-follow svg { width: 22px; height: 22px; fill: #fff; }
+.ig-note { font-size: 0.88rem; color: var(--text-light); margin-top: 16px; }
+
+/* ---------- STAFF ---------- */
+.staff { background: var(--teal-bg); }
+.staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto; }
+.staff-card {
+  background: var(--white); border-radius: 20px; overflow: hidden;
+  box-shadow: var(--shadow); text-align: center; transition: transform 0.3s;
+}
+.staff-card:hover { transform: translateY(-4px); }
+.staff-avatar {
+  width: 100%; height: 220px;
+  background: linear-gradient(135deg, var(--teal-pale), var(--teal-bg));
+  display: flex; align-items: center; justify-content: center; font-size: 4rem;
+}
+.staff-info { padding: 28px 24px; }
+.staff-name { font-family: 'Shippori Mincho', serif; font-size: 1.2rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+.staff-role { font-size: 0.85rem; color: var(--teal-mid); font-weight: 500; margin-bottom: 12px; }
+.staff-quals { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 12px; }
+.staff-qual {
+  display: inline-block; padding: 4px 12px; background: var(--teal-pale);
+  border-radius: 50px; font-size: 0.75rem; color: var(--teal-dark); font-weight: 500;
+}
+.staff-desc { font-size: 0.88rem; color: var(--text-light); line-height: 1.8; }
+
+/* ---------- SAFETY ---------- */
+.safety { background: var(--white); }
+.safety-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 960px; margin: 0 auto; }
+.safety-card {
+  text-align: center; padding: 36px 24px; background: var(--teal-bg);
+  border-radius: 16px; transition: transform 0.3s;
+}
+.safety-card:hover { transform: translateY(-4px); }
+.safety-icon { font-size: 2.4rem; margin-bottom: 16px; }
+.safety-card h3 { font-size: 1.05rem; color: var(--teal-dark); margin-bottom: 8px; }
+.safety-card p { font-size: 0.88rem; color: var(--text-light); }
+
+/* ---------- FLOW ---------- */
+.flow { background: var(--teal-bg); }
+.flow-timeline { max-width: 700px; margin: 0 auto; position: relative; }
+.flow-timeline::before {
+  content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(to bottom, var(--teal-light), var(--teal-pale));
+}
+.flow-step {
+  display: flex; gap: 28px; margin-bottom: 40px; position: relative;
+  align-items: flex-start;
+}
+.flow-step:last-child { margin-bottom: 0; }
+.flow-step-num {
+  flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-family: 'Shippori Mincho', serif; font-size: 1.2rem; font-weight: 700;
+  z-index: 1;
+}
+.flow-step-body { padding-top: 12px; }
+.flow-step-body h3 { font-size: 1.1rem; color: var(--teal-dark); margin-bottom: 6px; }
+.flow-step-body p { font-size: 0.92rem; color: var(--text-light); }
+
+/* ---------- PRICING ---------- */
+.pricing { background: var(--white); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; max-width: 900px; margin: 0 auto; }
+.pricing-card {
+  background: var(--white); border-radius: 20px; overflow: hidden;
+  box-shadow: var(--shadow); transition: transform 0.3s;
+}
+.pricing-card:hover { transform: translateY(-4px); }
+.pricing-card-header {
+  padding: 24px 28px; background: linear-gradient(135deg, var(--teal-dark), var(--teal-mid));
+  color: #fff;
+}
+.pricing-card-header h3 { font-size: 1.2rem; font-weight: 700; }
+.pricing-card-body { padding: 28px; }
+.pricing-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid var(--teal-pale);
+}
+.pricing-row:last-child { border-bottom: none; }
+.pricing-label { font-size: 0.92rem; color: var(--text-light); }
+.pricing-value { font-size: 1.1rem; font-weight: 700; color: var(--teal-dark); }
+.pricing-note {
+  margin-top: 40px; text-align: center; font-size: 0.9rem; color: var(--text-light);
+  background: var(--teal-bg); padding: 20px; border-radius: 12px; max-width: 900px; margin-left: auto; margin-right: auto;
+}
+
+/* ---------- FAQ ---------- */
+.faq { background: var(--teal-bg); }
+.faq-list { max-width: 740px; margin: 0 auto; }
+.faq-item { background: var(--white); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+.faq-q {
+  width: 100%; padding: 22px 28px; background: none; border: none;
+  font-family: 'Noto Sans JP', sans-serif; font-size: 1rem; font-weight: 500;
+  color: var(--teal-dark); text-align: left; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.faq-q::after {
+  content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--teal-mid);
+  transition: transform 0.3s;
+}
+.faq-item.open .faq-q::after { content: '\2212'; transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 28px; }
+.faq-item.open .faq-a { max-height: 300px; padding: 0 28px 22px; }
+.faq-a p { font-size: 0.92rem; color: var(--text-light); line-height: 1.8; }
+
+/* ---------- AREA ---------- */
+.area { background: var(--white); }
+.area-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 32px; }
+.area-tag {
+  display: inline-block; padding: 12px 28px;
+  background: var(--white); border: 2px solid var(--teal-light);
+  border-radius: 50px; font-size: 1rem; font-weight: 500; color: var(--teal-dark);
+  transition: background 0.3s, color 0.3s;
+}
+.area-tag:hover { background: var(--teal-mid); color: #fff; border-color: var(--teal-mid); }
+.area-note { text-align: center; font-size: 0.9rem; color: var(--text-light); }
+
+/* ---------- CTA ---------- */
+.cta-section {
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal-mid));
+  color: #fff; text-align: center; padding: 80px 24px;
+}
+.cta-section h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 16px; color: #fff; }
+.cta-section p { font-size: 1rem; opacity: 0.9; margin-bottom: 36px; }
+.cta-btn {
+  display: inline-block; padding: 20px 56px; background: var(--white); color: var(--teal-dark);
+  text-decoration: none; border-radius: 50px; font-size: 1.15rem; font-weight: 700;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: var(--teal-dark); color: rgba(255,255,255,0.7);
+  padding: 48px 24px 28px; text-align: center;
+}
+.footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: #fff; margin-bottom: 16px; }
+.footer-links { margin-bottom: 16px; }
+.footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; margin: 0 12px; transition: color 0.2s; }
+.footer-links a:hover { color: #fff; }
+.footer-info { font-size: 0.85rem; margin-bottom: 8px; }
+.footer-copy { font-size: 0.8rem; margin-top: 24px; opacity: 0.5; }
+
+/* ---------- SCROLL ANIMATION ---------- */
+.fade-in { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .nav-links, .nav-cta-btn { display: none; }
+  .hamburger { display: block; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 72px; left: 0; right: 0; background: var(--white);
+    padding: 24px; gap: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  .nav-cta-btn.open { display: inline-block; margin-top: 8px; text-align: center; }
+  .hero-features { flex-direction: column; align-items: center; gap: 16px; }
+  section { padding: 64px 0; }
+  .story-content { padding: 36px 24px; }
+  .flow-timeline::before { left: 20px; }
+  .flow-step-num { width: 40px; height: 40px; font-size: 1rem; }
+  .flow-step { gap: 18px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .number-bar-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+}
+@media (max-width: 900px) {
+  .nav-links { display: none !important; }
+  section { padding: 64px 5vw !important; }
+}
+</style>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "巻き爪矯正サロン Snail",
+  "description": "千葉県香取市の巻き爪矯正サロン。B/Sスパンゲ法による切らない・痛くない施術。看護師資格保有スタッフが出張対応。",
+  "url": "https://www.ingrown-nails-katori.com/",
+  "telephone": "",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "香取市",
+    "addressRegion": "千葉県",
+    "addressCountry": "JP"
+  },
+  "areaServed": ["香取市","旭市","匝瑳市","銚子市","神栖市","成田市","東庄町","多古町"],
+  "priceRange": "¥7,000〜",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="/logo.png" alt="Snail" id="nav-logo">
+      <span class="nav-logo-text">Snail</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#worries">お悩み</a></li>
+      <li><a href="#reasons">選ばれる理由</a></li>
+      <li><a href="#voice">お客様の声</a></li>
+      <li><a href="#staff">スタッフ</a></li>
+      <li><a href="#flow">施術の流れ</a></li>
+      <li><a href="#pricing">料金</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#area">エリア</a></li>
+    </ul>
+    <a href="https://snail-reservation.vercel.app" class="nav-cta-btn" id="navCtaBtn" target="_blank" rel="noopener">予約する</a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">千葉県香取市・出張専門</div>
+    <h1>その巻き爪、<br><span style="color:#7DD9D3">看護師が自宅で</span><br>治しに行きます。</h1>
+    <p class="hero-sub">切らない。痛くない。看護師が自宅まで伺います。</p>
+    <div class="hero-features">
+      <div class="hero-feature">
+        <div class="hero-feature-icon">&#x1F3E5;</div>
+        <span>看護師施術</span>
+      </div>
+      <div class="hero-feature">
+        <div class="hero-feature-icon">&#x1F697;</div>
+        <span>出張対応</span>
+      </div>
+      <div class="hero-feature">
+        <div class="hero-feature-icon">&#x2728;</div>
+        <span>痛くない</span>
+      </div>
+    </div>
+    <a href="https://snail-reservation.vercel.app" class="hero-cta" target="_blank" rel="noopener">&#x1F4C5; 無料相談・ご予約はこちら</a>
+  </div>
+</section>
+
+<!-- NUMBER BAR -->
+<div class="number-bar">
+  <div class="container">
+    <div class="number-bar-grid">
+      <div class="number-item fade-in">
+        <div class="number-val">100<span>%</span></div>
+        <div class="number-label">看護師資格保有率</div>
+      </div>
+      <div class="number-item fade-in">
+        <div class="number-val">10<span>年以上</span></div>
+        <div class="number-label">医療・介護現場経験</div>
+      </div>
+      <div class="number-item fade-in">
+        <div class="number-val">0<span>円</span></div>
+        <div class="number-label">出張費・追加料金</div>
+      </div>
+      <div class="number-item fade-in">
+        <div class="number-val">8<span>市町</span></div>
+        <div class="number-label">出張対応エリア</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORRIES -->
+<section class="worries" id="worries">
+  <div class="container text-center">
+    <div class="section-label fade-in">Worries</div>
+    <h2 class="section-title fade-in">こんなお悩みありませんか？</h2>
+    <p class="section-desc fade-in">一つでも当てはまる方は、ぜひご相談ください。</p>
+    <div class="worry-grid">
+      <div class="worry-card fade-in">
+        <div class="worry-icon">&#x1F614;</div>
+        <h3>歩くたびに爪が痛い</h3>
+        <p>靴を履くと爪が食い込み、歩くのがつらい。外出がおっくうになっていませんか？</p>
+      </div>
+      <div class="worry-card fade-in">
+        <div class="worry-icon">&#x1F3E5;</div>
+        <h3>病院で切るしかないと言われた</h3>
+        <p>手術は怖いし痛そう...。実は切らなくても矯正できる方法があります。</p>
+      </div>
+      <div class="worry-card fade-in">
+        <div class="worry-icon">&#x1F698;</div>
+        <h3>通院が難しい</h3>
+        <p>高齢でサロンまで通えない、家族の送迎が必要。出張なら自宅で施術を受けられます。</p>
+      </div>
+      <div class="worry-card fade-in">
+        <div class="worry-icon">&#x1F9D3;</div>
+        <h3>爪が分厚くなってきた</h3>
+        <p>加齢で爪が肥厚し、自分では切れない。肥厚爪のケアも対応しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section class="reasons" id="reasons">
+  <div class="container text-center">
+    <div class="section-label fade-in">Reasons</div>
+    <h2 class="section-title fade-in">Snail が選ばれる3つの理由</h2>
+    <p class="section-desc fade-in">安心して任せていただける体制を整えています。</p>
+    <div class="reasons-grid">
+      <div class="reason-card fade-in">
+        <div class="reason-num">1</div>
+        <h3>看護師資格保有率100%</h3>
+        <p>スタッフ全員が看護師資格を保有。介護・医療現場で10年以上の経験があるため、高齢者や持病のある方にも安心して施術を受けていただけます。</p>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">2</div>
+        <h3>切らない・痛くないB/Sスパンゲ法</h3>
+        <p>ドイツ生まれのB/Sスパンゲ法は、薄いグラスファイバー製プレートを爪に貼るだけ。メスや麻酔は不要で、施術中の痛みはほとんどありません。</p>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">3</div>
+        <h3>自宅まで出張対応</h3>
+        <p>香取市を中心に、旭市・匝瑳市・銚子市・神栖市・成田市・東庄町・多古町まで出張。通院が難しい方も安心です。出張費は料金に含まれています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section class="voice" id="voice">
+  <div class="container text-center">
+    <div class="section-label fade-in">Voice</div>
+    <h2 class="section-title fade-in">お客様の声</h2>
+    <p class="section-desc fade-in">実際に施術を受けられた方からの感想です。</p>
+    <div class="voice-grid">
+      <div class="voice-card fade-in">
+        <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="voice-text">「長年悩んでいた巻き爪が、痛みもなく矯正できて驚きました。看護師さんなので安心してお任せできました。」</p>
+        <div class="voice-meta">香取市 70代女性</div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="voice-text">「母が高齢で通院が難しかったのですが、自宅に来ていただけて本当に助かりました。施術後は歩くのが楽になったと喜んでいます。」</p>
+        <div class="voice-meta">銚子市 40代女性（お母様の付き添い）</div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="voice-text">「病院では手術しかないと言われていたので不安でしたが、切らずに治せると知って感動しました。3回目で明らかに改善しています。」</p>
+        <div class="voice-meta">旭市 60代男性</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="instagram" id="instagram">
+  <div class="container text-center">
+    <div class="section-label fade-in">Instagram</div>
+    <h2 class="section-title fade-in">施術事例・日常を発信中</h2>
+    <p class="section-desc fade-in">Instagramで施術のビフォーアフターやサロンの日常をお届けしています。</p>
+    <div class="ig-grid fade-in">
+      <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x1F9B6;</div></a>
+      <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x2728;</div></a>
+      <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x1F3E5;</div></a>
+      <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x1F697;</div></a>
+      <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x1F490;</div></a>
+      <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x1F40C;</div></a>
+    </div>
+    <a href="https://www.instagram.com/makitsume_snail/" class="ig-follow fade-in" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @makitsume_snail をフォロー
+    </a>
+    <p class="ig-note fade-in">フォローしていただくと、最新の施術事例やキャンペーン情報をお届けします。</p>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section class="staff" id="staff">
+  <div class="container text-center">
+    <div class="section-label fade-in">Staff</div>
+    <h2 class="section-title fade-in">スタッフ紹介</h2>
+    <p class="section-desc fade-in">全員が看護師資格を持つ、巻き爪ケアの専門スタッフです。</p>
+    <div class="staff-grid">
+      <div class="staff-card fade-in">
+        <div class="staff-avatar">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
+        <div class="staff-info">
+          <div class="staff-name">代表スタッフ</div>
+          <div class="staff-role">巻き爪矯正サロン Snail 代表</div>
+          <div class="staff-quals">
+            <span class="staff-qual">看護師免許</span>
+            <span class="staff-qual">B/Sスパンゲ技術者</span>
+            <span class="staff-qual">介護現場10年以上</span>
+          </div>
+          <p class="staff-desc">長年の看護・介護経験を活かし、お一人おひとりの足の状態に合わせた丁寧な施術を心がけています。「痛くなかった！」の声が何よりの喜びです。</p>
+        </div>
+      </div>
+      <div class="staff-card fade-in">
+        <div class="staff-avatar">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
+        <div class="staff-info">
+          <div class="staff-name">スタッフ</div>
+          <div class="staff-role">看護師・巻き爪矯正担当</div>
+          <div class="staff-quals">
+            <span class="staff-qual">看護師免許</span>
+            <span class="staff-qual">B/Sスパンゲ技術者</span>
+            <span class="staff-qual">フットケア研修修了</span>
+          </div>
+          <p class="staff-desc">高齢者のフットケアを専門に学び、肥厚爪のケアも得意としています。ご自宅でリラックスしながら施術を受けていただけるよう努めています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="safety" id="safety">
+  <div class="container text-center">
+    <div class="section-label fade-in">Safety</div>
+    <h2 class="section-title fade-in">安心・安全への取り組み</h2>
+    <p class="section-desc fade-in">医療従事者としての衛生管理を徹底しています。</p>
+    <div class="safety-grid">
+      <div class="safety-card fade-in">
+        <div class="safety-icon">&#x1F9F4;</div>
+        <h3>器具の滅菌処理</h3>
+        <p>使用する器具はすべて施術ごとに滅菌処理。使い捨て用品も併用し、衛生面を徹底しています。</p>
+      </div>
+      <div class="safety-card fade-in">
+        <div class="safety-icon">&#x1F9E4;</div>
+        <h3>手袋・マスク着用</h3>
+        <p>施術中は手袋・マスクを必ず着用。感染症対策を万全に行っています。</p>
+      </div>
+      <div class="safety-card fade-in">
+        <div class="safety-icon">&#x1F3E5;</div>
+        <h3>看護師の医学的知識</h3>
+        <p>糖尿病や血液疾患など基礎疾患がある方も、看護師が健康状態を確認した上で安全に施術します。</p>
+      </div>
+      <div class="safety-card fade-in">
+        <div class="safety-icon">&#x1F4CB;</div>
+        <h3>事前カウンセリング</h3>
+        <p>施術前に爪の状態・健康状態を丁寧にヒアリング。無理な施術は行いません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow" id="flow">
+  <div class="container text-center">
+    <div class="section-label fade-in">Flow</div>
+    <h2 class="section-title fade-in">施術の流れ</h2>
+    <p class="section-desc fade-in">ご予約から施術完了まで、4つのステップで進みます。</p>
+  </div>
+  <div class="container">
+    <div class="flow-timeline">
+      <div class="flow-step fade-in">
+        <div class="flow-step-num">1</div>
+        <div class="flow-step-body">
+          <h3>ご予約・ご相談</h3>
+          <p>Web予約フォームからお申し込みください。症状やご希望の日時をお伝えいただければ、スタッフが確認のご連絡を差し上げます。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-step-num">2</div>
+        <div class="flow-step-body">
+          <h3>ご自宅へ訪問・カウンセリング</h3>
+          <p>ご予約日にスタッフがご自宅へ伺います。爪の状態を確認し、施術方法や回数の目安をわかりやすくご説明します。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-step-num">3</div>
+        <div class="flow-step-body">
+          <h3>B/Sスパンゲ施術</h3>
+          <p>爪の表面にグラスファイバー製プレートを装着します。施術時間は1本あたり約20〜30分。痛みはほとんどありません。</p>
+        </div>
+      </div>
+      <div class="flow-step fade-in">
+        <div class="flow-step-num">4</div>
+        <div class="flow-step-body">
+          <h3>アフターケア・次回予約</h3>
+          <p>日常生活での注意点をお伝えし、次回の施術日（約4〜6週間後）をご案内します。徐々に爪が平らに矯正されていきます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container text-center">
+    <div class="section-label fade-in">Price</div>
+    <h2 class="section-title fade-in">料金案内</h2>
+    <p class="section-desc fade-in">出張費・消費税すべて込みの明朗会計です。</p>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-in">
+        <div class="pricing-card-header">
+          <h3>初回</h3>
+        </div>
+        <div class="pricing-card-body">
+          <div class="pricing-row">
+            <span class="pricing-label">初診料</span>
+            <span class="pricing-value">&yen;3,000</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">1本</span>
+            <span class="pricing-value">&yen;8,000</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">2本</span>
+            <span class="pricing-value">&yen;14,000</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">3本目以降（1本あたり）</span>
+            <span class="pricing-value">+&yen;3,000</span>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-card fade-in">
+        <div class="pricing-card-header">
+          <h3>2回目以降</h3>
+        </div>
+        <div class="pricing-card-body">
+          <div class="pricing-row">
+            <span class="pricing-label">1本</span>
+            <span class="pricing-value">&yen;7,000</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">2本</span>
+            <span class="pricing-value">&yen;12,000</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">3本目以降（1本あたり）</span>
+            <span class="pricing-value">+&yen;3,000</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">肥厚爪ケア</span>
+            <span class="pricing-value">&yen;6,000</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">プレート外し</span>
+            <span class="pricing-value">&yen;1,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-note fade-in">
+      ※ 表示価格はすべて出張費・消費税込みです。追加料金は一切かかりません。
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container text-center">
+    <div class="section-label fade-in">FAQ</div>
+    <h2 class="section-title fade-in">よくあるご質問</h2>
+    <p class="section-desc fade-in"></p>
+  </div>
+  <div class="container">
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <button class="faq-q">施術は痛くないですか？</button>
+        <div class="faq-a"><p>B/Sスパンゲ法は爪の表面にプレートを貼る施術です。爪を切ったり削ったりしないため、施術中の痛みはほとんどありません。「こんなに痛くないんだ」と驚かれる方がほとんどです。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q">何回くらいで治りますか？</button>
+        <div class="faq-a"><p>個人差がありますが、多くの方は3〜6回の施術（約3〜6ヶ月）で改善を実感されます。初回のカウンセリングで、おおよその回数をお伝えします。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q">出張エリア外でも対応できますか？</button>
+        <div class="faq-a"><p>基本エリア外でもご相談に応じます。まずはお気軽にお問い合わせください。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q">高齢でも施術を受けられますか？</button>
+        <div class="faq-a"><p>もちろんです。スタッフは全員看護師資格を持ち、介護・医療現場で10年以上の経験があります。車椅子の方やベッド上での施術にも対応しています。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q">プレートを付けたまま生活できますか？</button>
+        <div class="faq-a"><p>はい、日常生活にほぼ支障はありません。入浴や軽い運動も問題なく行えます。靴下やストッキングも通常通りお使いいただけます。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q">健康保険は使えますか？</button>
+        <div class="faq-a"><p>申し訳ございませんが、B/Sスパンゲ法は保険適用外の自費施術となります。ただし、出張費・消費税込みの明朗会計で、追加料金は一切ありません。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="area" id="area">
+  <div class="container text-center">
+    <div class="section-label fade-in">Area</div>
+    <h2 class="section-title fade-in">出張対応エリア</h2>
+    <p class="section-desc fade-in">香取市を拠点に、近隣エリアへ出張いたします。</p>
+    <div class="area-tags fade-in">
+      <span class="area-tag">香取市</span>
+      <span class="area-tag">旭市</span>
+      <span class="area-tag">匝瑳市</span>
+      <span class="area-tag">銚子市</span>
+      <span class="area-tag">神栖市</span>
+      <span class="area-tag">成田市</span>
+      <span class="area-tag">東庄町</span>
+      <span class="area-tag">多古町</span>
+    </div>
+    <p class="area-note fade-in">※ 上記エリア外もご相談に応じます。お気軽にお問い合わせください。</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <h2 class="fade-in">まずは無料相談から<br>お気軽にどうぞ</h2>
+    <p class="fade-in">爪の状態を見て、最適な施術プランをご提案いたします。</p>
+    <a href="https://snail-reservation.vercel.app" class="cta-btn fade-in" target="_blank" rel="noopener">&#x1F4C5; 無料相談・ご予約はこちら</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">巻き爪矯正サロン Snail</div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">FAQ</a>
+      <a href="#area">対応エリア</a>
+    </div>
+    <p class="footer-info">千葉県香取市｜出張専門</p>
+    <p class="footer-info">看護師によるB/Sスパンゲ法 巻き爪矯正</p>
+    <p class="footer-copy">&copy; 2025 巻き爪矯正サロン Snail. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- FLOATING RESERVE (SP) -->
+<a href="https://snail-reservation.vercel.app" style="display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0B4F5E;color:white;padding:16px 40px;border-radius:50px;font-size:15px;font-weight:700;text-decoration:none;z-index:200;white-space:nowrap;box-shadow:0 6px 28px rgba(11,79,94,0.45)" id="float-btn" target="_blank" rel="noopener">&#x1F4C5; 今すぐ無料予約</a>
+
+<script>
+// NAV scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+const navCtaBtn = document.getElementById('navCtaBtn');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+  navCtaBtn.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+    navCtaBtn.classList.remove('open');
+  });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Float button (SP)
+if (window.innerWidth <= 900) document.getElementById('float-btn').style.display = 'block';
+</script>
+</body>
+</html>
