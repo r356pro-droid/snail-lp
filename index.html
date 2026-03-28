@@ -131,11 +131,13 @@ h1, h2, h3, h4 { font-family: 'Shippori Mincho', serif; line-height: 1.4; }
   background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem;
 }
+@keyframes pulse{0%,100%{box-shadow:0 4px 24px rgba(0,0,0,0.15)}50%{box-shadow:0 4px 32px rgba(255,255,255,0.4)}}
 .hero-cta {
   display: inline-block; padding: 18px 48px; background: var(--white); color: var(--teal-dark);
   text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700;
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  animation: pulse 2s infinite;
 }
 .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
 
@@ -345,6 +347,7 @@ section { padding: 100px 0; }
 }
 .float-reserve:hover { transform: translateX(-50%) translateY(-2px); }
 @media (max-width: 768px) { .float-reserve { display: block; } }
+@media(max-width:900px){.nav-links{display:none!important}.price-grid,.why-grid,.pain-grid{grid-template-columns:1fr!important}section{padding:64px 5vw!important}}
 </style>
 
 <!-- JSON-LD -->
@@ -399,7 +402,7 @@ section { padding: 100px 0; }
 <section class="hero" id="hero">
   <div class="hero-content">
     <div class="hero-badge">千葉県香取市・出張専門</div>
-    <h1>その巻き爪、<br>もう我慢しなくていい。</h1>
+    <h1>その巻き爪、<br><span style="color:#7DD9D3">看護師が自宅で</span><br>治しに行きます。</h1>
     <p class="hero-sub">切らない。痛くない。看護師が自宅まで伺います。</p>
     <div class="hero-features">
       <div class="hero-feature">
@@ -415,7 +418,7 @@ section { padding: 100px 0; }
         <span>痛くない</span>
       </div>
     </div>
-    <a href="https://snail-reservation.vercel.app" class="hero-cta" target="_blank" rel="noopener">無料相談・ご予約はこちら</a>
+    <a href="https://snail-reservation.vercel.app" class="hero-cta" target="_blank" rel="noopener">📅 無料相談・ご予約はこちら</a>
   </div>
 </section>
 
@@ -722,5 +725,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
+<a href="https://snail-reservation.vercel.app" style="display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0F5566;color:white;padding:16px 40px;border-radius:50px;font-size:15px;font-weight:700;text-decoration:none;z-index:200;white-space:nowrap;box-shadow:0 6px 28px rgba(15,85,102,0.45)" id="float-btn" target="_blank">📅 今すぐ無料予約</a>
+<script>if(window.innerWidth<=900)document.getElementById('float-btn').style.display='block'</script>
 </body>
 </html>
