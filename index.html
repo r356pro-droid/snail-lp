@@ -28,8 +28,12 @@
   --text: #2D2D2D;
   --text-light: #5A5A5A;
   --gold: #C4A265;
-  --shadow: 0 4px 24px rgba(11, 79, 94, 0.10);
-  --shadow-lg: 0 8px 40px rgba(11, 79, 94, 0.15);
+  --gold-light: #D4B87A;
+  --shadow-sm: 0 2px 12px rgba(11, 79, 94, 0.06);
+  --shadow: 0 4px 24px rgba(11, 79, 94, 0.08);
+  --shadow-lg: 0 12px 48px rgba(11, 79, 94, 0.12);
+  --radius: 20px;
+  --radius-sm: 12px;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -39,20 +43,24 @@ body {
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  background: var(--white);
 }
 
 h1, h2, h3, h4 { font-family: 'Shippori Mincho', serif; line-height: 1.4; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-/* ---------- NAV ---------- */
+/* ========== NAV ========== */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(11,79,94,0.08);
-  transition: box-shadow 0.3s;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(11,79,94,0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.nav.scrolled { box-shadow: 0 2px 20px rgba(11,79,94,0.10); }
+.nav.scrolled {
+  box-shadow: 0 4px 30px rgba(11,79,94,0.08);
+  background: rgba(255,255,255,0.97);
+}
 .nav-inner {
   max-width: 1100px; margin: 0 auto; padding: 0 24px;
   display: flex; align-items: center; justify-content: space-between;
@@ -60,338 +68,510 @@ h1, h2, h3, h4 { font-family: 'Shippori Mincho', serif; line-height: 1.4; }
 }
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--teal-dark); }
 .nav-logo img { height: 40px; width: auto; }
-.nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.15rem; font-weight: 700; }
-.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
 .nav-links a {
-  text-decoration: none; color: var(--text-light); font-size: 0.85rem; font-weight: 500;
-  transition: color 0.2s; position: relative;
+  text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 500;
+  transition: color 0.3s; position: relative; letter-spacing: 0.02em;
 }
 .nav-links a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
-  background: var(--teal-mid); transition: width 0.3s;
+  content: ''; position: absolute; bottom: -4px; left: 50%; width: 0; height: 2px;
+  background: var(--gold); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
 }
 .nav-links a:hover { color: var(--teal-dark); }
 .nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--teal-dark); }
+.nav-links a.active::after { width: 100%; }
 .nav-cta-btn {
-  display: inline-block; padding: 10px 24px; background: var(--teal-mid); color: #fff;
-  text-decoration: none; border-radius: 50px; font-size: 0.85rem; font-weight: 700;
-  transition: background 0.3s, transform 0.2s;
+  display: inline-block; padding: 10px 28px; background: var(--teal-dark); color: #fff;
+  text-decoration: none; border-radius: 50px; font-size: 0.82rem; font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); letter-spacing: 0.05em;
 }
-.nav-cta-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.nav-cta-btn:hover { background: var(--teal-mid); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(11,79,94,0.2); }
 
 .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--teal-dark); margin: 6px 0; transition: 0.3s; }
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--teal-dark); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* ---------- HERO ---------- */
+/* ========== HERO ========== */
 .hero {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal-mid) 50%, var(--teal-light) 100%);
+  background: linear-gradient(165deg, #072F3A 0%, var(--teal-dark) 30%, var(--teal-mid) 65%, var(--teal-light) 100%);
   position: relative; overflow: hidden; padding-top: 72px;
 }
 .hero::before {
-  content: ''; position: absolute; top: -50%; right: -30%; width: 80%; height: 200%;
-  background: radial-gradient(ellipse, rgba(255,255,255,0.07) 0%, transparent 70%);
+  content: ''; position: absolute; top: -40%; right: -20%; width: 70%; height: 180%;
+  background: radial-gradient(ellipse, rgba(196,162,101,0.08) 0%, transparent 60%);
+  animation: heroGlow 8s ease-in-out infinite alternate;
 }
 .hero::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 120px;
   background: linear-gradient(to top, var(--white), transparent);
+  z-index: 2;
 }
-.hero-content { position: relative; z-index: 1; text-align: center; color: #fff; padding: 60px 24px; }
+@keyframes heroGlow {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-5%, 3%) scale(1.1); }
+}
+.hero-content {
+  position: relative; z-index: 3; text-align: center; color: #fff;
+  padding: 60px 24px; max-width: 800px;
+}
 .hero-badge {
-  display: inline-block; padding: 8px 24px; border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 50px; font-size: 0.85rem; margin-bottom: 28px; letter-spacing: 0.1em;
-  backdrop-filter: blur(4px); background: rgba(255,255,255,0.08);
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 24px; border: 1px solid rgba(196,162,101,0.5);
+  border-radius: 50px; font-size: 0.82rem; margin-bottom: 32px; letter-spacing: 0.12em;
+  backdrop-filter: blur(8px); background: rgba(196,162,101,0.1);
+  color: var(--gold-light);
 }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 700; margin-bottom: 12px; letter-spacing: 0.04em; }
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); animation: badgePulse 2s ease-in-out infinite;
+}
+@keyframes badgePulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 {
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 800;
+  margin-bottom: 20px; letter-spacing: 0.03em;
+  line-height: 1.35;
+}
+.hero h1 .accent { color: var(--gold-light); }
 .hero-sub {
-  font-size: clamp(1rem, 2.5vw, 1.3rem); font-weight: 400; opacity: 0.9;
-  margin-bottom: 40px; font-family: 'Shippori Mincho', serif;
+  font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 400; opacity: 0.85;
+  margin-bottom: 40px; font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.08em;
 }
-.hero-features { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
-.hero-feature { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; font-weight: 500; }
+.hero-features {
+  display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; margin-bottom: 48px;
+}
+.hero-feature {
+  display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500;
+}
 .hero-feature-icon {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; backdrop-filter: blur(4px);
 }
-@keyframes pulse{0%,100%{box-shadow:0 4px 24px rgba(0,0,0,0.15)}50%{box-shadow:0 4px 32px rgba(255,255,255,0.4)}}
 .hero-cta {
-  display: inline-block; padding: 18px 48px; background: var(--white); color: var(--teal-dark);
-  text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  animation: pulse 2s infinite;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 18px 48px; background: var(--white); color: var(--teal-dark);
+  text-decoration: none; border-radius: 50px; font-size: 1.05rem; font-weight: 700;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  letter-spacing: 0.03em;
 }
-.hero-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+.hero-cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+.hero-social-proof {
+  margin-top: 40px; display: flex; justify-content: center; gap: 32px;
+  font-size: 0.82rem; opacity: 0.7;
+}
+.hero-social-proof span { display: flex; align-items: center; gap: 6px; }
 
-/* ---------- NUMBER BAR ---------- */
+/* ========== NUMBER BAR ========== */
 .number-bar {
-  background: var(--teal-dark); color: #fff; padding: 48px 0;
+  background: var(--white); padding: 56px 0; position: relative; z-index: 5;
 }
 .number-bar-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
   max-width: 900px; margin: 0 auto; text-align: center;
 }
-.number-item {}
+.number-item {
+  padding: 20px 16px;
+  border-right: 1px solid rgba(11,79,94,0.08);
+}
+.number-item:last-child { border-right: none; }
 .number-val {
   font-family: 'Shippori Mincho', serif;
-  font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2;
+  font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 800; line-height: 1.2;
+  color: var(--teal-dark);
 }
-.number-val span { font-size: 0.5em; font-weight: 500; }
-.number-label { font-size: 0.82rem; opacity: 0.8; margin-top: 4px; }
+.number-val span { font-size: 0.45em; font-weight: 500; color: var(--text-light); }
+.number-label { font-size: 0.78rem; color: var(--text-light); margin-top: 6px; letter-spacing: 0.05em; }
 
-/* ---------- SECTIONS COMMON ---------- */
+/* ========== SECTIONS COMMON ========== */
 section { padding: 100px 0; }
 .section-label {
-  display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
-  color: var(--teal-mid); text-transform: uppercase; margin-bottom: 12px;
+  display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 12px;
 }
 .section-title {
   font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: var(--teal-dark);
   margin-bottom: 16px;
 }
-.section-desc { color: var(--text-light); max-width: 640px; margin: 0 auto 56px; font-size: 1rem; }
+.section-desc {
+  color: var(--text-light); max-width: 580px; margin: 0 auto 60px;
+  font-size: 0.95rem; line-height: 2;
+}
 .text-center { text-align: center; }
 
-/* ---------- WORRIES ---------- */
-.worries { background: var(--teal-bg); }
-.worry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-.worry-card {
-  background: var(--white); padding: 32px 28px; border-radius: 16px;
-  box-shadow: var(--shadow); transition: transform 0.3s;
+/* ========== DIVIDER ========== */
+.section-divider {
+  width: 48px; height: 2px; background: var(--gold); margin: 0 auto 20px;
+  border-radius: 2px;
 }
-.worry-card:hover { transform: translateY(-4px); }
-.worry-icon { font-size: 2.2rem; margin-bottom: 16px; }
-.worry-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--teal-dark); }
-.worry-card p { font-size: 0.92rem; color: var(--text-light); }
 
-/* ---------- REASONS ---------- */
-.reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
-.reason-card { text-align: center; padding: 40px 28px; }
+/* ========== WORRIES ========== */
+.worries { background: var(--teal-bg); }
+.worry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 800px; margin: 0 auto; }
+.worry-card {
+  background: var(--white); padding: 32px 28px; border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(11,79,94,0.04);
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.worry-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.worry-icon {
+  font-size: 1.8rem; flex-shrink: 0;
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--teal-pale); display: flex; align-items: center; justify-content: center;
+}
+.worry-card h3 { font-size: 1rem; margin-bottom: 6px; color: var(--teal-dark); }
+.worry-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; }
+
+/* ========== REASONS ========== */
+.reasons { background: var(--white); }
+.reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.reason-card {
+  text-align: center; padding: 48px 28px; border-radius: var(--radius);
+  background: var(--teal-bg); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+.reason-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(11,79,94,0.06); }
 .reason-num {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 56px; height: 56px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
-  color: #fff; font-family: 'Shippori Mincho', serif; font-size: 1.4rem; font-weight: 700;
-  margin-bottom: 20px;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--teal-dark); color: var(--gold-light);
+  font-family: 'Shippori Mincho', serif; font-size: 1.2rem; font-weight: 700;
+  margin-bottom: 24px;
 }
-.reason-card h3 { font-size: 1.2rem; margin-bottom: 12px; color: var(--teal-dark); }
-.reason-card p { font-size: 0.92rem; color: var(--text-light); }
+.reason-card h3 { font-size: 1.1rem; margin-bottom: 12px; color: var(--teal-dark); }
+.reason-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.8; }
 
-/* ---------- VOICE ---------- */
+/* ========== VOICE ========== */
 .voice { background: var(--teal-bg); }
-.voice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; max-width: 960px; margin: 0 auto; }
+.voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
 .voice-card {
-  background: var(--white); border-radius: 16px; padding: 32px 28px;
-  box-shadow: var(--shadow); position: relative;
+  background: var(--white); border-radius: var(--radius); padding: 36px 28px;
+  box-shadow: var(--shadow-sm); position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(11,79,94,0.04);
 }
-.voice-stars { color: #F5A623; font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
-.voice-text { font-size: 0.92rem; color: var(--text); line-height: 1.9; margin-bottom: 16px; font-style: italic; }
-.voice-meta { font-size: 0.82rem; color: var(--text-light); text-align: right; }
+.voice-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.voice-card::before {
+  content: '\201C'; position: absolute; top: 16px; left: 24px;
+  font-family: 'Shippori Mincho', serif; font-size: 3rem;
+  color: var(--teal-pale); line-height: 1;
+}
+.voice-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 3px; }
+.voice-text { font-size: 0.88rem; color: var(--text); line-height: 1.9; margin-bottom: 20px; }
+.voice-meta {
+  font-size: 0.78rem; color: var(--text-light); text-align: right;
+  padding-top: 16px; border-top: 1px solid var(--teal-pale);
+}
 
-/* ---------- INSTAGRAM ---------- */
+/* ========== INSTAGRAM ========== */
 .instagram { background: var(--white); }
 .ig-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
-  max-width: 640px; margin: 0 auto 32px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+  max-width: 560px; margin: 0 auto 36px;
 }
 .ig-grid a {
-  display: block; aspect-ratio: 1; border-radius: 8px; overflow: hidden;
-  background: var(--teal-pale); position: relative; transition: transform 0.3s;
+  display: block; aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden;
+  background: var(--teal-pale); position: relative; transition: all 0.4s;
 }
 .ig-grid a:hover { transform: scale(1.03); }
 .ig-grid a::after {
   content: ''; position: absolute; inset: 0;
   background: rgba(11,79,94,0.0); transition: background 0.3s;
 }
-.ig-grid a:hover::after { background: rgba(11,79,94,0.15); }
+.ig-grid a:hover::after { background: rgba(11,79,94,0.12); }
 .ig-placeholder {
   width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
   font-size: 2rem; background: linear-gradient(135deg, var(--teal-pale), #d4efed);
 }
 .ig-follow {
   display: inline-flex; align-items: center; gap: 12px;
-  padding: 16px 40px; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-  color: #fff; text-decoration: none; border-radius: 50px; font-size: 1rem; font-weight: 700;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 20px rgba(131, 58, 180, 0.3);
+  padding: 14px 36px; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: #fff; text-decoration: none; border-radius: 50px; font-size: 0.92rem; font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(131, 58, 180, 0.25);
 }
-.ig-follow:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(131, 58, 180, 0.4); }
-.ig-follow svg { width: 22px; height: 22px; fill: #fff; }
-.ig-note { font-size: 0.88rem; color: var(--text-light); margin-top: 16px; }
+.ig-follow:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(131, 58, 180, 0.35); }
+.ig-follow svg { width: 20px; height: 20px; fill: #fff; }
+.ig-note { font-size: 0.82rem; color: var(--text-light); margin-top: 16px; }
 
-/* ---------- STAFF ---------- */
+/* ========== STAFF ========== */
 .staff { background: var(--teal-bg); }
-.staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto; }
+.staff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 800px; margin: 0 auto; }
 .staff-card {
-  background: var(--white); border-radius: 20px; overflow: hidden;
-  box-shadow: var(--shadow); text-align: center; transition: transform 0.3s;
+  background: var(--white); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-sm); text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(11,79,94,0.04);
 }
-.staff-card:hover { transform: translateY(-4px); }
+.staff-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .staff-avatar {
-  width: 100%; height: 220px;
-  background: linear-gradient(135deg, var(--teal-pale), var(--teal-bg));
+  width: 100%; height: 200px;
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal-mid));
   display: flex; align-items: center; justify-content: center; font-size: 4rem;
 }
 .staff-info { padding: 28px 24px; }
-.staff-name { font-family: 'Shippori Mincho', serif; font-size: 1.2rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
-.staff-role { font-size: 0.85rem; color: var(--teal-mid); font-weight: 500; margin-bottom: 12px; }
-.staff-quals { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 12px; }
+.staff-name { font-family: 'Shippori Mincho', serif; font-size: 1.15rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+.staff-role { font-size: 0.8rem; color: var(--gold); font-weight: 500; margin-bottom: 16px; letter-spacing: 0.05em; }
+.staff-quals { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 16px; }
 .staff-qual {
-  display: inline-block; padding: 4px 12px; background: var(--teal-pale);
-  border-radius: 50px; font-size: 0.75rem; color: var(--teal-dark); font-weight: 500;
+  display: inline-block; padding: 4px 14px; background: var(--teal-pale);
+  border-radius: 50px; font-size: 0.72rem; color: var(--teal-dark); font-weight: 500;
 }
-.staff-desc { font-size: 0.88rem; color: var(--text-light); line-height: 1.8; }
+.staff-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.8; }
 
-/* ---------- SAFETY ---------- */
+/* ========== SAFETY ========== */
 .safety { background: var(--white); }
-.safety-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 960px; margin: 0 auto; }
+.safety-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 960px; margin: 0 auto; }
 .safety-card {
-  text-align: center; padding: 36px 24px; background: var(--teal-bg);
-  border-radius: 16px; transition: transform 0.3s;
+  text-align: center; padding: 36px 20px; background: var(--teal-bg);
+  border-radius: var(--radius); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.safety-card:hover { transform: translateY(-4px); }
-.safety-icon { font-size: 2.4rem; margin-bottom: 16px; }
-.safety-card h3 { font-size: 1.05rem; color: var(--teal-dark); margin-bottom: 8px; }
-.safety-card p { font-size: 0.88rem; color: var(--text-light); }
+.safety-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.safety-icon {
+  font-size: 2rem; margin-bottom: 16px;
+  width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 16px;
+  background: var(--white); display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+.safety-card h3 { font-size: 0.95rem; color: var(--teal-dark); margin-bottom: 8px; }
+.safety-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.7; }
 
-/* ---------- FLOW ---------- */
+/* ========== FLOW ========== */
 .flow { background: var(--teal-bg); }
 .flow-timeline { max-width: 700px; margin: 0 auto; position: relative; }
 .flow-timeline::before {
   content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px;
-  background: linear-gradient(to bottom, var(--teal-light), var(--teal-pale));
+  background: linear-gradient(to bottom, var(--gold), var(--teal-pale));
 }
 .flow-step {
-  display: flex; gap: 28px; margin-bottom: 40px; position: relative;
+  display: flex; gap: 28px; margin-bottom: 48px; position: relative;
   align-items: flex-start;
 }
 .flow-step:last-child { margin-bottom: 0; }
 .flow-step-num {
   flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
-  color: #fff; display: flex; align-items: center; justify-content: center;
+  background: var(--teal-dark); color: var(--gold-light);
+  display: flex; align-items: center; justify-content: center;
   font-family: 'Shippori Mincho', serif; font-size: 1.2rem; font-weight: 700;
-  z-index: 1;
+  z-index: 1; box-shadow: var(--shadow);
 }
-.flow-step-body { padding-top: 12px; }
-.flow-step-body h3 { font-size: 1.1rem; color: var(--teal-dark); margin-bottom: 6px; }
-.flow-step-body p { font-size: 0.92rem; color: var(--text-light); }
+.flow-step-body {
+  padding-top: 12px; background: var(--white); border-radius: var(--radius);
+  padding: 24px 28px; flex: 1; box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(11,79,94,0.04);
+}
+.flow-step-body h3 { font-size: 1.05rem; color: var(--teal-dark); margin-bottom: 8px; }
+.flow-step-body p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
 
-/* ---------- PRICING ---------- */
+/* ========== PRICING ========== */
 .pricing { background: var(--white); }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; max-width: 900px; margin: 0 auto; }
+.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 800px; margin: 0 auto; }
 .pricing-card {
-  background: var(--white); border-radius: 20px; overflow: hidden;
-  box-shadow: var(--shadow); transition: transform 0.3s;
+  background: var(--white); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(11,79,94,0.06);
 }
-.pricing-card:hover { transform: translateY(-4px); }
+.pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .pricing-card-header {
-  padding: 24px 28px; background: linear-gradient(135deg, var(--teal-dark), var(--teal-mid));
-  color: #fff;
+  padding: 24px 28px; background: var(--teal-dark); color: #fff;
+  position: relative; overflow: hidden;
 }
-.pricing-card-header h3 { font-size: 1.2rem; font-weight: 700; }
+.pricing-card-header::after {
+  content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(196,162,101,0.12), transparent 70%);
+}
+.pricing-card-header h3 { font-size: 1.15rem; font-weight: 700; position: relative; z-index: 1; }
 .pricing-card-body { padding: 28px; }
 .pricing-row {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 12px 0; border-bottom: 1px solid var(--teal-pale);
+  padding: 14px 0; border-bottom: 1px solid var(--teal-pale);
 }
 .pricing-row:last-child { border-bottom: none; }
-.pricing-label { font-size: 0.92rem; color: var(--text-light); }
-.pricing-value { font-size: 1.1rem; font-weight: 700; color: var(--teal-dark); }
+.pricing-label { font-size: 0.9rem; color: var(--text-light); }
+.pricing-value { font-size: 1.15rem; font-weight: 700; color: var(--teal-dark); font-family: 'Shippori Mincho', serif; }
 .pricing-note {
-  margin-top: 40px; text-align: center; font-size: 0.9rem; color: var(--text-light);
-  background: var(--teal-bg); padding: 20px; border-radius: 12px; max-width: 900px; margin-left: auto; margin-right: auto;
+  margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--text-light);
+  background: var(--teal-bg); padding: 20px 28px; border-radius: var(--radius-sm);
+  max-width: 800px; margin-left: auto; margin-right: auto;
+  border: 1px solid rgba(11,79,94,0.04);
 }
 
-/* ---------- FAQ ---------- */
+/* ========== FAQ ========== */
 .faq { background: var(--teal-bg); }
-.faq-list { max-width: 740px; margin: 0 auto; }
-.faq-item { background: var(--white); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+.faq-list { max-width: 700px; margin: 0 auto; }
+.faq-item {
+  background: var(--white); border-radius: var(--radius-sm); margin-bottom: 10px;
+  overflow: hidden; border: 1px solid rgba(11,79,94,0.04);
+  transition: box-shadow 0.3s;
+}
+.faq-item:hover { box-shadow: var(--shadow-sm); }
 .faq-q {
   width: 100%; padding: 22px 28px; background: none; border: none;
-  font-family: 'Noto Sans JP', sans-serif; font-size: 1rem; font-weight: 500;
+  font-family: 'Noto Sans JP', sans-serif; font-size: 0.95rem; font-weight: 500;
   color: var(--teal-dark); text-align: left; cursor: pointer;
   display: flex; justify-content: space-between; align-items: center;
+  transition: color 0.3s;
 }
+.faq-q:hover { color: var(--teal-mid); }
 .faq-q::after {
-  content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--teal-mid);
-  transition: transform 0.3s;
+  content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--gold);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0; margin-left: 16px;
 }
 .faq-item.open .faq-q::after { content: '\2212'; transform: rotate(180deg); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 28px; }
-.faq-item.open .faq-a { max-height: 300px; padding: 0 28px 22px; }
-.faq-a p { font-size: 0.92rem; color: var(--text-light); line-height: 1.8; }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s;
+  padding: 0 28px;
+}
+.faq-item.open .faq-a { max-height: 300px; padding: 0 28px 24px; }
+.faq-a p { font-size: 0.88rem; color: var(--text-light); line-height: 1.9; }
 
-/* ---------- AREA ---------- */
+/* ========== AREA ========== */
 .area { background: var(--white); }
-.area-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 32px; }
+.area-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  max-width: 700px; margin: 0 auto 32px;
+}
 .area-tag {
-  display: inline-block; padding: 12px 28px;
-  background: var(--white); border: 2px solid var(--teal-light);
-  border-radius: 50px; font-size: 1rem; font-weight: 500; color: var(--teal-dark);
-  transition: background 0.3s, color 0.3s;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px 20px; background: var(--teal-bg);
+  border-radius: var(--radius-sm); font-size: 0.95rem; font-weight: 600; color: var(--teal-dark);
+  transition: all 0.3s; border: 1px solid transparent;
 }
-.area-tag:hover { background: var(--teal-mid); color: #fff; border-color: var(--teal-mid); }
-.area-note { text-align: center; font-size: 0.9rem; color: var(--text-light); }
+.area-tag:hover { background: var(--teal-dark); color: #fff; }
+.area-note { text-align: center; font-size: 0.85rem; color: var(--text-light); }
 
-/* ---------- CTA ---------- */
+/* ========== CTA ========== */
 .cta-section {
-  background: linear-gradient(135deg, var(--teal-dark), var(--teal-mid));
-  color: #fff; text-align: center; padding: 80px 24px;
+  background: var(--teal-dark); color: #fff; text-align: center; padding: 100px 24px;
+  position: relative; overflow: hidden;
 }
-.cta-section h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 16px; color: #fff; }
-.cta-section p { font-size: 1rem; opacity: 0.9; margin-bottom: 36px; }
+.cta-section::before {
+  content: ''; position: absolute; top: -50%; left: -20%; width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(196,162,101,0.08), transparent 60%);
+}
+.cta-section h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 16px; color: #fff; position: relative; }
+.cta-section p { font-size: 0.95rem; opacity: 0.8; margin-bottom: 40px; position: relative; }
 .cta-btn {
-  display: inline-block; padding: 20px 56px; background: var(--white); color: var(--teal-dark);
-  text-decoration: none; border-radius: 50px; font-size: 1.15rem; font-weight: 700;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 20px 56px; background: var(--white); color: var(--teal-dark);
+  text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15); position: relative;
 }
-.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+.cta-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
 
-/* ---------- FOOTER ---------- */
+/* ========== FOOTER ========== */
 .footer {
-  background: var(--teal-dark); color: rgba(255,255,255,0.7);
-  padding: 48px 24px 28px; text-align: center;
+  background: #072F3A; color: rgba(255,255,255,0.6);
+  padding: 60px 24px 32px; text-align: center;
 }
-.footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: #fff; margin-bottom: 16px; }
-.footer-links { margin-bottom: 16px; }
-.footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; margin: 0 12px; transition: color 0.2s; }
-.footer-links a:hover { color: #fff; }
-.footer-info { font-size: 0.85rem; margin-bottom: 8px; }
-.footer-copy { font-size: 0.8rem; margin-top: 24px; opacity: 0.5; }
+.footer-logo {
+  font-family: 'Shippori Mincho', serif; font-size: 1.2rem; color: #fff;
+  margin-bottom: 20px; letter-spacing: 0.05em;
+}
+.footer-links { margin-bottom: 20px; }
+.footer-links a {
+  color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.78rem;
+  margin: 0 14px; transition: color 0.3s; letter-spacing: 0.03em;
+}
+.footer-links a:hover { color: var(--gold-light); }
+.footer-info { font-size: 0.82rem; margin-bottom: 6px; }
+.footer-copy { font-size: 0.75rem; margin-top: 28px; opacity: 0.4; }
 
-/* ---------- SCROLL ANIMATION ---------- */
-.fade-in { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+/* ========== MOBILE STICKY CTA ========== */
+.mobile-sticky-cta {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0;
+  padding: 12px 20px; background: var(--teal-dark);
+  z-index: 999; text-align: center;
+  box-shadow: 0 -4px 20px rgba(11,79,94,0.3);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.mobile-sticky-cta a {
+  display: block; padding: 14px 32px; background: var(--white); color: var(--teal-dark);
+  text-decoration: none; border-radius: 50px; font-size: 0.95rem; font-weight: 700;
+  letter-spacing: 0.05em;
+}
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
+/* ========== SCROLL ANIMATIONS ========== */
+.fade-up {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+.fade-up-delay-4 { transition-delay: 0.4s; }
+
+.slide-left {
+  opacity: 0; transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-left.visible { opacity: 1; transform: translateX(0); }
+
+.slide-right {
+  opacity: 0; transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-right.visible { opacity: 1; transform: translateX(0); }
+
+.scale-in {
+  opacity: 0; transform: scale(0.92);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.scale-in.visible { opacity: 1; transform: scale(1); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
   .nav-links, .nav-cta-btn { display: none; }
   .hamburger { display: block; }
   .nav-links.open {
     display: flex; flex-direction: column; position: absolute;
     top: 72px; left: 0; right: 0; background: var(--white);
-    padding: 24px; gap: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 24px; gap: 20px; box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(11,79,94,0.05);
   }
   .nav-cta-btn.open { display: inline-block; margin-top: 8px; text-align: center; }
-  .hero-features { flex-direction: column; align-items: center; gap: 16px; }
-  section { padding: 64px 0; }
-  .story-content { padding: 36px 24px; }
+  section { padding: 72px 20px; }
+  .hero-features { flex-direction: column; align-items: center; gap: 14px; }
+  .hero-social-proof { flex-direction: column; gap: 8px; }
+  .worry-grid { grid-template-columns: 1fr; }
+  .worry-card { flex-direction: row; }
+  .reasons-grid { grid-template-columns: 1fr; gap: 20px; }
+  .voice-grid { grid-template-columns: 1fr; }
+  .staff-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .safety-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .area-grid { grid-template-columns: repeat(2, 1fr); }
+  .number-bar-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .number-item { border-right: none; padding: 12px; }
+  .number-item:nth-child(odd) { border-right: 1px solid rgba(11,79,94,0.08); }
   .flow-timeline::before { left: 20px; }
   .flow-step-num { width: 40px; height: 40px; font-size: 1rem; }
-  .flow-step { gap: 18px; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .number-bar-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .flow-step { gap: 16px; }
+  .mobile-sticky-cta { display: block; }
+  .footer { padding-bottom: 90px; }
+  .ig-grid { gap: 4px; }
 }
-@media (max-width: 900px) {
-  .nav-links { display: none !important; }
-  section { padding: 64px 5vw !important; }
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.8rem; }
+  .safety-grid { grid-template-columns: 1fr; }
+  .area-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
 
@@ -449,7 +629,7 @@ section { padding: 100px 0; }
 <section class="hero" id="hero">
   <div class="hero-content">
     <div class="hero-badge">千葉県香取市・出張専門</div>
-    <h1>その巻き爪、<br><span style="color:#7DD9D3">看護師が自宅で</span><br>治しに行きます。</h1>
+    <h1>その巻き爪、<br><span class="accent">看護師が自宅で</span><br>治しに行きます。</h1>
     <p class="hero-sub">切らない。痛くない。看護師が自宅まで伺います。</p>
     <div class="hero-features">
       <div class="hero-feature">
@@ -465,7 +645,12 @@ section { padding: 100px 0; }
         <span>痛くない</span>
       </div>
     </div>
-    <a href="https://snail-reservation.vercel.app" class="hero-cta" target="_blank" rel="noopener">&#x1F4C5; 無料相談・ご予約はこちら</a>
+    <a href="https://snail-reservation.vercel.app" class="hero-cta" target="_blank" rel="noopener">無料相談・ご予約はこちら</a>
+    <div class="hero-social-proof">
+      <span>&#x2714; 看護師資格保有率 100%</span>
+      <span>&#x2714; 出張費・追加料金 0円</span>
+      <span>&#x2714; 8市町 対応エリア</span>
+    </div>
   </div>
 </section>
 
@@ -473,20 +658,20 @@ section { padding: 100px 0; }
 <div class="number-bar">
   <div class="container">
     <div class="number-bar-grid">
-      <div class="number-item fade-in">
-        <div class="number-val">100<span>%</span></div>
+      <div class="number-item fade-up">
+        <div class="number-val" data-count="100">0<span>%</span></div>
         <div class="number-label">看護師資格保有率</div>
       </div>
-      <div class="number-item fade-in">
-        <div class="number-val">10<span>年以上</span></div>
+      <div class="number-item fade-up fade-up-delay-1">
+        <div class="number-val" data-count="10">0<span>年以上</span></div>
         <div class="number-label">医療・介護現場経験</div>
       </div>
-      <div class="number-item fade-in">
-        <div class="number-val">0<span>円</span></div>
+      <div class="number-item fade-up fade-up-delay-2">
+        <div class="number-val" data-count="0">0<span>円</span></div>
         <div class="number-label">出張費・追加料金</div>
       </div>
-      <div class="number-item fade-in">
-        <div class="number-val">8<span>市町</span></div>
+      <div class="number-item fade-up fade-up-delay-3">
+        <div class="number-val" data-count="8">0<span>市町</span></div>
         <div class="number-label">出張対応エリア</div>
       </div>
     </div>
@@ -496,29 +681,38 @@ section { padding: 100px 0; }
 <!-- WORRIES -->
 <section class="worries" id="worries">
   <div class="container text-center">
-    <div class="section-label fade-in">Worries</div>
-    <h2 class="section-title fade-in">こんなお悩みありませんか？</h2>
-    <p class="section-desc fade-in">一つでも当てはまる方は、ぜひご相談ください。</p>
+    <div class="section-label fade-up">Worries</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">こんなお悩みありませんか？</h2>
+    <p class="section-desc fade-up">一つでも当てはまる方は、ぜひご相談ください。</p>
     <div class="worry-grid">
-      <div class="worry-card fade-in">
+      <div class="worry-card fade-up">
         <div class="worry-icon">&#x1F614;</div>
-        <h3>歩くたびに爪が痛い</h3>
-        <p>靴を履くと爪が食い込み、歩くのがつらい。外出がおっくうになっていませんか？</p>
+        <div>
+          <h3>歩くたびに爪が痛い</h3>
+          <p>靴を履くと爪が食い込み、歩くのがつらい。外出がおっくうになっていませんか？</p>
+        </div>
       </div>
-      <div class="worry-card fade-in">
+      <div class="worry-card fade-up fade-up-delay-1">
         <div class="worry-icon">&#x1F3E5;</div>
-        <h3>病院で切るしかないと言われた</h3>
-        <p>手術は怖いし痛そう...。実は切らなくても矯正できる方法があります。</p>
+        <div>
+          <h3>病院で切るしかないと言われた</h3>
+          <p>手術は怖いし痛そう...。実は切らなくても矯正できる方法があります。</p>
+        </div>
       </div>
-      <div class="worry-card fade-in">
+      <div class="worry-card fade-up fade-up-delay-2">
         <div class="worry-icon">&#x1F698;</div>
-        <h3>通院が難しい</h3>
-        <p>高齢でサロンまで通えない、家族の送迎が必要。出張なら自宅で施術を受けられます。</p>
+        <div>
+          <h3>通院が難しい</h3>
+          <p>高齢でサロンまで通えない、家族の送迎が必要。出張なら自宅で施術を受けられます。</p>
+        </div>
       </div>
-      <div class="worry-card fade-in">
+      <div class="worry-card fade-up fade-up-delay-3">
         <div class="worry-icon">&#x1F9D3;</div>
-        <h3>爪が食い込んで歩けない</h3>
-        <p>加齢で爪が巻いてきて歩くのがつらい。高齢者の方も出張対応で安心です。</p>
+        <div>
+          <h3>爪が食い込んで歩けない</h3>
+          <p>加齢で爪が巻いてきて歩くのがつらい。高齢者の方も出張対応で安心です。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -527,21 +721,22 @@ section { padding: 100px 0; }
 <!-- REASONS -->
 <section class="reasons" id="reasons">
   <div class="container text-center">
-    <div class="section-label fade-in">Reasons</div>
-    <h2 class="section-title fade-in">Snail が選ばれる3つの理由</h2>
-    <p class="section-desc fade-in">安心して任せていただける体制を整えています。</p>
+    <div class="section-label fade-up">Reasons</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">Snail が選ばれる3つの理由</h2>
+    <p class="section-desc fade-up">安心して任せていただける体制を整えています。</p>
     <div class="reasons-grid">
-      <div class="reason-card fade-in">
+      <div class="reason-card fade-up">
         <div class="reason-num">1</div>
         <h3>看護師資格保有率100%</h3>
         <p>スタッフ全員が看護師資格を保有。介護・医療現場で10年以上の経験があるため、高齢者や持病のある方にも安心して施術を受けていただけます。</p>
       </div>
-      <div class="reason-card fade-in">
+      <div class="reason-card fade-up fade-up-delay-1">
         <div class="reason-num">2</div>
-        <h3>切らない・痛くないB/Sスパンゲ法</h3>
+        <h3>切らない・痛くない<br>B/Sスパンゲ法</h3>
         <p>ドイツ生まれのB/Sスパンゲ法は、薄いグラスファイバー製プレートを爪に貼るだけ。メスや麻酔は不要で、施術中の痛みはほとんどありません。</p>
       </div>
-      <div class="reason-card fade-in">
+      <div class="reason-card fade-up fade-up-delay-2">
         <div class="reason-num">3</div>
         <h3>自宅まで出張対応</h3>
         <p>香取市を中心に、旭市・匝瑳市・銚子市・神栖市・成田市・東庄町・多古町まで出張。通院が難しい方も安心です。出張費は料金に含まれています。</p>
@@ -553,21 +748,22 @@ section { padding: 100px 0; }
 <!-- VOICE -->
 <section class="voice" id="voice">
   <div class="container text-center">
-    <div class="section-label fade-in">Voice</div>
-    <h2 class="section-title fade-in">お客様の声</h2>
-    <p class="section-desc fade-in">実際に施術を受けられた方からの感想です。</p>
+    <div class="section-label fade-up">Voice</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">お客様の声</h2>
+    <p class="section-desc fade-up">実際に施術を受けられた方からの感想です。</p>
     <div class="voice-grid">
-      <div class="voice-card fade-in">
+      <div class="voice-card fade-up">
         <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="voice-text">「長年悩んでいた巻き爪が、痛みもなく矯正できて驚きました。看護師さんなので安心してお任せできました。」</p>
         <div class="voice-meta">香取市 70代女性</div>
       </div>
-      <div class="voice-card fade-in">
+      <div class="voice-card fade-up fade-up-delay-1">
         <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="voice-text">「母が高齢で通院が難しかったのですが、自宅に来ていただけて本当に助かりました。施術後は歩くのが楽になったと喜んでいます。」</p>
         <div class="voice-meta">銚子市 40代女性（お母様の付き添い）</div>
       </div>
-      <div class="voice-card fade-in">
+      <div class="voice-card fade-up fade-up-delay-2">
         <div class="voice-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="voice-text">「病院では手術しかないと言われていたので不安でしたが、切らずに治せると知って感動しました。3回目で明らかに改善しています。」</p>
         <div class="voice-meta">旭市 60代男性</div>
@@ -579,10 +775,11 @@ section { padding: 100px 0; }
 <!-- INSTAGRAM -->
 <section class="instagram" id="instagram">
   <div class="container text-center">
-    <div class="section-label fade-in">Instagram</div>
-    <h2 class="section-title fade-in">施術事例・日常を発信中</h2>
-    <p class="section-desc fade-in">Instagramで施術のビフォーアフターやサロンの日常をお届けしています。</p>
-    <div class="ig-grid fade-in">
+    <div class="section-label fade-up">Instagram</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">施術事例・日常を発信中</h2>
+    <p class="section-desc fade-up">Instagramで施術のビフォーアフターやサロンの日常をお届けしています。</p>
+    <div class="ig-grid scale-in">
       <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x1F9B6;</div></a>
       <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x2728;</div></a>
       <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x1F3E5;</div></a>
@@ -590,22 +787,23 @@ section { padding: 100px 0; }
       <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x1F490;</div></a>
       <a href="https://www.instagram.com/makitsume_snail/" target="_blank" rel="noopener"><div class="ig-placeholder">&#x1F40C;</div></a>
     </div>
-    <a href="https://www.instagram.com/makitsume_snail/" class="ig-follow fade-in" target="_blank" rel="noopener">
+    <a href="https://www.instagram.com/makitsume_snail/" class="ig-follow fade-up" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       @makitsume_snail をフォロー
     </a>
-    <p class="ig-note fade-in">フォローしていただくと、最新の施術事例やキャンペーン情報をお届けします。</p>
+    <p class="ig-note fade-up">フォローしていただくと、最新の施術事例やキャンペーン情報をお届けします。</p>
   </div>
 </section>
 
 <!-- STAFF -->
 <section class="staff" id="staff">
   <div class="container text-center">
-    <div class="section-label fade-in">Staff</div>
-    <h2 class="section-title fade-in">スタッフ紹介</h2>
-    <p class="section-desc fade-in">全員が看護師資格を持つ、巻き爪ケアの専門スタッフです。</p>
+    <div class="section-label fade-up">Staff</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">スタッフ紹介</h2>
+    <p class="section-desc fade-up">全員が看護師資格を持つ、巻き爪ケアの専門スタッフです。</p>
     <div class="staff-grid">
-      <div class="staff-card fade-in">
+      <div class="staff-card fade-up">
         <div class="staff-avatar">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
         <div class="staff-info">
           <div class="staff-name">代表スタッフ</div>
@@ -618,7 +816,7 @@ section { padding: 100px 0; }
           <p class="staff-desc">長年の看護・介護経験を活かし、お一人おひとりの足の状態に合わせた丁寧な施術を心がけています。「痛くなかった！」の声が何よりの喜びです。</p>
         </div>
       </div>
-      <div class="staff-card fade-in">
+      <div class="staff-card fade-up fade-up-delay-1">
         <div class="staff-avatar">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
         <div class="staff-info">
           <div class="staff-name">スタッフ</div>
@@ -638,26 +836,27 @@ section { padding: 100px 0; }
 <!-- SAFETY -->
 <section class="safety" id="safety">
   <div class="container text-center">
-    <div class="section-label fade-in">Safety</div>
-    <h2 class="section-title fade-in">安心・安全への取り組み</h2>
-    <p class="section-desc fade-in">医療従事者としての衛生管理を徹底しています。</p>
+    <div class="section-label fade-up">Safety</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">安心・安全への取り組み</h2>
+    <p class="section-desc fade-up">医療従事者としての衛生管理を徹底しています。</p>
     <div class="safety-grid">
-      <div class="safety-card fade-in">
+      <div class="safety-card fade-up">
         <div class="safety-icon">&#x1F9F4;</div>
         <h3>器具の滅菌処理</h3>
         <p>使用する器具はすべて施術ごとに滅菌処理。使い捨て用品も併用し、衛生面を徹底しています。</p>
       </div>
-      <div class="safety-card fade-in">
+      <div class="safety-card fade-up fade-up-delay-1">
         <div class="safety-icon">&#x1F9E4;</div>
         <h3>手袋・マスク着用</h3>
         <p>施術中は手袋・マスクを必ず着用。感染症対策を万全に行っています。</p>
       </div>
-      <div class="safety-card fade-in">
+      <div class="safety-card fade-up fade-up-delay-2">
         <div class="safety-icon">&#x1F3E5;</div>
         <h3>看護師の医学的知識</h3>
         <p>糖尿病や血液疾患など基礎疾患がある方も、看護師が健康状態を確認した上で安全に施術します。</p>
       </div>
-      <div class="safety-card fade-in">
+      <div class="safety-card fade-up fade-up-delay-3">
         <div class="safety-icon">&#x1F4CB;</div>
         <h3>事前カウンセリング</h3>
         <p>施術前に爪の状態・健康状態を丁寧にヒアリング。無理な施術は行いません。</p>
@@ -669,34 +868,35 @@ section { padding: 100px 0; }
 <!-- FLOW -->
 <section class="flow" id="flow">
   <div class="container text-center">
-    <div class="section-label fade-in">Flow</div>
-    <h2 class="section-title fade-in">施術の流れ</h2>
-    <p class="section-desc fade-in">ご予約から施術完了まで、4つのステップで進みます。</p>
+    <div class="section-label fade-up">Flow</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">施術の流れ</h2>
+    <p class="section-desc fade-up">ご予約から施術完了まで、4つのステップで進みます。</p>
   </div>
   <div class="container">
     <div class="flow-timeline">
-      <div class="flow-step fade-in">
+      <div class="flow-step slide-left">
         <div class="flow-step-num">1</div>
         <div class="flow-step-body">
           <h3>ご予約・ご相談</h3>
           <p>Web予約フォームからお申し込みください。症状やご希望の日時をお伝えいただければ、スタッフが確認のご連絡を差し上げます。</p>
         </div>
       </div>
-      <div class="flow-step fade-in">
+      <div class="flow-step slide-left">
         <div class="flow-step-num">2</div>
         <div class="flow-step-body">
           <h3>ご自宅へ訪問・カウンセリング</h3>
           <p>ご予約日にスタッフがご自宅へ伺います。爪の状態を確認し、施術方法や回数の目安をわかりやすくご説明します。</p>
         </div>
       </div>
-      <div class="flow-step fade-in">
+      <div class="flow-step slide-left">
         <div class="flow-step-num">3</div>
         <div class="flow-step-body">
           <h3>B/Sスパンゲ施術</h3>
           <p>爪の表面にグラスファイバー製プレートを装着します。施術時間は1本あたり約20〜30分。痛みはほとんどありません。</p>
         </div>
       </div>
-      <div class="flow-step fade-in">
+      <div class="flow-step slide-left">
         <div class="flow-step-num">4</div>
         <div class="flow-step-body">
           <h3>アフターケア・次回予約</h3>
@@ -710,11 +910,12 @@ section { padding: 100px 0; }
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="container text-center">
-    <div class="section-label fade-in">Price</div>
-    <h2 class="section-title fade-in">料金案内</h2>
-    <p class="section-desc fade-in">出張費・消費税すべて込みの明朗会計です。</p>
+    <div class="section-label fade-up">Price</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">料金案内</h2>
+    <p class="section-desc fade-up">出張費・消費税すべて込みの明朗会計です。</p>
     <div class="pricing-grid">
-      <div class="pricing-card fade-in">
+      <div class="pricing-card scale-in">
         <div class="pricing-card-header">
           <h3>初回</h3>
         </div>
@@ -737,7 +938,7 @@ section { padding: 100px 0; }
           </div>
         </div>
       </div>
-      <div class="pricing-card fade-in">
+      <div class="pricing-card scale-in">
         <div class="pricing-card-header">
           <h3>2回目以降</h3>
         </div>
@@ -757,7 +958,7 @@ section { padding: 100px 0; }
         </div>
       </div>
     </div>
-    <div class="pricing-note fade-in">
+    <div class="pricing-note fade-up">
       ※ 表示価格はすべて出張費・消費税込みです。追加料金は一切かかりません。
     </div>
   </div>
@@ -766,33 +967,34 @@ section { padding: 100px 0; }
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="container text-center">
-    <div class="section-label fade-in">FAQ</div>
-    <h2 class="section-title fade-in">よくあるご質問</h2>
-    <p class="section-desc fade-in"></p>
+    <div class="section-label fade-up">FAQ</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">よくあるご質問</h2>
+    <p class="section-desc fade-up"></p>
   </div>
   <div class="container">
     <div class="faq-list">
-      <div class="faq-item fade-in">
+      <div class="faq-item fade-up">
         <button class="faq-q">施術は痛くないですか？</button>
         <div class="faq-a"><p>B/Sスパンゲ法は爪の表面にプレートを貼る施術です。爪を切ったり削ったりしないため、施術中の痛みはほとんどありません。「こんなに痛くないんだ」と驚かれる方がほとんどです。</p></div>
       </div>
-      <div class="faq-item fade-in">
+      <div class="faq-item fade-up">
         <button class="faq-q">何回くらいで治りますか？</button>
         <div class="faq-a"><p>個人差がありますが、多くの方は3〜6回の施術（約3〜6ヶ月）で改善を実感されます。初回のカウンセリングで、おおよその回数をお伝えします。</p></div>
       </div>
-      <div class="faq-item fade-in">
+      <div class="faq-item fade-up">
         <button class="faq-q">出張エリア外でも対応できますか？</button>
         <div class="faq-a"><p>基本エリア外でもご相談に応じます。まずはお気軽にお問い合わせください。</p></div>
       </div>
-      <div class="faq-item fade-in">
+      <div class="faq-item fade-up">
         <button class="faq-q">高齢でも施術を受けられますか？</button>
         <div class="faq-a"><p>もちろんです。スタッフは全員看護師資格を持ち、介護・医療現場で10年以上の経験があります。車椅子の方やベッド上での施術にも対応しています。</p></div>
       </div>
-      <div class="faq-item fade-in">
+      <div class="faq-item fade-up">
         <button class="faq-q">プレートを付けたまま生活できますか？</button>
         <div class="faq-a"><p>はい、日常生活にほぼ支障はありません。入浴や軽い運動も問題なく行えます。靴下やストッキングも通常通りお使いいただけます。</p></div>
       </div>
-      <div class="faq-item fade-in">
+      <div class="faq-item fade-up">
         <button class="faq-q">健康保険は使えますか？</button>
         <div class="faq-a"><p>申し訳ございませんが、B/Sスパンゲ法は保険適用外の自費施術となります。ただし、出張費・消費税込みの明朗会計で、追加料金は一切ありません。</p></div>
       </div>
@@ -803,29 +1005,30 @@ section { padding: 100px 0; }
 <!-- AREA -->
 <section class="area" id="area">
   <div class="container text-center">
-    <div class="section-label fade-in">Area</div>
-    <h2 class="section-title fade-in">出張対応エリア</h2>
-    <p class="section-desc fade-in">香取市を拠点に、近隣エリアへ出張いたします。</p>
-    <div class="area-tags fade-in">
-      <span class="area-tag">香取市</span>
-      <span class="area-tag">旭市</span>
-      <span class="area-tag">匝瑳市</span>
-      <span class="area-tag">銚子市</span>
-      <span class="area-tag">神栖市</span>
-      <span class="area-tag">成田市</span>
-      <span class="area-tag">東庄町</span>
-      <span class="area-tag">多古町</span>
+    <div class="section-label fade-up">Area</div>
+    <div class="section-divider fade-up"></div>
+    <h2 class="section-title fade-up">出張対応エリア</h2>
+    <p class="section-desc fade-up">香取市を拠点に、近隣エリアへ出張いたします。</p>
+    <div class="area-grid fade-up">
+      <div class="area-tag">香取市</div>
+      <div class="area-tag">旭市</div>
+      <div class="area-tag">匝瑳市</div>
+      <div class="area-tag">銚子市</div>
+      <div class="area-tag">神栖市</div>
+      <div class="area-tag">成田市</div>
+      <div class="area-tag">東庄町</div>
+      <div class="area-tag">多古町</div>
     </div>
-    <p class="area-note fade-in">※ 上記エリア外もご相談に応じます。お気軽にお問い合わせください。</p>
+    <p class="area-note fade-up">※ 上記エリア外もご相談に応じます。お気軽にお問い合わせください。</p>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section" id="cta">
   <div class="container">
-    <h2 class="fade-in">まずは無料相談から<br>お気軽にどうぞ</h2>
-    <p class="fade-in">爪の状態を見て、最適な施術プランをご提案いたします。</p>
-    <a href="https://snail-reservation.vercel.app" class="cta-btn fade-in" target="_blank" rel="noopener">&#x1F4C5; 無料相談・ご予約はこちら</a>
+    <h2 class="fade-up">まずは無料相談から<br>お気軽にどうぞ</h2>
+    <p class="fade-up">爪の状態を見て、最適な施術プランをご提案いたします。</p>
+    <a href="https://snail-reservation.vercel.app" class="cta-btn fade-up" target="_blank" rel="noopener">無料相談・ご予約はこちら</a>
   </div>
 </section>
 
@@ -845,15 +1048,30 @@ section { padding: 100px 0; }
   </div>
 </footer>
 
-<!-- FLOATING RESERVE (SP) -->
-<a href="https://snail-reservation.vercel.app" style="display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0B4F5E;color:white;padding:16px 40px;border-radius:50px;font-size:15px;font-weight:700;text-decoration:none;z-index:200;white-space:nowrap;box-shadow:0 6px 28px rgba(11,79,94,0.45)" id="float-btn" target="_blank" rel="noopener">&#x1F4C5; 今すぐ無料予約</a>
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-sticky-cta" id="mobileCta">
+  <a href="https://snail-reservation.vercel.app" target="_blank" rel="noopener">無料相談・ご予約はこちら</a>
+</div>
 
 <script>
-// NAV scroll effect
+// NAV scroll + active section
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
+const sections = document.querySelectorAll('section[id]');
+const navLinksAll = document.querySelectorAll('.nav-links a');
+
+function updateNav() {
   nav.classList.toggle('scrolled', window.scrollY > 10);
-});
+
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 120;
+    if (window.scrollY >= top) current = section.getAttribute('id');
+  });
+  navLinksAll.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateNav, { passive: true });
 
 // Hamburger
 const hamburger = document.getElementById('hamburger');
@@ -882,18 +1100,41 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Scroll animation
-const observer = new IntersectionObserver((entries) => {
+// Scroll animations
+const animObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-// Float button (SP)
-if (window.innerWidth <= 900) document.getElementById('float-btn').style.display = 'block';
+document.querySelectorAll('.fade-up, .slide-left, .slide-right, .scale-in').forEach(el => {
+  animObserver.observe(el);
+});
+
+// Count-up animation
+let counted = false;
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !counted) {
+      counted = true;
+      document.querySelectorAll('[data-count]').forEach(el => {
+        const target = parseInt(el.dataset.count);
+        const suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
+        if (target === 0) { el.innerHTML = '0' + suffix; return; }
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 40));
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.innerHTML = current + suffix;
+        }, 30);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+countObserver.observe(document.querySelector('.number-bar'));
 </script>
 </body>
 </html>
