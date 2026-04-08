@@ -526,6 +526,7 @@ section { padding: 100px 0; }
   text-decoration: none; border-radius: 50px; font-size: 0.95rem; font-weight: 700;
   letter-spacing: 0.05em;
 }
+.mobile-sticky-cta .line-btn{background:#06C755!important;border-color:#06C755!important;}
 
 /* ========== SCROLL ANIMATIONS ========== */
 .fade-up {
@@ -587,6 +588,7 @@ section { padding: 100px 0; }
   .mobile-sticky-cta { display: block; }
   .footer { padding-bottom: 90px; }
   .ig-grid { gap: 4px; }
+  [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
 }
 
 @media (max-width: 480px) {
@@ -686,8 +688,10 @@ section { padding: 100px 0; }
         <span>痛くない</span>
       </div>
     </div>
-    <a href="https://snail-reservation.vercel.app" class="hero-cta" target="_blank" rel="noopener">無料相談・ご予約はこちら</a>
-    <a href="https://line.me/R/ti/p/@642iiuyv" class="hero-cta" target="_blank" rel="noopener" style="margin-left:12px;background:transparent;border:1.5px solid rgba(255,255,255,0.5);color:#fff;font-size:0.92rem;padding:16px 36px;">LINEで相談</a>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://snail-reservation.vercel.app" class="hero-cta" target="_blank" rel="noopener">無料相談・ご予約はこちら</a>
+      <a href="https://line.me/R/ti/p/@642iiuyv" class="hero-cta" target="_blank" rel="noopener" style="background:transparent;border:1.5px solid rgba(255,255,255,0.5);color:#fff;font-size:0.92rem;padding:16px 36px;">LINEで相談</a>
+    </div>
     <div class="hero-social-proof">
       <span>&#x2714; 看護師資格保有率 100%</span>
       <span>&#x2714; 出張費・追加料金 0円</span>
@@ -1210,7 +1214,7 @@ section { padding: 100px 0; }
     </div>
     <p class="footer-info">千葉県香取市川頭204-1 シェアサロンMoriyama内｜出張対応</p>
     <p class="footer-info">看護師によるB/Sスパンゲ法 巻き爪矯正</p>
-    <p class="footer-copy">&copy; 2025 巻き爪矯正サロン Snail. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 巻き爪矯正サロン Snail. All rights reserved.</p>
   </div>
 </footer>
 
@@ -1218,7 +1222,7 @@ section { padding: 100px 0; }
 <div class="mobile-sticky-cta" id="mobileCta">
   <div style="display:flex;gap:8px;">
     <a href="https://snail-reservation.vercel.app" target="_blank" rel="noopener" style="flex:1;">Web予約</a>
-    <a href="https://line.me/R/ti/p/@642iiuyv" target="_blank" rel="noopener" style="flex:1;background:#06C755;border-color:#06C755;">LINE</a>
+    <a href="https://line.me/R/ti/p/@642iiuyv" class="line-btn" target="_blank" rel="noopener" style="flex:1;background:#06C755;border-color:#06C755;">LINE</a>
   </div>
 </div>
 
