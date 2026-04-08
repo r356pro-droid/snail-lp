@@ -308,28 +308,48 @@ section { padding: 100px 0; }
 
 /* ========== STAFF ========== */
 .staff { background: var(--teal-bg); }
-.staff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 800px; margin: 0 auto; }
 .staff-card {
   background: var(--white); border-radius: var(--radius); overflow: hidden;
-  box-shadow: var(--shadow-sm); text-align: center;
+  box-shadow: var(--shadow-sm);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(11,79,94,0.04);
 }
 .staff-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .staff-avatar {
-  width: 100%; height: 200px;
+  width: 100%; height: 180px;
   background: linear-gradient(135deg, var(--teal-dark), var(--teal-mid));
-  display: flex; align-items: center; justify-content: center; font-size: 4rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Shippori Mincho', serif; font-size: 1.6rem; color: rgba(255,255,255,0.9);
+  letter-spacing: 0.12em; font-weight: 500;
 }
-.staff-info { padding: 28px 24px; }
-.staff-name { font-family: 'Shippori Mincho', serif; font-size: 1.15rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+.staff-info { padding: 32px 28px; }
+.staff-name { font-family: 'Shippori Mincho', serif; font-size: 1.2rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
 .staff-role { font-size: 0.8rem; color: var(--gold); font-weight: 500; margin-bottom: 16px; letter-spacing: 0.05em; }
 .staff-quals { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 16px; }
 .staff-qual {
   display: inline-block; padding: 4px 14px; background: var(--teal-pale);
   border-radius: 50px; font-size: 0.72rem; color: var(--teal-dark); font-weight: 500;
 }
-.staff-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.8; }
+.staff-desc { font-size: 0.88rem; color: var(--text-light); line-height: 2; text-align: left; }
+.staff-stats {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
+  margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--teal-pale);
+}
+.staff-stat-num {
+  font-family: 'Shippori Mincho', serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--teal-dark); line-height: 1.3;
+}
+.staff-stat-num span { font-size: 0.65em; font-weight: 500; }
+.staff-stat-label { font-size: 0.7rem; color: var(--text-light); margin-top: 2px; }
+.staff-message {
+  background: var(--white); border-radius: var(--radius); padding: 36px 32px;
+  border: 1px solid rgba(11,79,94,0.04); box-shadow: var(--shadow-sm); text-align: left;
+}
+.staff-message h3 {
+  font-family: 'Shippori Mincho', serif; font-size: 1.05rem; color: var(--teal-dark);
+  margin-bottom: 16px; text-align: center;
+}
+.staff-message p { font-size: 0.88rem; color: var(--text-light); line-height: 2.1; }
 
 /* ========== SAFETY ========== */
 .safety { background: var(--white); }
@@ -553,7 +573,7 @@ section { padding: 100px 0; }
   .worry-card { flex-direction: row; }
   .reasons-grid { grid-template-columns: 1fr; gap: 20px; }
   .voice-grid { grid-template-columns: 1fr; }
-  .staff-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .staff-stats { gap: 8px; }
   .safety-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid { grid-template-columns: 1fr; }
   .area-grid { grid-template-columns: repeat(2, 1fr); }
@@ -820,33 +840,40 @@ section { padding: 100px 0; }
     <div class="section-label fade-up">Staff</div>
     <div class="section-divider fade-up"></div>
     <h2 class="section-title fade-up">スタッフ紹介</h2>
-    <p class="section-desc fade-up">全員が看護師資格を持つ、巻き爪ケアの専門スタッフです。</p>
-    <div class="staff-grid">
+    <p class="section-desc fade-up">看護師資格を持つ巻き爪ケアの専門家が、責任を持って施術いたします。</p>
+    <div style="max-width:560px;margin:0 auto;">
       <div class="staff-card fade-up">
-        <div class="staff-avatar">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
+        <div class="staff-avatar">Yuki Morisue</div>
         <div class="staff-info">
-          <div class="staff-name">森末 裕稀</div>
-          <div class="staff-role">巻き爪矯正サロン Snail 代表</div>
+          <div style="text-align:center;">
+            <div class="staff-name">森末 裕稀</div>
+            <div class="staff-role">巻き爪矯正サロン Snail 代表</div>
+          </div>
           <div class="staff-quals">
             <span class="staff-qual">看護師免許</span>
             <span class="staff-qual">B/Sスパンゲ技術者</span>
             <span class="staff-qual">介護現場10年以上</span>
           </div>
-          <p class="staff-desc">長年の看護・介護経験を活かし、お一人おひとりの足の状態に合わせた丁寧な施術を心がけています。「痛くなかった！」の声が何よりの喜びです。</p>
+          <p class="staff-desc">看護師として病院・介護施設で10年以上勤務する中で、巻き爪に悩む患者さんを数多く見てきました。「痛いけど、病院に行くのが怖い」「手術はしたくない」――そんな声を聞くたびに、自分にできることはないかと考え、B/Sスパンゲ法の技術を習得。切らない・痛くない施術で「歩く喜び」を取り戻すお手伝いがしたい。その想いでSnailを立ち上げました。</p>
+          <div class="staff-stats">
+            <div style="text-align:center;">
+              <div class="staff-stat-num">10<span>年以上</span></div>
+              <div class="staff-stat-label">看護・介護経験</div>
+            </div>
+            <div style="text-align:center;">
+              <div class="staff-stat-num">6<span>市町村</span></div>
+              <div class="staff-stat-label">出張対応エリア</div>
+            </div>
+            <div style="text-align:center;">
+              <div class="staff-stat-num">B/S<span>認定</span></div>
+              <div class="staff-stat-label">スパンゲ技術者</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="staff-card fade-up fade-up-delay-1">
-        <div class="staff-avatar">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
-        <div class="staff-info">
-          <div class="staff-name">スタッフ</div>
-          <div class="staff-role">看護師・巻き爪矯正担当</div>
-          <div class="staff-quals">
-            <span class="staff-qual">看護師免許</span>
-            <span class="staff-qual">B/Sスパンゲ技術者</span>
-            <span class="staff-qual">フットケア研修修了</span>
-          </div>
-          <p class="staff-desc">高齢者のフットケアを専門に学び、巻き爪矯正を得意としています。ご自宅でリラックスしながら施術を受けていただけるよう努めています。</p>
-        </div>
+      <div class="staff-message fade-up" style="margin-top:24px;">
+        <h3>施術への想い</h3>
+        <p>巻き爪は「我慢するもの」ではありません。正しいケアで、痛みのない日常を取り戻せます。Snailでは施術だけでなく、日常の爪のケア方法や靴選びのアドバイスまでトータルでサポートいたします。「自宅でリラックスしながら受けられる」出張施術にもこだわっています。一人で悩まず、まずはお気軽にご相談ください。</p>
       </div>
     </div>
   </div>
