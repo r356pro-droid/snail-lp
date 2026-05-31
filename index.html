@@ -126,6 +126,7 @@ h1, h2, h3, h4 { font-family: 'Shippori Mincho', serif; line-height: 1.45; }
 .hero h1 .accent { color: var(--gold); }
 .hero h1 .nowrap { display: inline-block; }
 .hero-eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 14px; }
+.hero-photo-mobile { display: none; }
 .hero-sub {
   font-size: clamp(0.92rem, 1.8vw, 1.08rem); font-weight: 500; color: var(--text-light);
   margin-bottom: 30px; letter-spacing: 0.04em; line-height: 1.95;
@@ -408,12 +409,14 @@ section { padding: 96px 0; }
 }
 @media (max-width: 760px) {
   section { padding: 68px 0; }
-  .hero { min-height: auto; padding-top: 96px; padding-bottom: 40px; background-position: center 30%; }
-  .hero::before { background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.9) 45%, rgba(255,255,255,0.7) 100%); }
+  .hero { min-height: auto; padding: 90px 0 0; background-image: none; background-color: var(--cream); align-items: stretch; }
+  .hero::before, .hero::after { display: none; }
+  .hero-content { padding: 16px 24px 0; }
   .hero-inner { max-width: 100%; }
   .hero-cta-row { flex-direction: column; }
   .hero-cta { justify-content: center; }
-  .hero-badges { gap: 16px; flex-direction: column; }
+  .hero-badges { gap: 14px; flex-direction: column; }
+  .hero-photo-mobile { display: block; width: 100%; height: 240px; object-fit: cover; object-position: 70% center; border-radius: 16px; margin: 28px 0 4px; box-shadow: var(--shadow); }
   .number-bar-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .number-item { border-right: none; padding: 12px; }
   .number-item:nth-child(odd) { border-right: 1px solid rgba(11,79,94,0.08); }
@@ -436,8 +439,9 @@ section { padding: 96px 0; }
 
 @media (max-width: 430px) {
   .container { padding: 0 18px; }
-  .hero-content { padding: 40px 18px; }
+  .hero-content { padding: 12px 18px 0; }
   .hero h1 { font-size: 1.85rem; line-height: 1.45; }
+  .hero-photo-mobile { height: 200px; }
   .hero-sub { font-size: 0.9rem; }
   .hero-cta { padding: 15px 28px; font-size: 0.92rem; }
   .section-title { font-size: 1.4rem; }
@@ -590,6 +594,7 @@ section { padding: 96px 0; }
         <div class="hero-badge-item"><div class="hero-badge-ic"><img class="ic-img" src="images/icons/ic-heart.png" alt=""></div><div class="hero-badge-tx"><b>ご自宅・施設へ出張</b><span>通院不要で安心</span></div></div>
       </div>
     </div>
+    <img src="images/hero.jpg" class="hero-photo-mobile" alt="看護師による巻き爪矯正の施術">
   </div>
 </section>
 
