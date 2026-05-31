@@ -188,7 +188,13 @@ section { padding: 96px 0; }
 .reason-icon .ic-img { width: 88px; height: 88px; filter: drop-shadow(0 10px 22px rgba(8,80,94,0.22)); }
 .reason-num { font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; display: block; margin-bottom: 6px; }
 .reason-card h3 { font-size: 1.15rem; margin-bottom: 14px; color: var(--teal-dark); }
-.reason-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.95; max-width: 300px; margin: 0 auto; }
+.reason-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.95; max-width: 320px; margin: 0 auto; }
+/* 日本語を文節単位で折り返す（語の途中で切れないように） */
+.reason-card p, .section-desc, .worry-card p, .voice-text, .voice-card h4, .nurse-info p,
+.flow-step-body p, .safety-card p, .faq-a p, .case-body p, .hero-sub {
+  word-break: auto-phrase;
+  line-break: strict;
+}
 
 /* ========== BEFORE / AFTER (濃ティール) ========== */
 .gallery { background: var(--teal-dark); position: relative; overflow: hidden; }
