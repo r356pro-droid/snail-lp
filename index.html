@@ -126,7 +126,6 @@ h1, h2, h3, h4 { font-family: 'Shippori Mincho', serif; line-height: 1.45; }
 .hero h1 .accent { color: var(--gold); }
 .hero h1 .nowrap { display: inline-block; }
 .hero-eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 14px; }
-.hero-photo-mobile { display: none; }
 .hero-sub {
   font-size: clamp(0.92rem, 1.8vw, 1.08rem); font-weight: 500; color: var(--text-light);
   margin-bottom: 30px; letter-spacing: 0.04em; line-height: 1.95;
@@ -406,15 +405,14 @@ section { padding: 96px 0; }
   .nurse-quals { justify-content: center; }
   .staff-team { grid-template-columns: 1fr; }
   .safety-grid { grid-template-columns: repeat(2, 1fr); }
-  /* ヒーロー：中間幅でも写真が白飛びしないよう、テキスト＋写真の縦並びに */
-  .hero { min-height: auto; padding: 90px 0 0; background-image: none; background-color: var(--cream); align-items: stretch; }
-  .hero::before, .hero::after { display: none; }
-  .hero-content { padding: 16px 24px 0; }
+  /* ヒーロー：PCと同じく写真の上にコピーを重ねる（モバイル最適化・スクリム薄め） */
+  .hero { min-height: 90vh; padding-top: 80px; background-position: 64% center; }
+  .hero::before { background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.4) 100%); }
+  .hero-content { padding: 24px; }
   .hero-inner { max-width: 100%; }
   .hero-cta-row { flex-direction: column; max-width: 420px; }
   .hero-cta { justify-content: center; }
-  .hero-badges { gap: 14px; flex-direction: column; }
-  .hero-photo-mobile { display: block; width: 100%; max-width: 580px; height: 240px; object-fit: cover; object-position: 70% center; border-radius: 16px; margin: 8px auto 24px; box-shadow: var(--shadow); }
+  .hero-badges { flex-direction: column; gap: 12px; }
 }
 @media (max-width: 760px) {
   section { padding: 68px 0; }
@@ -442,7 +440,6 @@ section { padding: 96px 0; }
   .container { padding: 0 18px; }
   .hero-content { padding: 12px 18px 0; }
   .hero h1 { font-size: 1.85rem; line-height: 1.45; }
-  .hero-photo-mobile { height: 200px; }
   .hero-sub { font-size: 0.9rem; }
   .hero-cta { padding: 15px 28px; font-size: 0.92rem; }
   .section-title { font-size: 1.4rem; }
@@ -585,7 +582,6 @@ section { padding: 96px 0; }
       <p class="hero-eyebrow">千葉県香取市・匝瑳市・銚子市・旭市｜出張専門 巻き爪矯正サロン</p>
       <h1><span class="nowrap">その痛み、</span><span class="nowrap">我慢しないで。</span><br><span class="accent nowrap">巻き爪を根本から</span><span class="accent nowrap">やさしくケア</span></h1>
       <p class="hero-sub">看護師がいる安心のサロンで、痛みのない快適な毎日へ。<br>ご自宅・施設まで出張、切らない・痛くないB/Sスパンゲ法。</p>
-      <img src="images/hero.jpg" class="hero-photo-mobile" alt="看護師による巻き爪矯正の施術">
 
       <div class="hero-cta-row">
         <a href="https://snail-reservation.vercel.app" class="hero-cta primary" target="_blank" rel="noopener"><svg class="svg-ic" style="width:18px;height:18px;stroke:#fff" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>ご予約はこちら</a>
