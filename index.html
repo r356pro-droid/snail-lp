@@ -124,6 +124,7 @@ h1, h2, h3, h4 { font-family: 'Shippori Mincho', serif; line-height: 1.45; }
 }
 .hero h1 .accent { color: var(--gold); }
 .hero h1 .nowrap { display: inline-block; }
+.hero-eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 14px; }
 .hero-sub {
   font-size: clamp(0.92rem, 1.8vw, 1.08rem); font-weight: 500; color: var(--text-light);
   margin-bottom: 30px; letter-spacing: 0.04em; line-height: 1.95;
@@ -523,10 +524,26 @@ section { padding: 96px 0; }
   },
   "areaServed": ["香取市","匝瑳市","銚子市","旭市","神栖市","成田市","東庄町","多古町"],
   "priceRange": "¥7,000〜",
+  "sameAs": ["https://www.instagram.com/makitsume_snail/"],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
   }
+}
+</script>
+<!-- FAQ 構造化データ（検索のリッチリザルト用） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"施術は痛くないですか？","acceptedAnswer":{"@type":"Answer","text":"B/Sスパンゲ法は爪の表面にプレートを貼る施術です。爪を切ったり削ったりしないため、施術中の痛みはほとんどありません。"}},
+    {"@type":"Question","name":"何回くらいで治りますか？","acceptedAnswer":{"@type":"Answer","text":"個人差がありますが、多くの方は3〜6回の施術（約3〜6ヶ月）で改善を実感されます。初回のカウンセリングでおおよその回数をお伝えします。"}},
+    {"@type":"Question","name":"出張エリア外でも対応できますか？","acceptedAnswer":{"@type":"Answer","text":"香取市・匝瑳市・銚子市・旭市を中心に出張しています。基本エリア外でもご相談に応じますので、お気軽にお問い合わせください。"}},
+    {"@type":"Question","name":"高齢でも施術を受けられますか？","acceptedAnswer":{"@type":"Answer","text":"もちろんです。スタッフは全員看護師資格を持ち、介護・医療現場で10年以上の経験があります。車椅子の方やベッド上での施術、介護施設への出張にも対応しています。"}},
+    {"@type":"Question","name":"プレートを付けたまま生活できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、日常生活にほぼ支障はありません。入浴や軽い運動も問題なく行え、靴下やストッキングも通常通りお使いいただけます。"}},
+    {"@type":"Question","name":"健康保険は使えますか？","acceptedAnswer":{"@type":"Answer","text":"B/Sスパンゲ法は保険適用外の自費施術です。ただし出張費・消費税込みの明朗会計で、追加料金は一切ありません。"}}
+  ]
 }
 </script>
 </head>
@@ -559,6 +576,7 @@ section { padding: 96px 0; }
   <img src="images/deco/corner-tl.png" class="deco deco-sway" alt="" style="top:84px;left:6px;width:150px;opacity:0.32;z-index:2;">
   <div class="hero-content">
     <div class="hero-inner">
+      <p class="hero-eyebrow">千葉県香取市・匝瑳市・銚子市・旭市｜出張専門 巻き爪矯正サロン</p>
       <h1><span class="nowrap">その痛み、</span><span class="nowrap">我慢しないで。</span><br><span class="accent nowrap">巻き爪を根本から</span><span class="accent nowrap">やさしくケア</span></h1>
       <p class="hero-sub">看護師がいる安心のサロンで、痛みのない快適な毎日へ。<br>ご自宅・施設まで出張、切らない・痛くないB/Sスパンゲ法。</p>
       <div class="hero-cta-row">
