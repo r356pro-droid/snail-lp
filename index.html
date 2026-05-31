@@ -102,7 +102,7 @@ h1, h2, h3, h4 { font-family: 'Shippori Mincho', serif; line-height: 1.45; }
 
 /* ========== HERO (mock #2 忠実: 明るい白基調 × 右に施術写真) ========== */
 .hero {
-  min-height: 92vh; display: flex; align-items: center;
+  min-height: 68vh; display: flex; align-items: center;
   position: relative; overflow: hidden; padding-top: 72px;
   background: #fff url('images/hero.jpg') no-repeat right center / cover;
 }
@@ -406,7 +406,7 @@ section { padding: 96px 0; }
   .staff-team { grid-template-columns: 1fr; }
   .safety-grid { grid-template-columns: repeat(2, 1fr); }
   /* ヒーロー：PCと同じく写真の上にコピーを重ねる（モバイル最適化・スクリム薄め） */
-  .hero { min-height: 90vh; padding-top: 80px; background-position: 64% center; }
+  .hero { min-height: auto; padding-top: 80px; padding-bottom: 12px; background-position: 64% center; }
   .hero::before { background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.4) 100%); }
   .hero-content { padding: 24px; }
   .hero-inner { max-width: 100%; }
