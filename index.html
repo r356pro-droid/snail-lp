@@ -406,17 +406,18 @@ section { padding: 96px 0; }
   .nurse-quals { justify-content: center; }
   .staff-team { grid-template-columns: 1fr; }
   .safety-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 760px) {
-  section { padding: 68px 0; }
+  /* ヒーロー：中間幅でも写真が白飛びしないよう、テキスト＋写真の縦並びに */
   .hero { min-height: auto; padding: 90px 0 0; background-image: none; background-color: var(--cream); align-items: stretch; }
   .hero::before, .hero::after { display: none; }
   .hero-content { padding: 16px 24px 0; }
   .hero-inner { max-width: 100%; }
-  .hero-cta-row { flex-direction: column; }
+  .hero-cta-row { flex-direction: column; max-width: 420px; }
   .hero-cta { justify-content: center; }
   .hero-badges { gap: 14px; flex-direction: column; }
-  .hero-photo-mobile { display: block; width: 100%; height: 240px; object-fit: cover; object-position: 70% center; border-radius: 16px; margin: 28px 0 4px; box-shadow: var(--shadow); }
+  .hero-photo-mobile { display: block; width: 100%; max-width: 580px; height: 280px; object-fit: cover; object-position: 70% center; border-radius: 16px; margin: 28px auto 4px; box-shadow: var(--shadow); }
+}
+@media (max-width: 760px) {
+  section { padding: 68px 0; }
   .number-bar-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .number-item { border-right: none; padding: 12px; }
   .number-item:nth-child(odd) { border-right: 1px solid rgba(11,79,94,0.08); }
