@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.ingrown-nails-katori.com/sitemap.xml
+Sitemap: https://ingrown-nails-katori.com/sitemap.xml
