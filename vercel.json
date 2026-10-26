@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/column", "destination": "https://makizume-care.vercel.app/column" },
+    { "source": "/column/:path*", "destination": "https://makizume-care.vercel.app/column/:path*" }
+  ]
+}
