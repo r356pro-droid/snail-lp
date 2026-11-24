@@ -73,6 +73,22 @@ img { display: block; max-width: 100%; }
 .price th small { display: block; font-size: 14px; font-weight: 400; color: var(--sub); }
 .price td { text-align: right; white-space: nowrap; font-size: 20px; font-weight: 900; color: var(--navy); }
 .price td span { font-size: 14px; font-weight: 700; }
+.price caption i { font-style: normal; float: right; margin-top: 2px; padding: 1px 10px; border-radius: 4px; background: #fff; color: var(--mint); font-size: 14px; font-weight: 700; }
+.price.mp { border-color: var(--mint); }
+.price.mp caption { background: var(--mint); }
+.price.mp td { color: var(--mint); }
+.keep { background: var(--navy); color: #fff; }
+.keep .h small { color: var(--mint-l); }
+.keep .h::after { background: var(--mint-l); }
+.lead2 { margin-top: 16px; }
+.steps { margin-top: 20px; display: grid; gap: 34px; }
+.steps li { position: relative; padding: 16px 16px 18px; border-radius: 10px; background: #fff; color: var(--navy-d); }
+.steps li + li::before { content: ''; position: absolute; left: 50%; top: -26px; margin-left: -14px; border: 14px solid transparent; border-top-color: var(--mint-l); border-bottom: 0; }
+.steps span { display: inline-block; padding: 1px 12px; border-radius: 4px; background: var(--navy); color: #fff; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; }
+.steps b { display: block; margin-top: 6px; font-size: 21px; font-weight: 900; line-height: 1.5; }
+.steps li.on { border: 3px solid var(--mint-l); background: #F1FBF8; }
+.steps li.on span { background: var(--mint); }
+.promise { margin-top: 22px; text-align: center; font-size: 18px; font-weight: 900; line-height: 1.7; }
 .eg { margin-top: 12px; padding: 14px 16px; background: var(--mint-l); border-radius: 10px; font-weight: 700; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
 .eg b { font-size: 22px; font-weight: 900; white-space: nowrap; }
 .notes { margin-top: 14px; display: grid; gap: 6px; font-size: 15px; }
@@ -106,11 +122,11 @@ img { display: block; max-width: 100%; }
   <div class="fv">
     <p class="tag">千葉県香取市・小見川</p>
     <h1>歩くと痛い、<br>その巻き爪。<br><em>切らずに整えます。</em></h1>
-    <p class="sub">メスも麻酔も使いません。がまんを続ける前に、まずはご相談ください。</p>
+    <p class="sub">メスも麻酔も使いません。整えたあと、その形を保つところまで、看護師が担当します。</p>
     <ul class="checks">
       <li>スタッフは全員、看護師</li>
       <li>爪を切らない矯正</li>
-      <li>お店でも、ご自宅でも</li>
+      <li>整えたあとも、保つところまで</li>
     </ul>
   </div>
 </section>
@@ -135,11 +151,12 @@ img { display: block; max-width: 100%; }
 </section>
 
 <section data-sec="03-reason" class="pad">
-  <h2 class="h"><small>選ばれる理由</small>Snail の3つの安心</h2>
+  <h2 class="h"><small>選ばれる理由</small>Snail の4つの安心</h2>
   <ul class="reasons">
     <li><b><i>1</i>全員が、看護師です</b><p>スタッフ全員が看護師の資格を持ち、医療・介護の現場で10年以上の経験があります。持病のある方は、主治医の指示を確認してから始めます。</p></li>
     <li><b><i>2</i>爪を切らない矯正です</b><p>爪の表面にうすいプレートを付けて、少しずつ形を整える「B/Sスパンゲ法」。メスや麻酔は使いません。付けたまま、お風呂もいつも通りです。</p></li>
-    <li><b><i>3</i>お店でも、ご自宅でも</b><p>香取市川頭のお店のほか、ご自宅や介護施設へ伺うこともできます。外に出るのが大変な方は、ご家族からご相談ください。</p></li>
+    <li><b><i>3</i>整えて終わり、にしません</b><p>形が整ったあとは「メンテナンスプラン」で、その形を保っていきます。最初から最後まで、同じ看護師が責任を持って担当します。</p></li>
+    <li><b><i>4</i>お店でも、ご自宅でも</b><p>香取市川頭のお店のほか、ご自宅や介護施設へ伺うこともできます。外に出るのが大変な方は、ご家族からご相談ください。</p></li>
   </ul>
 </section>
 
@@ -160,8 +177,19 @@ img { display: block; max-width: 100%; }
   <ol class="flow">
     <li><div><b>LINE・電話・SMSで連絡</b>「巻き爪の相談です」の一言で大丈夫です。看護師がお返事します。</div></li>
     <li><div><b>日にちを決める</b>ご都合をうかがって、こちらで日時を確定してお知らせします。</div></li>
-    <li><div><b>当日、爪を見てから開始</b>始める前に、金額と回数の目安をお伝えします。施術は約60分です。</div></li>
+    <li><div><b>当日、爪を見てから開始</b>始める前に、金額と進め方をお伝えします。施術は約60分です。</div></li>
+    <li><div><b>整ったら、保つ段階へ</b>メンテナンスプランで、整った形を定期的にみていきます。</div></li>
   </ol>
+</section>
+
+<section data-sec="05b-keep" class="pad keep">
+  <h2 class="h"><small>Snail の考え方</small>整えて終わり、<br>にしません</h2>
+  <p class="lead2">巻き爪は、靴や歩き方、爪の切り方などで、また巻いてくることがあります。だから Snail は、形を整えたあとも続けてみていきます。</p>
+  <ol class="steps">
+    <li><span>STEP 1</span><b>矯正</b><p>プレートを付けて、爪の形を少しずつ整えます。</p></li>
+    <li class="on"><span>STEP 2</span><b>メンテナンスプラン</b><p>整った形を保つために、定期的に付け直してみていきます。爪の切り方や靴のこともご相談ください。</p></li>
+  </ol>
+  <p class="promise">整えるところから、保つところまで。<br>看護師が責任を持って担当します。</p>
 </section>
 
 <section data-sec="06-price" class="pad gray">
@@ -173,13 +201,18 @@ img { display: block; max-width: 100%; }
     <tr><th>矯正　2本目から<small>1本につき</small></th><td>7,000<span>円</span></td></tr>
   </table>
   <p class="eg"><span>はじめての方・1本の場合</span><b>11,000円</b></p>
+  <table class="price mp">
+    <caption>メンテナンスプラン<i>整った形を保つ</i></caption>
+    <tr><th>プレート 1枚</th><td>5,000<span>円</span></td></tr>
+    <tr><th>プレート 2枚以上<small>爪切りを含みます</small></th><td>10,000<span>円</span></td></tr>
+  </table>
   <table class="price">
-    <caption>そのほか</caption>
-    <tr><th>メンテナンス<small>矯正を終えた方・1枚</small></th><td>5,000<span>円</span></td></tr>
-    <tr><th>代表の集中矯正<small>1枚目・カウンセリング込み</small></th><td>22,800<span>円</span></td></tr>
+    <caption>代表の集中矯正</caption>
+    <tr><th>1枚目<small>カウンセリング込み</small></th><td>22,800<span>円</span></td></tr>
   </table>
   <ul class="notes">
     <li>始める前に、必ず金額をお伝えします。</li>
+    <li>メンテナンスプランは、矯正を終えて、前回から6週間以内に受ける方の料金です。</li>
     <li>出張は、香取市内は出張費がかかりません。市外は1回1,000円です。</li>
     <li>2026年12月1日からの料金です。</li>
   </ul>
@@ -189,7 +222,7 @@ img { display: block; max-width: 100%; }
   <h2 class="h"><small>よくある質問</small>はじめての方へ</h2>
   <dl class="faq">
     <div><dt>痛くないですか</dt><dd>爪を切ったり、穴を開けたりしない方法です。感じ方は一人ひとり違いますので、気になることは途中でも遠慮なくお伝えください。</dd></div>
-    <div><dt>何回くらい通いますか</dt><dd>目安は3〜6回です。爪の厚みや食い込みの深さで変わりますので、最初に爪を見て、そこでお伝えします。</dd></div>
+    <div><dt>どのくらい通いますか</dt><dd>爪の厚みや食い込みの深さで変わります。最初に爪を見て、進め方をお伝えします。形が整ったあとは、メンテナンスプランで保っていきます。</dd></div>
     <div><dt>受けられない場合はありますか</dt><dd>あります。出血や化膿があるときは、先に医療機関を受診していただきます。</dd></div>
     <div><dt>高齢の家族でも大丈夫ですか</dt><dd>はい。車いすの方や、ベッドの上での施術にも対応しています。</dd></div>
     <div><dt>予約の変更はできますか</dt><dd>できます。ご都合が変わったときは、早めにご連絡ください。</dd></div>
@@ -209,7 +242,7 @@ img { display: block; max-width: 100%; }
 
 <section data-sec="09-last" class="last">
   <h2>その痛み、<br>がまんしないでください。</h2>
-  <p>まずは、今の様子を聞かせてください。</p>
+  <p>整えるところから、保つところまで。<br>まずは、今の様子を聞かせてください。</p>
   <a class="btn" href="https://lin.ee/NcuLd4KN">LINEで相談・予約する</a>
   <div class="two"><a class="btn2" href="tel:09044180494">電話する</a><a class="btn2" href="sms:09044180494">SMSで送る</a></div>
 </section>
