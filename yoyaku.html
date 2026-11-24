@@ -16,20 +16,20 @@ html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--cream); color: var(--text); font-family: 'Noto Sans JP', sans-serif; font-size: 16px; line-height: 1.7; }
 .wrap { max-width: 520px; margin: 0 auto; padding: 28px 16px 48px; }
 .brand { text-align: center; margin-bottom: 26px; }
-.brand small { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.24em; color: var(--gold); }
+.brand small { display: block; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.24em; color: var(--gold); }
 .brand h1 { margin: 6px 0 8px; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.55rem; letter-spacing: 0.08em; color: var(--teal-dark); }
 .brand p { margin: 0; font-size: 0.92rem; color: var(--text-light); }
 .card { background: #fff; border-radius: 20px; padding: 22px 18px; box-shadow: 0 6px 28px rgba(11,79,94,0.08); }
 .card + .card { margin-top: 16px; }
 .h { display: flex; align-items: baseline; gap: 12px; margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.12rem; letter-spacing: 0.04em; color: var(--teal-dark); }
-.h span { font-size: 0.8rem; letter-spacing: 0.18em; color: var(--gold); }
+.h span { font-size: 0.875rem; letter-spacing: 0.18em; color: var(--gold); }
 button { font-family: inherit; cursor: pointer; }
 .cal-head { display: grid; grid-template-columns: 48px 1fr 48px; align-items: center; margin-bottom: 8px; }
 .cal-head b { text-align: center; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.2rem; letter-spacing: 0.06em; color: var(--teal-dark); }
 .nav { width: 48px; height: 48px; border: 1px solid var(--line); background: #fff; border-radius: 50%; font-size: 1.1rem; color: var(--teal-dark); }
 .nav:disabled { opacity: 0.3; cursor: default; }
 .grid7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
-.wd { text-align: center; font-size: 0.8rem; color: var(--text-light); padding: 6px 0; }
+.wd { text-align: center; font-size: 0.875rem; color: var(--text-light); padding: 6px 0; }
 .wd.sun, .day.sun { color: #b4534a; }
 .wd.sat, .day.sat { color: #3d6fa5; }
 .day { aspect-ratio: 1; min-height: 44px; border: 1px solid transparent; background: transparent; border-radius: 50%; font-size: 1.02rem; font-weight: 500; color: var(--text); padding: 0; }
@@ -37,7 +37,7 @@ button { font-family: inherit; cursor: pointer; }
 .day:not(:disabled):hover { border-color: var(--teal-mid); }
 .day.on { background: var(--teal-dark); color: #fff; font-weight: 700; }
 .day.today { box-shadow: inset 0 0 0 1px var(--gold); }
-.sub { margin: 14px 0 8px; font-size: 0.82rem; letter-spacing: 0.14em; color: var(--text-light); }
+.sub { margin: 14px 0 8px; font-size: 0.875rem; letter-spacing: 0.14em; color: var(--text-light); }
 .sub:first-of-type { margin-top: 0; }
 .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -45,19 +45,22 @@ button { font-family: inherit; cursor: pointer; }
 .hint { margin: 14px 0 0; font-size: 0.9rem; color: var(--text-light); line-height: 1.8; }
 .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .opt { min-height: 52px; border: 1px solid rgba(8,80,94,0.2); background: #fff; border-radius: 10px; font-size: 1rem; font-weight: 500; color: var(--text); padding: 6px 4px; line-height: 1.4; }
-.opt small { display: block; font-size: 0.78rem; color: var(--text-light); }
+.opt small { display: block; font-size: 0.875rem; color: var(--text-light); }
 .opt.on { background: var(--teal-bg); border-color: var(--teal-dark); box-shadow: inset 0 0 0 1px var(--teal-dark); color: var(--teal-dark); font-weight: 700; }
 .grid2 .opt { min-height: 64px; }
+.opt:disabled { background: #f6f6f4; border-color: #e7e7e3; color: #bdbdb8; cursor: default; box-shadow: none; }
+.opt:disabled small { color: #bdbdb8; }
+.legend { margin: 14px 0 0; font-size: 0.9rem; color: var(--text-light); line-height: 1.8; }
 .wait { margin: 0; color: var(--text-light); font-size: 0.95rem; }
 .out { margin-top: 16px; background: linear-gradient(160deg, var(--teal-dark), var(--teal-darker)); color: #fff; border-radius: 20px; padding: 26px 22px 24px; box-shadow: 0 16px 50px rgba(11,79,94,0.14); }
-.cap { margin: 0 0 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.24em; color: var(--gold-light); }
+.cap { margin: 0 0 12px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.24em; color: var(--gold-light); }
 .pick { margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.7rem; letter-spacing: 0.04em; color: var(--gold-light); line-height: 1.4; }
 .pick small { display: block; font-family: 'Noto Sans JP', sans-serif; font-size: 0.95rem; font-weight: 400; color: #fff; letter-spacing: 0.04em; margin-top: 4px; }
 .out .wait { color: rgba(255,255,255,0.78); line-height: 1.9; }
 .send { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 60px; margin-top: 18px; border: 0; border-radius: 50px; background: #06C755; color: #fff; font-size: 1.08rem; font-weight: 700; text-decoration: none; letter-spacing: 0.04em; }
 .send[aria-disabled="true"] { background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.6); pointer-events: none; }
-.note { margin: 14px 0 0; font-size: 0.86rem; color: rgba(255,255,255,0.8); line-height: 1.9; }
-.foot { margin: 22px 4px 0; font-size: 0.86rem; color: var(--text-light); line-height: 1.9; text-align: center; }
+.note { margin: 14px 0 0; font-size: 0.875rem; color: rgba(255,255,255,0.8); line-height: 1.9; }
+.foot { margin: 22px 4px 0; font-size: 0.875rem; color: var(--text-light); line-height: 1.9; text-align: center; }
 </style>
 </head>
 <body>
@@ -65,11 +68,19 @@ button { font-family: inherit; cursor: pointer; }
   <div class="brand">
     <small>RESERVATION</small>
     <h1>ご予約の希望</h1>
-    <p>場所・日にち・時間を選んで、LINEで送ってください。</p>
+    <p>当てはまるものを選んで、LINEで送ってください。</p>
   </div>
 
   <div class="card">
-    <p class="h"><span>01</span>場所を選ぶ</p>
+    <p class="h"><span>01</span>ご希望の内容</p>
+    <div class="grid2" id="menus">
+      <button type="button" class="opt" data-v="巻き爪の矯正・メンテナンス">巻き爪の矯正・<br>メンテナンス</button>
+      <button type="button" class="opt" data-v="Snail式 集中矯正">Snail式 集中矯正<small>代表施術・お店のみ</small></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="h"><span>02</span>場所を選ぶ</p>
     <div class="grid2" id="places">
       <button type="button" class="opt" data-v="お店">お店で</button>
       <button type="button" class="opt" data-v="ご自宅（出張）">ご自宅で<small>出張</small></button>
@@ -77,7 +88,7 @@ button { font-family: inherit; cursor: pointer; }
   </div>
 
   <div class="card">
-    <p class="h"><span>02</span>日にちを選ぶ</p>
+    <p class="h"><span>03</span>日にちを選ぶ</p>
     <div class="cal-head">
       <button type="button" class="nav" id="prev" aria-label="前の月">‹</button>
       <b id="ym"></b>
@@ -85,10 +96,11 @@ button { font-family: inherit; cursor: pointer; }
     </div>
     <div class="grid7" id="wds"></div>
     <div class="grid7" id="days"></div>
+    <p class="legend" id="calLegend"></p>
   </div>
 
   <div class="card">
-    <p class="h"><span>03</span>時間を選ぶ</p>
+    <p class="h"><span>04</span>時間を選ぶ</p>
     <div id="times"></div>
   </div>
 
@@ -103,70 +115,125 @@ button { font-family: inherit; cursor: pointer; }
 </div>
 <script>
 (function(){
-  var WD=['日','月','火','水','木','金','土'], OPEN=9, LAST=18, MAX=90;
+  var API='https://makizume-care.vercel.app/api/public/availability';
+  var WD=['日','月','火','水','木','金','土'], OPEN=9, LAST=18, MAX=90, LEN=60;
+  var SHOP='お店', FOCUS='Snail式 集中矯正';
   var $=function(i){return document.getElementById(i);};
   var now=new Date(), today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   var minD=new Date(today.getTime()); minD.setDate(minD.getDate()+1);
   var maxD=new Date(today.getTime()); maxD.setDate(maxD.getDate()+MAX);
   var view=new Date(minD.getFullYear(),minD.getMonth(),1);
-  var S={d:null,t:null,p:null};
+  var S={m:null,p:null,d:null,t:null};
+  var A=null; // 休みの日・うまった時間（取れなければ null のまま＝全部押せる）
   function same(a,b){return a&&b&&a.getTime()===b.getTime();}
   function dl(d){return (d.getMonth()+1)+'月'+d.getDate()+'日（'+WD[d.getDay()]+'）';}
+  function key(d){var m=d.getMonth()+1,x=d.getDate();return d.getFullYear()+'-'+(m<10?'0':'')+m+'-'+(x<10?'0':'')+x;}
+  function has(list,k){return !!list&&list.indexOf(k)>=0;}
+  function mins(t){var a=String(t).split(':');return Number(a[0])*60+Number(a[1]);}
+  function isHome(){return !!S.p&&S.p!==SHOP;}
+  function homeDays(){return A&&A.homeWeekdays&&A.homeWeekdays.length?A.homeWeekdays:null;}
+  // その日が押せない理由（押せるなら ''）
+  function dayOff(dt){
+    if(dt<minD||dt>maxD) return 'range';
+    if(!A) return '';
+    var k=key(dt);
+    if(has(A.closedDates,k)) return 'closed';
+    if(S.m===FOCUS&&has(A.ownerOffDates,k)) return 'owner';
+    if(isHome()&&homeDays()&&homeDays().indexOf(dt.getDay())<0) return 'weekday';
+    return '';
+  }
+  function slotBusy(dt,t){
+    if(!A||!A.busy) return false;
+    var list=A.busy[key(dt)]; if(!list) return false;
+    var a=mins(t), b=a+LEN;
+    for(var i=0;i<list.length;i++){ if(a<mins(list[i][1])&&mins(list[i][0])<b) return true; }
+    return false;
+  }
+  // えらび直しで押せなくなった物は外す
+  function fix(){
+    if(S.m===FOCUS&&S.p!==SHOP){S.p=SHOP;S.t=null;}
+    if(S.d&&dayOff(S.d)){S.d=null;S.t=null;}
+    if(S.d&&S.t&&S.p===SHOP&&/:/.test(S.t)&&slotBusy(S.d,S.t)) S.t=null;
+  }
+  function mark(box,cur){
+    var bs=box.children;
+    for(var i=0;i<bs.length;i++){var on=bs[i].getAttribute('data-v')===cur; bs[i].className='opt'+(on?' on':''); bs[i].setAttribute('aria-pressed',on?'true':'false');}
+  }
   $('wds').innerHTML=WD.map(function(w,i){return '<div class="wd'+(i===0?' sun':i===6?' sat':'')+'">'+w+'</div>';}).join('');
+  function drawTop(){
+    mark($('menus'),S.m); mark($('places'),S.p);
+    $('places').children[1].disabled=(S.m===FOCUS);
+  }
   function drawCal(){
     var y=view.getFullYear(), m=view.getMonth();
     $('ym').textContent=y+'年 '+(m+1)+'月';
     var first=new Date(y,m,1).getDay(), last=new Date(y,m+1,0).getDate(), h='';
     for(var i=0;i<first;i++) h+='<span></span>';
     for(var d=1;d<=last;d++){
-      var dt=new Date(y,m,d), w=dt.getDay(), off=dt<minD||dt>maxD;
-      h+='<button type="button" class="day'+(w===0?' sun':w===6?' sat':'')+(same(dt,S.d)?' on':'')+(same(dt,today)?' today':'')+'" data-d="'+d+'"'+(off?' disabled':'')+' aria-label="'+dl(dt)+'" aria-pressed="'+(same(dt,S.d)?'true':'false')+'">'+d+'</button>';
+      var dt=new Date(y,m,d), w=dt.getDay(), off=dayOff(dt);
+      h+='<button type="button" class="day'+(w===0?' sun':w===6?' sat':'')+(same(dt,S.d)?' on':'')+(same(dt,today)?' today':'')+'" data-d="'+d+'"'+(off?' disabled':'')+' aria-label="'+dl(dt)+(off&&off!=='range'?'（受け付けていません）':'')+'" aria-pressed="'+(same(dt,S.d)?'true':'false')+'">'+d+'</button>';
     }
     $('days').innerHTML=h;
     $('prev').disabled=(y===minD.getFullYear()&&m===minD.getMonth());
     $('next').disabled=(y===maxD.getFullYear()&&m===maxD.getMonth());
+    var L=['明日から3か月先まで選べます。'];
+    if(A){
+      if(A.closedDates&&A.closedDates.length) L.push('灰色の日は、お休みです。');
+      if(S.m===FOCUS&&A.ownerOffDates&&A.ownerOffDates.length) L.push('代表がいない日も、押せません。');
+      if(isHome()&&homeDays()) L.push('出張は、'+homeDays().map(function(n){return WD[n];}).join('・')+'曜日に伺います。');
+    }
+    $('calLegend').innerHTML=L.join('<br>');
   }
   function drawTimes(){
     if(!S.p){$('times').innerHTML='<p class="wait">先に、場所を選んでください。</p>';return;}
     if(!S.d){$('times').innerHTML='<p class="wait">先に、日にちを選んでください。</p>';return;}
-    if(S.p!=='お店'){
+    if(isHome()){
       var Z=['午前','午後','どちらでも'],z='';
       for(var k=0;k<Z.length;k++) z+='<button type="button" class="opt'+(S.t===Z[k]?' on':'')+'" data-t="'+Z[k]+'" aria-pressed="'+(S.t===Z[k]?'true':'false')+'">'+Z[k]+'</button>';
       $('times').innerHTML='<div class="grid3">'+z+'</div><p class="hint">出張は移動の時間があるため、くわしい時間は、担当からご連絡します。</p>';
       return;
     }
-    var am='',pm='';
+    var am='',pm='',full=0;
     for(var hh=OPEN;hh<=LAST;hh++){
       for(var mm=0;mm<60;mm+=30){
         if(hh===LAST&&mm>0) break;
-        var t=hh+':'+(mm===0?'00':'30');
-        var b='<button type="button" class="opt'+(S.t===t?' on':'')+'" data-t="'+t+'" aria-pressed="'+(S.t===t?'true':'false')+'">'+t+'</button>';
+        var t=hh+':'+(mm===0?'00':'30'), busy=slotBusy(S.d,t);
+        if(busy) full++;
+        var b='<button type="button" class="opt'+(S.t===t?' on':'')+'" data-t="'+t+'"'+(busy?' disabled aria-label="'+t+'（予約が入っています）"':'')+' aria-pressed="'+(S.t===t?'true':'false')+'">'+t+'</button>';
         if(hh<12) am+=b; else pm+=b;
       }
     }
-    $('times').innerHTML='<p class="sub">午前</p><div class="grid4">'+am+'</div><p class="sub">午後</p><div class="grid4">'+pm+'</div>';
+    $('times').innerHTML='<p class="sub">午前</p><div class="grid4">'+am+'</div><p class="sub">午後</p><div class="grid4">'+pm+'</div>'+(full?'<p class="hint">うすい色の時間は、すでに予約が入っています。</p>':'');
   }
   function drawSum(){
-    var bs=$('places').children;
-    for(var i=0;i<bs.length;i++){var on=bs[i].getAttribute('data-v')===S.p; bs[i].className='opt'+(on?' on':''); bs[i].setAttribute('aria-pressed',on?'true':'false');}
-    var ok=S.d&&S.t&&S.p, a=$('send');
+    var ok=S.m&&S.p&&S.d&&S.t, a=$('send');
     if(!ok){
-      var need=[]; if(!S.p) need.push('場所'); if(!S.d) need.push('日にち'); if(!S.t) need.push('時間');
+      var need=[]; if(!S.m) need.push('内容'); if(!S.p) need.push('場所'); if(!S.d) need.push('日にち'); if(!S.t) need.push('時間');
       $('sum').innerHTML='<p class="wait">'+need.join('・')+' を選んでください。</p>';
       a.setAttribute('aria-disabled','true'); a.setAttribute('href','#'); return;
     }
-    $('sum').innerHTML='<p class="pick">'+dl(S.d)+' '+S.t+'<small>'+S.p+'</small></p>';
-    var text='【予約の希望】'+(S.d.getMonth()+1)+'月'+S.d.getDate()+'日 '+S.t+'\n場所：'+S.p;
+    $('sum').innerHTML='<p class="pick">'+dl(S.d)+' '+S.t+'<small>'+S.p+'・'+S.m+'</small></p>';
+    var text='【予約の希望】'+(S.d.getMonth()+1)+'月'+S.d.getDate()+'日 '+S.t+'\n場所：'+S.p+'\n内容：'+S.m;
     a.setAttribute('href','https://line.me/R/oaMessage/%40642iiuyv/?'+encodeURIComponent(text));
     a.setAttribute('aria-disabled','false');
   }
+  function draw(){fix();drawTop();drawCal();drawTimes();drawSum();}
+  $('menus').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;S.m=b.getAttribute('data-v');draw();});
+  $('places').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;var v=b.getAttribute('data-v');if(v!==S.p)S.t=null;S.p=v;draw();});
   $('days').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;
-    S.d=new Date(view.getFullYear(),view.getMonth(),Number(b.getAttribute('data-d')));drawCal();drawTimes();drawSum();});
-  $('times').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;S.t=b.getAttribute('data-t');drawTimes();drawSum();});
-  $('places').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=b.getAttribute('data-v');if(v!==S.p)S.t=null;S.p=v;drawTimes();drawSum();});
+    S.d=new Date(view.getFullYear(),view.getMonth(),Number(b.getAttribute('data-d')));draw();});
+  $('times').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;S.t=b.getAttribute('data-t');draw();});
   $('prev').addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);drawCal();});
   $('next').addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);drawCal();});
-  drawCal();drawTimes();drawSum();
+  draw();
+  // 休みの日・うまった時間を取りに行く。取れなければ、そのまま（全部押せる）で使える。
+  try{
+    var ctl=window.AbortController?new AbortController():null;
+    if(ctl) setTimeout(function(){ctl.abort();},6000);
+    fetch(API,ctl?{signal:ctl.signal}:{}).then(function(r){if(!r.ok)throw new Error('ng');return r.json();})
+      .then(function(j){if(j&&typeof j==='object'&&!j.error){A=j;draw();}})
+      .catch(function(){});
+  }catch(e){}
 })();
 </script>
 </body>
