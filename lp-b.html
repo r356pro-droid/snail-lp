@@ -59,6 +59,14 @@ img { display: block; max-width: 100%; }
 .case { margin-top: 22px; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: #FFF4E6; }
 .case div { overflow: hidden; }
 .case img { width: 100%; margin-top: -26%; }
+.cases { margin-top: 22px; display: grid; gap: 16px; }
+.cases li { padding: 10px 10px 12px; background: #fff; border: 1px solid var(--rule); border-radius: 10px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pair figure { margin: 0; position: relative; }
+.pair img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 6px; }
+.pair figcaption { position: absolute; left: 0; top: 0; padding: 2px 12px; border-radius: 6px 0 6px 0; background: var(--navy-d); color: #fff; font-size: 15px; font-weight: 700; }
+.pair figcaption.af { background: var(--mint); }
+.cases p { margin-top: 8px; text-align: center; font-size: 15px; font-weight: 700; }
 .small { margin-top: 12px; font-size: 14px; color: var(--sub); text-align: center; }
 
 .flow { margin-top: 22px; display: grid; gap: 12px; counter-reset: s; }
@@ -165,8 +173,25 @@ img { display: block; max-width: 100%; }
 
 <section data-sec="04-case" class="pad gray">
   <h2 class="h"><small>ビフォー・アフター</small>実際の変化</h2>
-  <div class="case"><div><img src="https://moriyama-jewelry.com/dup/1085//k_%E7%97%87%E4%BE%8B.jpg" alt="施術の前と後の爪の写真"></div></div>
-  <p class="small">※ 変化には個人差があります。同じ結果を約束するものではありません。</p>
+  <ul class="cases">
+    <li>
+      <div class="pair"><figure><img src="images/lp/ba1_before.jpg" alt="施術の前の爪"><figcaption>はじめ</figcaption></figure><figure><img src="images/lp/ba1_after.jpg" alt="施術のあとの爪"><figcaption class="af">約3か月後</figcaption></figure></div>
+      <p>右足の親指　／　通った回数 4回</p>
+    </li>
+    <li>
+      <div class="pair"><figure><img src="images/lp/ba2_before.jpg" alt="施術の前の爪"><figcaption>はじめ</figcaption></figure><figure><img src="images/lp/ba2_after.jpg" alt="施術のあとの爪"><figcaption class="af">約2か月後</figcaption></figure></div>
+      <p>右足の親指　／　通った回数 2回</p>
+    </li>
+    <li>
+      <div class="pair"><figure><img src="images/lp/ba3_before.jpg" alt="施術の前の爪"><figcaption>はじめ</figcaption></figure><figure><img src="images/lp/ba3_after.jpg" alt="施術のあとの爪"><figcaption class="af">約1か月後</figcaption></figure></div>
+      <p>右足の親指　／　通った回数 2回</p>
+    </li>
+    <li>
+      <div class="pair"><figure><img src="images/lp/ba4_before.jpg" alt="施術の前の爪"><figcaption>はじめ</figcaption></figure><figure><img src="images/lp/ba4_after.jpg" alt="施術のあとの爪"><figcaption class="af">約9か月後</figcaption></figure></div>
+      <p>左足の親指　／　通った回数 9回</p>
+    </li>
+  </ul>
+  <p class="small">※ 写真は、掲載に同意をいただいた方のものです。<br>変化には個人差があり、同じ結果を約束するものではありません。料金は下の料金表のとおりです。</p>
 </section>
 
 <section data-sec="cta" class="cta band">
@@ -181,7 +206,7 @@ img { display: block; max-width: 100%; }
     <li><div><b>LINE・電話・SMSで連絡</b>「巻き爪の相談です」の一言で大丈夫です。看護師がお返事します。</div></li>
     <li><div><b>日にちを決める</b>ご都合をうかがって、こちらで日時を確定してお知らせします。</div></li>
     <li><div><b>当日、爪を見てから開始</b>始める前に、金額と進め方をお伝えします。施術は約60分です。</div></li>
-    <li><div><b>整ったら、保つ段階へ</b>メンテナンスプランで、整った形を定期的にみていきます。</div></li>
+    <li><div><b>整ったら、保つ段階へ</b>メンテナンスプランで、月に1回、整った形をみていきます。</div></li>
   </ol>
 </section>
 
@@ -190,7 +215,7 @@ img { display: block; max-width: 100%; }
   <p class="lead2">巻き爪は、靴や歩き方、爪の切り方などで、また巻いてくることがあります。だから Snail は、形を整えたあとも続けてみていきます。</p>
   <ol class="steps">
     <li><span>STEP 1</span><b>矯正</b><p>プレートを付けて、爪の形を少しずつ整えます。</p></li>
-    <li class="on"><span>STEP 2</span><b>メンテナンスプラン</b><p>整った形を保つために、定期的に付け直してみていきます。爪の切り方や靴のこともご相談ください。</p></li>
+    <li class="on"><span>STEP 2</span><b>メンテナンスプラン</b><p>月に1回、プレートを付け直して、整った形を保ちます。爪の切り方や靴のこともご相談ください。</p></li>
   </ol>
   <p class="promise">整えるところから、保つところまで。<br>Snail の看護師が、続けてみていきます。</p>
 </section>
@@ -205,7 +230,7 @@ img { display: block; max-width: 100%; }
   </table>
   <p class="eg"><span>はじめての方・1本の場合</span><b>11,000円</b></p>
   <table class="price mp">
-    <caption>メンテナンスプラン<i>整った形を保つ</i></caption>
+    <caption>メンテナンスプラン<i>月に1回</i></caption>
     <tr><th>プレート 1枚</th><td>5,000<span>円</span></td></tr>
     <tr><th>プレート 2枚以上<small>爪切りを含みます</small></th><td>10,000<span>円</span></td></tr>
   </table>
@@ -215,7 +240,7 @@ img { display: block; max-width: 100%; }
   </table>
   <ul class="notes">
     <li>始める前に、必ず金額をお伝えします。</li>
-    <li>メンテナンスプランは、矯正を終えて、前回から6週間以内に受ける方の料金です。</li>
+    <li>メンテナンスプランは、矯正を終えた方が、月に1回のペースで続けるプランです。前回から6週間を過ぎると、矯正の料金に戻ります。</li>
     <li>出張は、香取市内は出張費がかかりません。市外は1回1,000円です。</li>
     <li>2026年12月1日からの料金です。</li>
   </ul>
