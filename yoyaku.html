@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ご予約の希望｜巻き爪矯正サロン Snail</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root { --teal-darker:#003944; --teal-dark:#08505E; --teal-mid:#1E6A6E; --teal-pale:#E5F1F0; --teal-bg:#F1F7F7; --cream:#F6F3EA; --text:#2D2D2D; --text-light:#5E5E5E; --gold:#C0A069; --gold-light:#D4BC86; --line:rgba(8,80,94,0.16); }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--cream); color: var(--text); font-family: 'Noto Sans JP', sans-serif; font-size: 16px; line-height: 1.7; }
+.wrap { max-width: 520px; margin: 0 auto; padding: 28px 16px 48px; }
+.brand { text-align: center; margin-bottom: 26px; }
+.brand small { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.24em; color: var(--gold); }
+.brand h1 { margin: 6px 0 8px; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.55rem; letter-spacing: 0.08em; color: var(--teal-dark); }
+.brand p { margin: 0; font-size: 0.92rem; color: var(--text-light); }
+.card { background: #fff; border-radius: 20px; padding: 22px 18px; box-shadow: 0 6px 28px rgba(11,79,94,0.08); }
+.card + .card { margin-top: 16px; }
+.h { display: flex; align-items: baseline; gap: 12px; margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.12rem; letter-spacing: 0.04em; color: var(--teal-dark); }
+.h span { font-size: 0.8rem; letter-spacing: 0.18em; color: var(--gold); }
+button { font-family: inherit; cursor: pointer; }
+.cal-head { display: grid; grid-template-columns: 48px 1fr 48px; align-items: center; margin-bottom: 8px; }
+.cal-head b { text-align: center; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.2rem; letter-spacing: 0.06em; color: var(--teal-dark); }
+.nav { width: 48px; height: 48px; border: 1px solid var(--line); background: #fff; border-radius: 50%; font-size: 1.1rem; color: var(--teal-dark); }
+.nav:disabled { opacity: 0.3; cursor: default; }
+.grid7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.wd { text-align: center; font-size: 0.8rem; color: var(--text-light); padding: 6px 0; }
+.wd.sun, .day.sun { color: #b4534a; }
+.wd.sat, .day.sat { color: #3d6fa5; }
+.day { aspect-ratio: 1; min-height: 44px; border: 1px solid transparent; background: transparent; border-radius: 50%; font-size: 1.02rem; font-weight: 500; color: var(--text); padding: 0; }
+.day:disabled { color: #c9c9c9; cursor: default; }
+.day:not(:disabled):hover { border-color: var(--teal-mid); }
+.day.on { background: var(--teal-dark); color: #fff; font-weight: 700; }
+.day.today { box-shadow: inset 0 0 0 1px var(--gold); }
+.sub { margin: 14px 0 8px; font-size: 0.82rem; letter-spacing: 0.14em; color: var(--text-light); }
+.sub:first-of-type { margin-top: 0; }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.opt { min-height: 52px; border: 1px solid rgba(8,80,94,0.2); background: #fff; border-radius: 10px; font-size: 1rem; font-weight: 500; color: var(--text); padding: 6px 4px; line-height: 1.4; }
+.opt small { display: block; font-size: 0.78rem; color: var(--text-light); }
+.opt.on { background: var(--teal-bg); border-color: var(--teal-dark); box-shadow: inset 0 0 0 1px var(--teal-dark); color: var(--teal-dark); font-weight: 700; }
+.grid2 .opt { min-height: 64px; }
+.wait { margin: 0; color: var(--text-light); font-size: 0.95rem; }
+.out { margin-top: 16px; background: linear-gradient(160deg, var(--teal-dark), var(--teal-darker)); color: #fff; border-radius: 20px; padding: 26px 22px 24px; box-shadow: 0 16px 50px rgba(11,79,94,0.14); }
+.cap { margin: 0 0 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.24em; color: var(--gold-light); }
+.pick { margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.7rem; letter-spacing: 0.04em; color: var(--gold-light); line-height: 1.4; }
+.pick small { display: block; font-family: 'Noto Sans JP', sans-serif; font-size: 0.95rem; font-weight: 400; color: #fff; letter-spacing: 0.04em; margin-top: 4px; }
+.out .wait { color: rgba(255,255,255,0.78); line-height: 1.9; }
+.send { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 60px; margin-top: 18px; border: 0; border-radius: 50px; background: #06C755; color: #fff; font-size: 1.08rem; font-weight: 700; text-decoration: none; letter-spacing: 0.04em; }
+.send[aria-disabled="true"] { background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.6); pointer-events: none; }
+.note { margin: 14px 0 0; font-size: 0.86rem; color: rgba(255,255,255,0.8); line-height: 1.9; }
+.foot { margin: 22px 4px 0; font-size: 0.86rem; color: var(--text-light); line-height: 1.9; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <small>RESERVATION</small>
+    <h1>ご予約の希望</h1>
+    <p>日にちと時間を選んで、LINEで送ってください。</p>
+  </div>
+
+  <div class="card">
+    <p class="h"><span>01</span>日にちを選ぶ</p>
+    <div class="cal-head">
+      <button type="button" class="nav" id="prev" aria-label="前の月">‹</button>
+      <b id="ym"></b>
+      <button type="button" class="nav" id="next" aria-label="次の月">›</button>
+    </div>
+    <div class="grid7" id="wds"></div>
+    <div class="grid7" id="days"></div>
+  </div>
+
+  <div class="card">
+    <p class="h"><span>02</span>時間を選ぶ</p>
+    <div id="times"><p class="wait">先に、日にちを選んでください。</p></div>
+  </div>
+
+  <div class="card">
+    <p class="h"><span>03</span>場所を選ぶ</p>
+    <div class="grid2" id="places">
+      <button type="button" class="opt" data-v="お店">お店で</button>
+      <button type="button" class="opt" data-v="ご自宅（出張）">ご自宅で<small>出張</small></button>
+    </div>
+  </div>
+
+  <div class="out" aria-live="polite">
+    <p class="cap">ご希望の内容</p>
+    <div id="sum"></div>
+    <a class="send" id="send" href="#" aria-disabled="true">この内容でLINEに送る</a>
+    <p class="note">LINEが開きます。そのまま「送信」を押してください。担当が空きを確かめて、お返事します。お返事が届くまでは、まだ確定ではありません。</p>
+  </div>
+
+  <p class="foot">お急ぎのときや、ほかの時間をご希望のときは、LINEのメッセージでそのままお知らせください。</p>
+</div>
+<script>
+(function(){
+  var WD=['日','月','火','水','木','金','土'], OPEN=9, LAST=18, MAX=90;
+  var $=function(i){return document.getElementById(i);};
+  var now=new Date(), today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  var minD=new Date(today.getTime()); minD.setDate(minD.getDate()+1);
+  var maxD=new Date(today.getTime()); maxD.setDate(maxD.getDate()+MAX);
+  var view=new Date(minD.getFullYear(),minD.getMonth(),1);
+  var S={d:null,t:null,p:null};
+  function same(a,b){return a&&b&&a.getTime()===b.getTime();}
+  function dl(d){return (d.getMonth()+1)+'月'+d.getDate()+'日（'+WD[d.getDay()]+'）';}
+  $('wds').innerHTML=WD.map(function(w,i){return '<div class="wd'+(i===0?' sun':i===6?' sat':'')+'">'+w+'</div>';}).join('');
+  function drawCal(){
+    var y=view.getFullYear(), m=view.getMonth();
+    $('ym').textContent=y+'年 '+(m+1)+'月';
+    var first=new Date(y,m,1).getDay(), last=new Date(y,m+1,0).getDate(), h='';
+    for(var i=0;i<first;i++) h+='<span></span>';
+    for(var d=1;d<=last;d++){
+      var dt=new Date(y,m,d), w=dt.getDay(), off=dt<minD||dt>maxD;
+      h+='<button type="button" class="day'+(w===0?' sun':w===6?' sat':'')+(same(dt,S.d)?' on':'')+(same(dt,today)?' today':'')+'" data-d="'+d+'"'+(off?' disabled':'')+' aria-label="'+dl(dt)+'" aria-pressed="'+(same(dt,S.d)?'true':'false')+'">'+d+'</button>';
+    }
+    $('days').innerHTML=h;
+    $('prev').disabled=(y===minD.getFullYear()&&m===minD.getMonth());
+    $('next').disabled=(y===maxD.getFullYear()&&m===maxD.getMonth());
+  }
+  function drawTimes(){
+    if(!S.d){$('times').innerHTML='<p class="wait">先に、日にちを選んでください。</p>';return;}
+    var am='',pm='';
+    for(var hh=OPEN;hh<=LAST;hh++){
+      for(var mm=0;mm<60;mm+=30){
+        if(hh===LAST&&mm>0) break;
+        var t=hh+':'+(mm===0?'00':'30');
+        var b='<button type="button" class="opt'+(S.t===t?' on':'')+'" data-t="'+t+'" aria-pressed="'+(S.t===t?'true':'false')+'">'+t+'</button>';
+        if(hh<12) am+=b; else pm+=b;
+      }
+    }
+    $('times').innerHTML='<p class="sub">午前</p><div class="grid4">'+am+'</div><p class="sub">午後</p><div class="grid4">'+pm+'</div>';
+  }
+  function drawSum(){
+    var bs=$('places').children;
+    for(var i=0;i<bs.length;i++){var on=bs[i].getAttribute('data-v')===S.p; bs[i].className='opt'+(on?' on':''); bs[i].setAttribute('aria-pressed',on?'true':'false');}
+    var ok=S.d&&S.t&&S.p, a=$('send');
+    if(!ok){
+      var need=[]; if(!S.d) need.push('日にち'); if(!S.t) need.push('時間'); if(!S.p) need.push('場所');
+      $('sum').innerHTML='<p class="wait">'+need.join('・')+' を選んでください。</p>';
+      a.setAttribute('aria-disabled','true'); a.setAttribute('href','#'); return;
+    }
+    $('sum').innerHTML='<p class="pick">'+dl(S.d)+' '+S.t+'<small>'+S.p+'</small></p>';
+    var text='【予約の希望】'+(S.d.getMonth()+1)+'月'+S.d.getDate()+'日 '+S.t+'\n場所：'+S.p;
+    a.setAttribute('href','https://line.me/R/oaMessage/%40642iiuyv/?'+encodeURIComponent(text));
+    a.setAttribute('aria-disabled','false');
+  }
+  $('days').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;
+    S.d=new Date(view.getFullYear(),view.getMonth(),Number(b.getAttribute('data-d')));drawCal();drawTimes();drawSum();});
+  $('times').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;S.t=b.getAttribute('data-t');drawTimes();drawSum();});
+  $('places').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;S.p=b.getAttribute('data-v');drawSum();});
+  $('prev').addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);drawCal();});
+  $('next').addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);drawCal();});
+  drawCal();drawTimes();drawSum();
+})();
+</script>
+</body>
+</html>
