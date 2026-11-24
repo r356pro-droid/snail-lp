@@ -40,6 +40,9 @@ button { font-family: inherit; cursor: pointer; }
 .sub { margin: 14px 0 8px; font-size: 0.82rem; letter-spacing: 0.14em; color: var(--text-light); }
 .sub:first-of-type { margin-top: 0; }
 .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.grid3 .opt { min-height: 64px; }
+.hint { margin: 14px 0 0; font-size: 0.9rem; color: var(--text-light); line-height: 1.8; }
 .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .opt { min-height: 52px; border: 1px solid rgba(8,80,94,0.2); background: #fff; border-radius: 10px; font-size: 1rem; font-weight: 500; color: var(--text); padding: 6px 4px; line-height: 1.4; }
 .opt small { display: block; font-size: 0.78rem; color: var(--text-light); }
@@ -62,11 +65,19 @@ button { font-family: inherit; cursor: pointer; }
   <div class="brand">
     <small>RESERVATION</small>
     <h1>ご予約の希望</h1>
-    <p>日にちと時間を選んで、LINEで送ってください。</p>
+    <p>場所・日にち・時間を選んで、LINEで送ってください。</p>
   </div>
 
   <div class="card">
-    <p class="h"><span>01</span>日にちを選ぶ</p>
+    <p class="h"><span>01</span>場所を選ぶ</p>
+    <div class="grid2" id="places">
+      <button type="button" class="opt" data-v="お店">お店で</button>
+      <button type="button" class="opt" data-v="ご自宅（出張）">ご自宅で<small>出張</small></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="h"><span>02</span>日にちを選ぶ</p>
     <div class="cal-head">
       <button type="button" class="nav" id="prev" aria-label="前の月">‹</button>
       <b id="ym"></b>
@@ -77,16 +88,8 @@ button { font-family: inherit; cursor: pointer; }
   </div>
 
   <div class="card">
-    <p class="h"><span>02</span>時間を選ぶ</p>
-    <div id="times"><p class="wait">先に、日にちを選んでください。</p></div>
-  </div>
-
-  <div class="card">
-    <p class="h"><span>03</span>場所を選ぶ</p>
-    <div class="grid2" id="places">
-      <button type="button" class="opt" data-v="お店">お店で</button>
-      <button type="button" class="opt" data-v="ご自宅（出張）">ご自宅で<small>出張</small></button>
-    </div>
+    <p class="h"><span>03</span>時間を選ぶ</p>
+    <div id="times"></div>
   </div>
 
   <div class="out" aria-live="polite">
@@ -124,7 +127,14 @@ button { font-family: inherit; cursor: pointer; }
     $('next').disabled=(y===maxD.getFullYear()&&m===maxD.getMonth());
   }
   function drawTimes(){
+    if(!S.p){$('times').innerHTML='<p class="wait">先に、場所を選んでください。</p>';return;}
     if(!S.d){$('times').innerHTML='<p class="wait">先に、日にちを選んでください。</p>';return;}
+    if(S.p!=='お店'){
+      var Z=['午前','午後','どちらでも'],z='';
+      for(var k=0;k<Z.length;k++) z+='<button type="button" class="opt'+(S.t===Z[k]?' on':'')+'" data-t="'+Z[k]+'" aria-pressed="'+(S.t===Z[k]?'true':'false')+'">'+Z[k]+'</button>';
+      $('times').innerHTML='<div class="grid3">'+z+'</div><p class="hint">出張は移動の時間があるため、くわしい時間は、担当からご連絡します。</p>';
+      return;
+    }
     var am='',pm='';
     for(var hh=OPEN;hh<=LAST;hh++){
       for(var mm=0;mm<60;mm+=30){
@@ -141,7 +151,7 @@ button { font-family: inherit; cursor: pointer; }
     for(var i=0;i<bs.length;i++){var on=bs[i].getAttribute('data-v')===S.p; bs[i].className='opt'+(on?' on':''); bs[i].setAttribute('aria-pressed',on?'true':'false');}
     var ok=S.d&&S.t&&S.p, a=$('send');
     if(!ok){
-      var need=[]; if(!S.d) need.push('日にち'); if(!S.t) need.push('時間'); if(!S.p) need.push('場所');
+      var need=[]; if(!S.p) need.push('場所'); if(!S.d) need.push('日にち'); if(!S.t) need.push('時間');
       $('sum').innerHTML='<p class="wait">'+need.join('・')+' を選んでください。</p>';
       a.setAttribute('aria-disabled','true'); a.setAttribute('href','#'); return;
     }
@@ -153,7 +163,7 @@ button { font-family: inherit; cursor: pointer; }
   $('days').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;
     S.d=new Date(view.getFullYear(),view.getMonth(),Number(b.getAttribute('data-d')));drawCal();drawTimes();drawSum();});
   $('times').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;S.t=b.getAttribute('data-t');drawTimes();drawSum();});
-  $('places').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;S.p=b.getAttribute('data-v');drawSum();});
+  $('places').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=b.getAttribute('data-v');if(v!==S.p)S.t=null;S.p=v;drawTimes();drawSum();});
   $('prev').addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);drawCal();});
   $('next').addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);drawCal();});
   drawCal();drawTimes();drawSum();
