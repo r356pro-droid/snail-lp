@@ -77,6 +77,9 @@ img { display: block; max-width: 100%; }
 .price.mp { border-color: var(--mint); }
 .price.mp caption { background: var(--mint); }
 .price.mp td { color: var(--mint); }
+.pay { margin-top: 22px; display: grid; gap: 12px; }
+.pay li { padding: 14px 16px 16px; border-left: 5px solid var(--mint); background: var(--pale); border-radius: 0 10px 10px 0; }
+.pay b { display: block; font-size: 18px; font-weight: 900; line-height: 1.5; margin-bottom: 4px; }
 .keep { background: var(--navy); color: #fff; }
 .keep .h small { color: var(--mint-l); }
 .keep .h::after { background: var(--mint-l); }
@@ -122,7 +125,7 @@ img { display: block; max-width: 100%; }
   <div class="fv">
     <p class="tag">千葉県香取市・小見川</p>
     <h1>歩くと痛い、<br>その巻き爪。<br><em>切らずに整えます。</em></h1>
-    <p class="sub">メスも麻酔も使いません。整えたあと、その形を保つところまで、看護師が担当します。</p>
+    <p class="sub">メスも麻酔も使いません。整えたあと、その形を保つところまで、看護師がみていきます。</p>
     <ul class="checks">
       <li>スタッフは全員、看護師</li>
       <li>爪を切らない矯正</li>
@@ -155,7 +158,7 @@ img { display: block; max-width: 100%; }
   <ul class="reasons">
     <li><b><i>1</i>全員が、看護師です</b><p>スタッフ全員が看護師の資格を持ち、医療・介護の現場で10年以上の経験があります。持病のある方は、主治医の指示を確認してから始めます。</p></li>
     <li><b><i>2</i>爪を切らない矯正です</b><p>爪の表面にうすいプレートを付けて、少しずつ形を整える「B/Sスパンゲ法」。メスや麻酔は使いません。付けたまま、お風呂もいつも通りです。</p></li>
-    <li><b><i>3</i>整えて終わり、にしません</b><p>形が整ったあとは「メンテナンスプラン」で、その形を保っていきます。最初から最後まで、同じ看護師が責任を持って担当します。</p></li>
+    <li><b><i>3</i>整えて終わり、にしません</b><p>形が整ったあとは「メンテナンスプラン」で、その形を保っていきます。整えるところから保つところまで、Snail の看護師がみていきます。</p></li>
     <li><b><i>4</i>お店でも、ご自宅でも</b><p>香取市川頭のお店のほか、ご自宅や介護施設へ伺うこともできます。外に出るのが大変な方は、ご家族からご相談ください。</p></li>
   </ul>
 </section>
@@ -189,7 +192,7 @@ img { display: block; max-width: 100%; }
     <li><span>STEP 1</span><b>矯正</b><p>プレートを付けて、爪の形を少しずつ整えます。</p></li>
     <li class="on"><span>STEP 2</span><b>メンテナンスプラン</b><p>整った形を保つために、定期的に付け直してみていきます。爪の切り方や靴のこともご相談ください。</p></li>
   </ol>
-  <p class="promise">整えるところから、保つところまで。<br>看護師が責任を持って担当します。</p>
+  <p class="promise">整えるところから、保つところまで。<br>Snail の看護師が、続けてみていきます。</p>
 </section>
 
 <section data-sec="06-price" class="pad gray">
@@ -218,7 +221,16 @@ img { display: block; max-width: 100%; }
   </ul>
 </section>
 
-<section data-sec="07-faq" class="pad">
+<section data-sec="06b-pay" class="pad">
+  <h2 class="h"><small>お支払い</small>その日の分だけ、<br>その日にお支払い</h2>
+  <ul class="pay">
+    <li><b>来た日に、その日の分だけ</b>先払い・回数券・月額はありません。来なかった月は、お金がかかりません。</li>
+    <li><b>料金表のほかは、いただきません</b>器具代・材料代はかかりません。</li>
+    <li><b>金額は、始める前にお伝えします</b>爪を見てから金額をお伝えし、納得いただいてから始めます。</li>
+  </ul>
+</section>
+
+<section data-sec="07-faq" class="pad gray">
   <h2 class="h"><small>よくある質問</small>はじめての方へ</h2>
   <dl class="faq">
     <div><dt>痛くないですか</dt><dd>爪を切ったり、穴を開けたりしない方法です。感じ方は一人ひとり違いますので、気になることは途中でも遠慮なくお伝えください。</dd></div>
@@ -229,7 +241,7 @@ img { display: block; max-width: 100%; }
   </dl>
 </section>
 
-<section data-sec="08-shop" class="pad gray">
+<section data-sec="08-shop" class="pad">
   <h2 class="h"><small>お店の案内</small>巻き爪矯正サロン Snail</h2>
   <table class="shop">
     <tr><th>場所</th><td>〒289-0334<br>千葉県香取市川頭204-1<br>シェアサロン Moriyama 内</td></tr>
