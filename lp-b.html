@@ -67,6 +67,12 @@ img { display: block; max-width: 100%; }
 .pair figcaption { position: absolute; left: 0; top: 0; padding: 2px 12px; border-radius: 6px 0 6px 0; background: var(--navy-d); color: #fff; font-size: 15px; font-weight: 700; }
 .pair figcaption.af { background: var(--mint); }
 .cases p { margin-top: 8px; text-align: center; font-size: 15px; font-weight: 700; }
+.keeprow { margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: stretch; }
+.keeprow figure { margin: 0; position: relative; }
+.keeprow img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 6px; }
+.keeprow figcaption { position: absolute; left: 0; top: 0; padding: 2px 12px; border-radius: 6px 0 6px 0; background: var(--mint); color: #fff; font-size: 15px; font-weight: 700; }
+.keeprow > div { display: flex; flex-direction: column; justify-content: center; padding: 12px; border-radius: 6px; background: #F1FBF8; border: 2px solid var(--mint-l); font-size: 15px; line-height: 1.75; }
+.keeprow b { display: block; margin-bottom: 8px; font-size: 19px; font-weight: 900; line-height: 1.5; color: var(--mint); }
 .cases p.from { margin-top: 6px; padding: 6px 8px; border-radius: 6px; background: var(--mint-l); font-size: 14px; font-weight: 700; }
 .small { margin-top: 12px; font-size: 14px; color: var(--sub); text-align: center; }
 
@@ -197,7 +203,8 @@ img { display: block; max-width: 100%; }
     </li>
     <li>
       <div class="pair"><figure><img src="images/lp/ba4_before.jpg" alt="施術の前の爪"><figcaption>はじめ</figcaption></figure><figure><img src="images/lp/ba4_after1.jpg" alt="施術のあとの爪"><figcaption class="af">1回のあと</figcaption></figure></div>
-      <p>左足の親指　／　1回の施術の、前とあと（同じ日）</p>
+      <p>左足の親指<br>1回の施術の、前とあと（同じ日）</p>
+      <div class="keeprow"><figure><img src="images/lp/ba4_keep.jpg" alt="約9か月後の爪"><figcaption class="af">約9か月後</figcaption></figure><div><b>そのあとも<br>保っています</b>形を保つために、続けて通っていただいています。</div></div>
       <p class="from">ほかの方法を試されたあとに、<br>ご相談いただいた方です。</p>
     </li>
     <li>
