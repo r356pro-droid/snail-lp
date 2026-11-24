@@ -828,28 +828,20 @@ section { padding: 96px 0; }
     <div class="section-label fade-up">Price</div>
     <div class="section-divider fade-up"></div>
     <h2 class="section-title fade-up">料金のご案内</h2>
-    <p class="section-desc fade-up">当てはまるものを押すと、料金が出ます。表示価格はすべて消費税込みです。</p>
+    <p class="section-desc fade-up">当てはまるものを押すと、お店で受ける場合の料金が出ます。表示価格はすべて消費税込みです。</p>
     <div class="est fade-up" id="est">
       <div class="est-qs">
       <div class="est-q">
-        <p class="est-h"><span>01</span>どこで受けますか</p>
-        <div class="est-opts c3" data-k="place">
-          <button type="button" data-v="shop">お店で</button>
-          <button type="button" data-v="in">ご自宅で<small>香取市内</small></button>
-          <button type="button" data-v="out">ご自宅で<small>香取市外</small></button>
-        </div>
-      </div>
-      <div class="est-q">
-        <p class="est-h"><span>02</span>どれに当てはまりますか</p>
+        <p class="est-h"><span>01</span>どれに当てはまりますか</p>
         <div class="est-opts c2" data-k="kind">
           <button type="button" data-v="first">はじめて矯正を受ける</button>
           <button type="button" data-v="cont">矯正を続けている<small>2回目から</small></button>
           <button type="button" data-v="maint">矯正を終えて、形を保ちたい<small>メンテナンスプラン</small></button>
-          <button type="button" data-v="focus">代表の集中矯正を受けたい<small>お店のみ</small></button>
+          <button type="button" data-v="focus">代表の集中矯正を受けたい<small>Snail式 集中矯正</small></button>
         </div>
       </div>
       <div class="est-q">
-        <p class="est-h"><span>03</span>気になる爪は何本ですか</p>
+        <p class="est-h"><span>02</span>気になる爪は何本ですか</p>
         <div class="est-opts c4" data-k="n">
           <button type="button" data-v="1">1本</button>
           <button type="button" data-v="2">2本</button>
@@ -861,7 +853,7 @@ section { padding: 96px 0; }
       <div class="est-out" id="estOut" aria-live="polite"></div>
     </div>
     <details class="price-all fade-up">
-      <summary>料金表をすべて見る</summary>
+      <summary>料金表をすべて見る（ご自宅への出張はこちら）</summary>
     <div class="price-table-wrap">
       <table class="price-table">
         <thead>
@@ -1119,7 +1111,7 @@ countObserver.observe(document.querySelector('.number-bar'));
 <script>
 (function(){
   var box=document.getElementById('est'); if(!box) return;
-  var out=document.getElementById('estOut'), S={place:null,kind:null,n:null};
+  var out=document.getElementById('estOut'), S={place:'shop',kind:null,n:null};
   function yen(v){return '\u00a5'+v.toLocaleString('ja-JP');}
   function line(a,b){return '<div class="est-line"><span>'+a+'</span><i></i><span>'+yen(b)+'</span></div>';}
   var CAP='<p class="est-cap">お見積り</p>';
@@ -1128,7 +1120,7 @@ countObserver.observe(document.querySelector('.number-bar'));
     for(var i=0;i<bs.length;i++){var b=bs[i],k=b.parentNode.getAttribute('data-k');
       if(k==='kind'&&b.getAttribute('data-v')==='focus') b.disabled=(S.place==='in'||S.place==='out');
       var on=String(S[k])===b.getAttribute('data-v'); b.className=on?'on':''; b.setAttribute('aria-pressed',on?'true':'false');}
-    if(!S.place||!S.kind||!S.n){out.innerHTML=CAP+'<p class="est-wait">当てはまるものを3つ選ぶと、<br>ここに料金が出ます。</p>';return;}
+    if(!S.place||!S.kind||!S.n){out.innerHTML=CAP+'<p class="est-wait">当てはまるものを2つ選ぶと、<br>ここに料金が出ます。</p>';return;}
     var n=S.n,L=[],name='',note='',home=S.place!=='shop';
     if(S.kind==='first'||S.kind==='cont'){
       name='B/Sスパンゲ矯正';
@@ -1141,8 +1133,8 @@ countObserver.observe(document.querySelector('.number-bar'));
     }else if(S.kind==='maint'){
       name='メンテナンスプラン（毎月）';
       if(n===1) L.push(['プレート1枚'+(home?'（出張費を含みます）':''),home?6000:5000]);
-      else L.push(['プレート2枚以上'+(home?'（出張費を含みます）':'（爪切りを含みます）'),10000]);
-      note='前回から6週間以内に受ける方の料金です。';
+      else L.push(['プレート2枚以上'+(home?'（出張費を含みます）':''),10000]);
+      note=(n>1&&!home?'爪切りを含みます。':'')+'前回から6週間以内に受ける方の料金です。';
     }else{
       name='Snail式 集中矯正（代表施術）';
       L.push(['1枚目',22800]);
@@ -1152,7 +1144,7 @@ countObserver.observe(document.querySelector('.number-bar'));
     var t=0,h=CAP+'<p class="est-name">'+name+'</p>';
     for(var j=0;j<L.length;j++){t+=L[j][1];h+=line(L[j][0],L[j][1]);}
     h+='<div class="est-total"><span>合計（税込）</span><b>'+yen(t)+'</b></div>';
-    h+='<p class="est-note">'+note+'<br>爪の状態を見て、始める前に金額をお伝えします。</p>';
+    h+='<p class="est-note">'+note+'<br>お店で受ける場合の料金です。爪の状態を見て、始める前に金額をお伝えします。</p>';
     out.innerHTML=h;
   }
   box.addEventListener('click',function(e){
