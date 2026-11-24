@@ -2,5 +2,8 @@
   "rewrites": [
     { "source": "/column", "destination": "https://makizume-care.vercel.app/column" },
     { "source": "/column/:path*", "destination": "https://makizume-care.vercel.app/column/:path*" }
+  ],
+  "headers": [
+    { "source": "/lpimg/(.*)", "headers": [{ "key": "Access-Control-Allow-Origin", "value": "https://moriyama-jewelry.com" }, { "key": "X-Robots-Tag", "value": "noindex" }] }
   ]
 }
