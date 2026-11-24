@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>広告用ページ デザインの案（3つ）｜Snail</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #ececec; font-family: 'Noto Sans JP', sans-serif; color: #222; }
+.head { max-width: 1240px; margin: 0 auto; padding: 24px 16px 8px; }
+.head h1 { font-size: 20px; margin: 0 0 6px; }
+.head p { margin: 0; font-size: 15px; line-height: 1.8; color: #444; }
+.row { max-width: 1240px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.col { display: flex; flex-direction: column; }
+.col .phone { flex: 1; }
+.col h2 { font-size: 17px; margin: 0 0 4px; }
+.col .memo { font-size: 14px; line-height: 1.7; color: #555; margin: 0 0 10px; min-height: 48px; }
+.phone { width: 100%; max-width: 390px; margin: 0 auto; background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 10px 34px rgba(0,0,0,0.18); }
+.phone p, .phone h3, .phone ul { margin: 0; padding: 0; }
+.phone ul { list-style: none; }
+.photo { height: 190px; background: url('images/hero.jpg') no-repeat 80% 42% / cover; }
+.btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 60px; border-radius: 999px; font-weight: 700; font-size: 18px; color: #fff; }
+.btn2 { display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; font-weight: 700; font-size: 16px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+@media (max-width: 860px) { .row { grid-template-columns: 1fr; gap: 34px; } .col .memo { min-height: 0; } }
+
+/* A やわらか・あたたかい */
+.a { font-family: 'Zen Maru Gothic', sans-serif; background: #FBF6F1; color: #4A3B35; }
+.a .bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: #fff; font-weight: 700; font-size: 15px; }
+.a .bar span { font-size: 13px; color: #B5766A; }
+.a .photo { border-radius: 0 0 44px 44px; }
+.a .body { padding: 22px 20px 26px; }
+.a .tag { display: inline-block; padding: 5px 16px; border-radius: 999px; background: #F3D9D2; color: #9A5548; font-weight: 700; font-size: 14px; }
+.a h3 { margin-top: 14px; font-size: 29px; font-weight: 900; line-height: 1.45; letter-spacing: 0.02em; }
+.a h3 em { font-style: normal; color: #C2685A; }
+.a .sub { margin-top: 12px; font-size: 16px; line-height: 1.85; font-weight: 500; }
+.a .chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 18px; }
+.a .chips li { background: #fff; border-radius: 16px; padding: 12px 4px; text-align: center; font-size: 14px; font-weight: 700; line-height: 1.5; box-shadow: 0 3px 10px rgba(154,85,72,0.1); }
+.a .chips b { display: block; font-size: 21px; color: #C2685A; }
+.a .btn { margin-top: 20px; background: #06C755; box-shadow: 0 6px 16px rgba(6,199,85,0.3); }
+.a .btn2 { background: #fff; color: #9A5548; border: 2px solid #E7C4BB; }
+.a .note { margin-top: 12px; text-align: center; font-size: 14px; color: #8A746C; }
+
+/* B 清潔・医療の安心 */
+.b { background: #fff; color: #14304A; }
+.b .bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; border-bottom: 3px solid #1C4E80; font-weight: 900; font-size: 15px; }
+.b .bar span { font-size: 13px; font-weight: 700; color: #fff; background: #1C4E80; padding: 3px 10px; border-radius: 4px; }
+.b .body { padding: 20px 20px 26px; }
+.b .tag { font-size: 14px; font-weight: 700; color: #1C8C7C; letter-spacing: 0.08em; }
+.b h3 { margin-top: 8px; font-size: 30px; font-weight: 900; line-height: 1.4; }
+.b h3 em { font-style: normal; background: linear-gradient(transparent 62%, #BDEDE3 62%); }
+.b .sub { margin-top: 12px; font-size: 16px; line-height: 1.8; }
+.b .chips { margin-top: 16px; border: 2px solid #1C4E80; border-radius: 10px; overflow: hidden; }
+.b .chips li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; padding: 11px 14px; font-size: 16px; font-weight: 700; }
+.b .chips li + li { border-top: 1px solid #D5E0EA; }
+.b .chips li::before { content: '✓'; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: #1C8C7C; color: #fff; font-size: 17px; }
+.b .btn { margin-top: 18px; background: #06C755; border-radius: 10px; }
+.b .btn2 { border-radius: 10px; background: #1C4E80; color: #fff; }
+.b .note { margin-top: 12px; text-align: center; font-size: 14px; color: #5B7186; }
+
+/* C 雑誌・大人の上質 */
+.c { background: #F4F1EC; color: #2B2A28; }
+.c .bar { display: flex; align-items: baseline; justify-content: space-between; padding: 14px 20px 10px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 16px; letter-spacing: 0.1em; }
+.c .bar span { font-family: 'Noto Sans JP', sans-serif; font-size: 13px; letter-spacing: 0.04em; color: #7A2E3A; }
+.c .photo { margin: 0 20px; height: 200px; }
+.c .body { padding: 20px 20px 26px; }
+.c .tag { font-size: 14px; letter-spacing: 0.22em; color: #7A2E3A; font-weight: 700; }
+.c h3 { margin-top: 10px; font-family: 'Shippori Mincho', serif; font-size: 31px; font-weight: 800; line-height: 1.5; letter-spacing: 0.04em; }
+.c h3 em { font-style: normal; color: #7A2E3A; }
+.c .sub { margin-top: 12px; font-size: 16px; line-height: 1.9; padding-left: 14px; border-left: 3px solid #7A2E3A; }
+.c .chips { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #2B2A28; border-bottom: 1px solid #2B2A28; }
+.c .chips li { padding: 12px 2px; text-align: center; font-size: 14px; font-weight: 500; line-height: 1.5; }
+.c .chips li + li { border-left: 1px solid #CFC8BD; }
+.c .chips b { display: block; font-family: 'Shippori Mincho', serif; font-size: 20px; font-weight: 800; }
+.c .btn { margin-top: 20px; background: #2B2A28; border-radius: 4px; }
+.c .btn i { font-style: normal; display: inline-block; background: #06C755; padding: 2px 9px; border-radius: 4px; font-size: 14px; }
+.c .btn2 { border-radius: 4px; border: 1px solid #2B2A28; color: #2B2A28; }
+.c .note { margin-top: 12px; text-align: center; font-size: 14px; color: #6E6A64; }
+</style>
+</head>
+<body>
+<div class="head">
+  <h1>広告用ページ　デザインの案（一番上の画面）</h1>
+  <p>文は3つとも同じで、見た目だけを変えています。ホームページ（緑と金・明朝）とは、どれも違う雰囲気にしました。写真は仮の物です。</p>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h2>A　やわらか・あたたかい</h2>
+    <p class="memo">くすんだピンクとベージュ、丸い文字。話しかけやすく、こわくない印象です。</p>
+    <div class="phone a">
+      <div class="bar">巻き爪矯正サロン Snail<span>香取市・小見川</span></div>
+      <div class="photo"></div>
+      <div class="body">
+        <span class="tag">看護師が担当します</span>
+        <h3>歩くと痛い、<br>その巻き爪。<br><em>切らずに整えます。</em></h3>
+        <p class="sub">メスも麻酔も使いません。がまんを続ける前に、まずはご相談ください。</p>
+        <ul class="chips">
+          <li><b>全員</b>看護師</li>
+          <li><b>切らない</b>矯正</li>
+          <li><b>出張</b>もできます</li>
+        </ul>
+        <div class="btn">LINEで相談・予約する</div>
+        <div class="two"><div class="btn2">電話する</div><div class="btn2">SMSで送る</div></div>
+        <p class="note">ご相談だけでも大丈夫です</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <h2>B　清潔・きちんと</h2>
+    <p class="memo">白と紺、はっきりした太い文字。医療の人がやっている安心感を前に出します。</p>
+    <div class="phone b">
+      <div class="bar">巻き爪矯正サロン Snail<span>看護師施術</span></div>
+      <div class="photo"></div>
+      <div class="body">
+        <p class="tag">千葉県香取市・小見川</p>
+        <h3>歩くと痛い、<br>その巻き爪。<br><em>切らずに整えます。</em></h3>
+        <p class="sub">メスも麻酔も使いません。がまんを続ける前に、まずはご相談ください。</p>
+        <ul class="chips">
+          <li>スタッフは全員、看護師</li>
+          <li>爪を切らない矯正</li>
+          <li>お店でも、ご自宅でも</li>
+        </ul>
+        <div class="btn">LINEで相談・予約する</div>
+        <div class="two"><div class="btn2">電話する</div><div class="btn2">SMSで送る</div></div>
+        <p class="note">ご相談だけでも大丈夫です</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <h2>C　大人の雑誌ふう</h2>
+    <p class="memo">生成りと墨色に、深い赤。明朝の大きな見出し。落ち着いた上質さを出します。</p>
+    <div class="phone c">
+      <div class="bar">Snail<span>巻き爪矯正サロン｜香取市</span></div>
+      <div class="photo"></div>
+      <div class="body">
+        <p class="tag">看護師が担当します</p>
+        <h3>歩くと痛い、<br>その巻き爪。<br><em>切らずに整えます。</em></h3>
+        <p class="sub">メスも麻酔も使いません。がまんを続ける前に、まずはご相談ください。</p>
+        <ul class="chips">
+          <li><b>全員</b>看護師</li>
+          <li><b>切らない</b>矯正</li>
+          <li><b>出張</b>もできます</li>
+        </ul>
+        <div class="btn"><i>LINE</i>で相談・予約する</div>
+        <div class="two"><div class="btn2">電話する</div><div class="btn2">SMSで送る</div></div>
+        <p class="note">ご相談だけでも大丈夫です</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
