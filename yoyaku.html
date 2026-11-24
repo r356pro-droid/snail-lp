@@ -43,6 +43,19 @@ button { font-family: inherit; cursor: pointer; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .grid3 .opt { min-height: 64px; }
 .hint { margin: 14px 0 0; font-size: 0.9rem; color: var(--text-light); line-height: 1.8; }
+.grid1 { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.grid1 .opt { min-height: 64px; position: relative; }
+.grid1 .opt[data-star] { margin-top: 8px; }
+.opt[data-star] { border-color: var(--gold); background: linear-gradient(180deg, #fffdf8, #faf4e6); box-shadow: 0 4px 16px rgba(192,160,105,0.18); }
+.opt[data-star]::before { content: '代表施術'; position: absolute; top: -11px; left: 14px; padding: 1px 12px; border-radius: 20px; background: var(--gold); color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; line-height: 1.6; }
+.opt[data-star].on { background: var(--teal-bg); border-color: var(--teal-dark); }
+.est-line { display: flex; align-items: baseline; gap: 10px; padding: 6px 0; font-size: 0.95rem; }
+.est-line i { flex: 1; min-width: 12px; border-bottom: 1px dotted rgba(255,255,255,0.4); transform: translateY(-4px); }
+.est-line span:last-child { white-space: nowrap; font-family: 'Shippori Mincho', serif; font-size: 1.05rem; }
+.est-total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid rgba(212,188,134,0.55); margin-top: 10px; padding-top: 14px; font-size: 0.9rem; letter-spacing: 0.08em; }
+.est-total b { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 2rem; color: var(--gold-light); white-space: nowrap; line-height: 1.1; }
+.est-box { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+.est-memo { margin: 10px 0 0; font-size: 0.875rem; color: rgba(255,255,255,0.8); line-height: 1.8; }
 .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .opt { min-height: 52px; border: 1px solid rgba(8,80,94,0.2); background: #fff; border-radius: 10px; font-size: 1rem; font-weight: 500; color: var(--text); padding: 6px 4px; line-height: 1.4; }
 .opt small { display: block; font-size: 0.875rem; color: var(--text-light); }
@@ -73,14 +86,26 @@ button { font-family: inherit; cursor: pointer; }
 
   <div class="card">
     <p class="h"><span>01</span>ご希望の内容</p>
-    <div class="grid2" id="menus">
-      <button type="button" class="opt" data-v="巻き爪の矯正・メンテナンス">巻き爪の矯正・<br>メンテナンス</button>
-      <button type="button" class="opt" data-v="Snail式 集中矯正">Snail式 集中矯正<small>代表施術・お店のみ</small></button>
+    <div class="grid1" id="menus">
+      <button type="button" class="opt" data-v="はじめての矯正">はじめて矯正を受ける</button>
+      <button type="button" class="opt" data-v="矯正の続き">矯正を続けている<small>2回目から</small></button>
+      <button type="button" class="opt" data-v="メンテナンスプラン">矯正を終えて、形を保ちたい<small>メンテナンスプラン</small></button>
+      <button type="button" class="opt" data-v="Snail式 集中矯正" data-star="1">代表の集中矯正を受けたい<small>Snail式 集中矯正・お店のみ</small></button>
     </div>
   </div>
 
   <div class="card">
-    <p class="h"><span>02</span>場所を選ぶ</p>
+    <p class="h"><span>02</span>気になる爪は何本ですか</p>
+    <div class="grid4" id="nums">
+      <button type="button" class="opt" data-v="1">1本</button>
+      <button type="button" class="opt" data-v="2">2本</button>
+      <button type="button" class="opt" data-v="3">3本</button>
+      <button type="button" class="opt" data-v="4">4本</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="h"><span>03</span>場所を選ぶ</p>
     <div class="grid2" id="places">
       <button type="button" class="opt" data-v="お店">お店で</button>
       <button type="button" class="opt" data-v="ご自宅（出張）">ご自宅で<small>出張</small></button>
@@ -88,7 +113,7 @@ button { font-family: inherit; cursor: pointer; }
   </div>
 
   <div class="card">
-    <p class="h"><span>03</span>日にちを選ぶ</p>
+    <p class="h"><span>04</span>日にちを選ぶ</p>
     <div class="cal-head">
       <button type="button" class="nav" id="prev" aria-label="前の月">‹</button>
       <b id="ym"></b>
@@ -100,12 +125,12 @@ button { font-family: inherit; cursor: pointer; }
   </div>
 
   <div class="card">
-    <p class="h"><span>04</span>時間を選ぶ</p>
+    <p class="h"><span>05</span>時間を選ぶ</p>
     <div id="times"></div>
   </div>
 
   <div class="out" aria-live="polite">
-    <p class="cap">ご希望の内容</p>
+    <p class="cap">ご希望の内容とお見積り</p>
     <div id="sum"></div>
     <a class="send" id="send" href="#" aria-disabled="true">この内容でLINEに送る</a>
     <p class="note">LINEが開きます。そのまま「送信」を押してください。担当が空きを確かめて、お返事します。お返事が届くまでは、まだ確定ではありません。</p>
@@ -123,7 +148,7 @@ button { font-family: inherit; cursor: pointer; }
   var minD=new Date(today.getTime()); minD.setDate(minD.getDate()+1);
   var maxD=new Date(today.getTime()); maxD.setDate(maxD.getDate()+MAX);
   var view=new Date(minD.getFullYear(),minD.getMonth(),1);
-  var S={m:null,p:null,d:null,t:null};
+  var S={m:null,n:null,p:null,d:null,t:null};
   var A=null; // 休みの日・うまった時間（取れなければ null のまま＝全部押せる）
   function same(a,b){return a&&b&&a.getTime()===b.getTime();}
   function dl(d){return (d.getMonth()+1)+'月'+d.getDate()+'日（'+WD[d.getDay()]+'）';}
@@ -161,7 +186,7 @@ button { font-family: inherit; cursor: pointer; }
   }
   $('wds').innerHTML=WD.map(function(w,i){return '<div class="wd'+(i===0?' sun':i===6?' sat':'')+'">'+w+'</div>';}).join('');
   function drawTop(){
-    mark($('menus'),S.m); mark($('places'),S.p);
+    mark($('menus'),S.m); mark($('nums'),S.n); mark($('places'),S.p);
     $('places').children[1].disabled=(S.m===FOCUS);
   }
   function drawCal(){
@@ -205,20 +230,46 @@ button { font-family: inherit; cursor: pointer; }
     }
     $('times').innerHTML='<p class="sub">午前</p><div class="grid4">'+am+'</div><p class="sub">午後</p><div class="grid4">'+pm+'</div>'+(full?'<p class="hint">うすい色の時間は、すでに予約が入っています。</p>':'');
   }
+  function yen(v){return '\u00a5'+v.toLocaleString('ja-JP');}
+  // 料金（ホームページの料金の画面と同じ決まり）
+  function price(){
+    var n=Number(S.n), home=isHome(), L=[], note='';
+    if(S.m==='はじめての矯正'||S.m==='矯正の続き'){
+      if(S.m==='はじめての矯正') L.push(['カウンセリング（初回のみ）',3000]);
+      L.push(['矯正 1本目',8000]);
+      if(n>1) L.push(['矯正 2本目から × '+(n-1)+'本',7000*(n-1)]);
+      if(home) note='香取市外への出張は、出張費 1,000円が加わります。';
+    }else if(S.m==='メンテナンスプラン'){
+      if(n===1) L.push(['プレート1枚'+(home?'（出張費を含みます）':''),home?6000:5000]);
+      else L.push(['プレート2枚以上'+(home?'（出張費を含みます）':''),10000]);
+      note=(n>1&&!home?'爪切りを含みます。':'')+'前回から6週間以内に受ける方の料金です。';
+    }else{
+      L.push(['集中矯正 1枚目',22800]);
+      if(n>1) L.push(['集中矯正 2枚目から × '+(n-1)+'枚',14000*(n-1)]);
+      note='カウンセリングを含みます。';
+    }
+    var t=0; for(var i=0;i<L.length;i++) t+=L[i][1];
+    return {lines:L,total:t,note:note};
+  }
   function drawSum(){
-    var ok=S.m&&S.p&&S.d&&S.t, a=$('send');
+    var ok=S.m&&S.n&&S.p&&S.d&&S.t, a=$('send');
     if(!ok){
-      var need=[]; if(!S.m) need.push('内容'); if(!S.p) need.push('場所'); if(!S.d) need.push('日にち'); if(!S.t) need.push('時間');
+      var need=[]; if(!S.m) need.push('内容'); if(!S.n) need.push('本数'); if(!S.p) need.push('場所'); if(!S.d) need.push('日にち'); if(!S.t) need.push('時間');
       $('sum').innerHTML='<p class="wait">'+need.join('・')+' を選んでください。</p>';
       a.setAttribute('aria-disabled','true'); a.setAttribute('href','#'); return;
     }
-    $('sum').innerHTML='<p class="pick">'+dl(S.d)+' '+S.t+'<small>'+S.p+'・'+S.m+'</small></p>';
-    var text='【予約の希望】'+(S.d.getMonth()+1)+'月'+S.d.getDate()+'日 '+S.t+'\n場所：'+S.p+'\n内容：'+S.m;
+    var P=price(), h='<p class="pick">'+dl(S.d)+' '+S.t+'<small>'+S.p+'・'+S.m+'・'+S.n+'本</small></p><div class="est-box">';
+    for(var i=0;i<P.lines.length;i++) h+='<div class="est-line"><span>'+P.lines[i][0]+'</span><i></i><span>'+yen(P.lines[i][1])+'</span></div>';
+    h+='<div class="est-total"><span>お見積り（税込）</span><b>'+yen(P.total)+'</b></div>';
+    h+='<p class="est-memo">'+P.note+'爪の状態を見て、始める前に金額をお伝えします。</p></div>';
+    $('sum').innerHTML=h;
+    var text='【予約の希望】'+(S.d.getMonth()+1)+'月'+S.d.getDate()+'日 '+S.t+'\n場所：'+S.p+'\n内容：'+S.m+'・'+S.n+'本\nお見積り：'+P.total.toLocaleString('ja-JP')+'円';
     a.setAttribute('href','https://line.me/R/oaMessage/%40642iiuyv/?'+encodeURIComponent(text));
     a.setAttribute('aria-disabled','false');
   }
   function draw(){fix();drawTop();drawCal();drawTimes();drawSum();}
   $('menus').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;S.m=b.getAttribute('data-v');draw();});
+  $('nums').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;S.n=b.getAttribute('data-v');draw();});
   $('places').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;var v=b.getAttribute('data-v');if(v!==S.p)S.t=null;S.p=v;draw();});
   $('days').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;
     S.d=new Date(view.getFullYear(),view.getMonth(),Number(b.getAttribute('data-d')));draw();});

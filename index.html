@@ -296,6 +296,10 @@ section { padding: 96px 0; }
 .est-opts button.on { background: var(--teal-bg); border-color: var(--teal-dark); box-shadow: inset 0 0 0 1px var(--teal-dark); color: var(--teal-dark); font-weight: 700; }
 .est-opts button.on::after { content: ''; position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
 .est-opts button:disabled { opacity: 0.38; cursor: default; }
+.est-opts button[data-v="focus"] { border-color: var(--gold); background: linear-gradient(180deg, #fffdf8, #faf4e6); box-shadow: 0 4px 16px rgba(192,160,105,0.18); }
+.est-opts button[data-v="focus"]::before { content: '代表施術'; position: absolute; top: -11px; left: 14px; padding: 1px 12px; border-radius: 20px; background: var(--gold); color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; line-height: 1.6; }
+.est-opts button[data-v="focus"].on { background: var(--teal-bg); border-color: var(--teal-dark); }
+
 .est-out { position: sticky; top: 110px; background: linear-gradient(160deg, var(--teal-dark), var(--teal-darker)); color: #fff; border-radius: var(--radius); padding: 32px 30px 28px; box-shadow: var(--shadow-lg); }
 .est-cap { margin: 0 0 18px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.24em; color: var(--gold-light); }
 .est-wait { margin: 0; font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.78); }
