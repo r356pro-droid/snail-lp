@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巻き爪矯正サロン Snail｜広告用ページ（できあがりの見本）</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root { --navy: #1C4E80; --navy-d: #14304A; --mint: #1C8C7C; --mint-l: #BDEDE3; --pale: #F2F7FB; --line: #06C755; --rule: #D5E0EA; --sub: #5B7186; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: #dfe5ea; font-family: 'Noto Sans JP', sans-serif; color: var(--navy-d); font-size: 16px; line-height: 1.8; }
+.lp { width: 100%; max-width: 390px; margin: 0 auto; background: #fff; overflow: hidden; }
+h1, h2, h3, p, ul, ol, dl, dd, table { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { display: block; max-width: 100%; }
+.pad { padding: 34px 20px; }
+
+.bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; border-bottom: 3px solid var(--navy); font-weight: 900; font-size: 15px; }
+.bar span { font-size: 14px; font-weight: 700; color: #fff; background: var(--navy); padding: 3px 10px; border-radius: 4px; }
+
+.photo { height: 190px; background: url('images/hero.jpg') no-repeat 80% 42% / cover; }
+.fv { padding: 20px 20px 26px; }
+.fv .tag { font-size: 14px; font-weight: 700; color: var(--mint); letter-spacing: 0.08em; }
+.fv h1 { margin-top: 8px; font-size: 30px; font-weight: 900; line-height: 1.4; }
+.fv h1 em { font-style: normal; background: linear-gradient(transparent 62%, var(--mint-l) 62%); }
+.fv .sub { margin-top: 12px; }
+.checks { margin-top: 16px; border: 2px solid var(--navy); border-radius: 10px; overflow: hidden; }
+.checks li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: center; padding: 11px 14px; font-weight: 700; }
+.checks li + li { border-top: 1px solid var(--rule); }
+.checks li::before { content: '✓'; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--mint); color: #fff; font-size: 17px; }
+
+.cta { padding: 0 20px 26px; }
+.cta.band { padding: 26px 20px; background: var(--pale); }
+.btn { display: flex; align-items: center; justify-content: center; min-height: 60px; border-radius: 10px; background: var(--line); color: #fff; font-weight: 700; font-size: 18px; text-decoration: none; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.btn2 { display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 10px; background: var(--navy); color: #fff; font-weight: 700; font-size: 16px; text-decoration: none; }
+.cta .note { margin-top: 12px; text-align: center; font-size: 14px; color: var(--sub); }
+
+.h { text-align: center; font-size: 23px; font-weight: 900; line-height: 1.5; }
+.h small { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 700; color: var(--mint); letter-spacing: 0.1em; }
+.h::after { content: ''; display: block; width: 46px; height: 4px; margin: 12px auto 0; background: var(--navy); border-radius: 2px; }
+.lead { margin-top: 16px; text-align: center; }
+.gray { background: var(--pale); }
+
+.worry { margin-top: 22px; display: grid; gap: 10px; }
+.worry li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: center; min-height: 58px; padding: 10px 16px; background: #fff; border: 1px solid var(--rule); border-radius: 10px; font-weight: 700; }
+.worry li::before { content: '✓'; display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 2px solid var(--navy); border-radius: 6px; color: var(--navy); font-size: 17px; font-weight: 900; }
+
+.reasons { margin-top: 22px; display: grid; gap: 14px; }
+.reasons li { border: 2px solid var(--navy); border-radius: 10px; overflow: hidden; }
+.reasons b { display: grid; grid-template-columns: 44px 1fr; align-items: center; gap: 12px; padding: 10px 14px; background: var(--navy); color: #fff; font-size: 18px; font-weight: 900; line-height: 1.5; }
+.reasons b i { font-style: normal; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--navy); font-size: 19px; }
+.reasons p { padding: 14px 16px 16px; }
+
+.case { margin-top: 22px; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: #FFF4E6; }
+.case div { overflow: hidden; }
+.case img { width: 100%; margin-top: -26%; }
+.small { margin-top: 12px; font-size: 14px; color: var(--sub); text-align: center; }
+
+.flow { margin-top: 22px; display: grid; gap: 12px; counter-reset: s; }
+.flow li { counter-increment: s; display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start; padding: 16px; background: #fff; border-radius: 10px; border: 1px solid var(--rule); }
+.flow li::before { content: counter(s); display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--mint); color: #fff; font-size: 22px; font-weight: 900; }
+.flow b { display: block; font-size: 18px; font-weight: 900; line-height: 1.5; }
+
+.price { width: 100%; margin-top: 22px; border-collapse: collapse; border: 2px solid var(--navy); background: #fff; }
+.price caption { padding: 10px 12px; background: var(--navy); color: #fff; font-weight: 900; font-size: 17px; text-align: left; }
+.price th, .price td { padding: 13px 12px; border-top: 1px solid var(--rule); vertical-align: middle; }
+.price th { text-align: left; font-weight: 700; line-height: 1.5; }
+.price th small { display: block; font-size: 14px; font-weight: 400; color: var(--sub); }
+.price td { text-align: right; white-space: nowrap; font-size: 20px; font-weight: 900; color: var(--navy); }
+.price td span { font-size: 14px; font-weight: 700; }
+.eg { margin-top: 12px; padding: 14px 16px; background: var(--mint-l); border-radius: 10px; font-weight: 700; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.eg b { font-size: 22px; font-weight: 900; white-space: nowrap; }
+.notes { margin-top: 14px; display: grid; gap: 6px; font-size: 15px; }
+.notes li { padding-left: 1.2em; text-indent: -1.2em; }
+.notes li::before { content: '・'; }
+
+.faq { margin-top: 22px; display: grid; gap: 12px; }
+.faq div { border: 1px solid var(--rule); border-radius: 10px; background: #fff; overflow: hidden; }
+.faq dt { display: grid; grid-template-columns: 30px 1fr; gap: 10px; padding: 13px 14px; background: var(--pale); font-weight: 900; line-height: 1.6; }
+.faq dt::before { content: 'Q'; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; background: var(--navy); color: #fff; font-size: 16px; }
+.faq dd { padding: 13px 16px 15px; }
+
+.shop { width: 100%; margin-top: 22px; border-collapse: collapse; }
+.shop th, .shop td { padding: 13px 0; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.shop th { width: 84px; font-weight: 900; color: var(--navy); white-space: nowrap; }
+
+.last { background: var(--navy); color: #fff; text-align: center; padding: 34px 20px 30px; }
+.last h2 { font-size: 24px; font-weight: 900; line-height: 1.5; }
+.last p { margin-top: 10px; }
+.last .btn { margin-top: 20px; }
+.last .btn2 { background: #fff; color: var(--navy); }
+.foot { padding: 20px; font-size: 14px; color: var(--sub); line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="lp">
+
+<section data-sec="01-top">
+  <div class="bar">巻き爪矯正サロン Snail<span>看護師施術</span></div>
+  <div class="photo"></div>
+  <div class="fv">
+    <p class="tag">千葉県香取市・小見川</p>
+    <h1>歩くと痛い、<br>その巻き爪。<br><em>切らずに整えます。</em></h1>
+    <p class="sub">メスも麻酔も使いません。がまんを続ける前に、まずはご相談ください。</p>
+    <ul class="checks">
+      <li>スタッフは全員、看護師</li>
+      <li>爪を切らない矯正</li>
+      <li>お店でも、ご自宅でも</li>
+    </ul>
+  </div>
+</section>
+
+<section data-sec="cta" class="cta">
+  <a class="btn" href="https://lin.ee/NcuLd4KN">LINEで相談・予約する</a>
+  <div class="two"><a class="btn2" href="tel:09044180494">電話する</a><a class="btn2" href="sms:09044180494">SMSで送る</a></div>
+  <p class="note">ご相談だけでも大丈夫です</p>
+</section>
+
+<section data-sec="02-worry" class="pad gray">
+  <h2 class="h"><small>お悩み</small>こんなこと、<br>ありませんか</h2>
+  <ul class="worry">
+    <li>歩くたびに、指先が痛い</li>
+    <li>靴をはくと、爪が当たってつらい</li>
+    <li>自分で切っても、また巻いてくる</li>
+    <li>手術は、できれば受けたくない</li>
+    <li>医療の資格がある人にみてほしい</li>
+    <li>このまま悪くならないか心配</li>
+  </ul>
+  <p class="lead">ひとつでも当てはまる方は、<br>一度お話を聞かせてください。</p>
+</section>
+
+<section data-sec="03-reason" class="pad">
+  <h2 class="h"><small>選ばれる理由</small>Snail の3つの安心</h2>
+  <ul class="reasons">
+    <li><b><i>1</i>全員が、看護師です</b><p>スタッフ全員が看護師の資格を持ち、医療・介護の現場で10年以上の経験があります。持病のある方は、主治医の指示を確認してから始めます。</p></li>
+    <li><b><i>2</i>爪を切らない矯正です</b><p>爪の表面にうすいプレートを付けて、少しずつ形を整える「B/Sスパンゲ法」。メスや麻酔は使いません。付けたまま、お風呂もいつも通りです。</p></li>
+    <li><b><i>3</i>お店でも、ご自宅でも</b><p>香取市川頭のお店のほか、ご自宅や介護施設へ伺うこともできます。外に出るのが大変な方は、ご家族からご相談ください。</p></li>
+  </ul>
+</section>
+
+<section data-sec="04-case" class="pad gray">
+  <h2 class="h"><small>ビフォー・アフター</small>実際の変化</h2>
+  <div class="case"><div><img src="https://moriyama-jewelry.com/dup/1085//k_%E7%97%87%E4%BE%8B.jpg" alt="施術の前と後の爪の写真"></div></div>
+  <p class="small">※ 変化には個人差があります。同じ結果を約束するものではありません。</p>
+</section>
+
+<section data-sec="cta" class="cta band">
+  <a class="btn" href="https://lin.ee/NcuLd4KN">LINEで相談・予約する</a>
+  <div class="two"><a class="btn2" href="tel:09044180494">電話する</a><a class="btn2" href="sms:09044180494">SMSで送る</a></div>
+  <p class="note">ご相談だけでも大丈夫です</p>
+</section>
+
+<section data-sec="05-flow" class="pad">
+  <h2 class="h"><small>ご利用の流れ</small>ご相談から、当日まで</h2>
+  <ol class="flow">
+    <li><div><b>LINE・電話・SMSで連絡</b>「巻き爪の相談です」の一言で大丈夫です。看護師がお返事します。</div></li>
+    <li><div><b>日にちを決める</b>ご都合をうかがって、こちらで日時を確定してお知らせします。</div></li>
+    <li><div><b>当日、爪を見てから開始</b>始める前に、金額と回数の目安をお伝えします。施術は約60分です。</div></li>
+  </ol>
+</section>
+
+<section data-sec="06-price" class="pad gray">
+  <h2 class="h"><small>料金（税込）</small>わかりやすい料金です</h2>
+  <table class="price">
+    <caption>巻き爪の矯正</caption>
+    <tr><th>カウンセリング<small>はじめての日だけ</small></th><td>3,000<span>円</span></td></tr>
+    <tr><th>矯正　1本目</th><td>8,000<span>円</span></td></tr>
+    <tr><th>矯正　2本目から<small>1本につき</small></th><td>7,000<span>円</span></td></tr>
+  </table>
+  <p class="eg"><span>はじめての方・1本の場合</span><b>11,000円</b></p>
+  <table class="price">
+    <caption>そのほか</caption>
+    <tr><th>メンテナンス<small>矯正を終えた方・1枚</small></th><td>5,000<span>円</span></td></tr>
+    <tr><th>代表の集中矯正<small>1枚目・カウンセリング込み</small></th><td>22,800<span>円</span></td></tr>
+  </table>
+  <ul class="notes">
+    <li>始める前に、必ず金額をお伝えします。</li>
+    <li>出張は、香取市内は出張費がかかりません。市外は1回1,000円です。</li>
+    <li>2026年12月1日からの料金です。</li>
+  </ul>
+</section>
+
+<section data-sec="07-faq" class="pad">
+  <h2 class="h"><small>よくある質問</small>はじめての方へ</h2>
+  <dl class="faq">
+    <div><dt>痛くないですか</dt><dd>爪を切ったり、穴を開けたりしない方法です。感じ方は一人ひとり違いますので、気になることは途中でも遠慮なくお伝えください。</dd></div>
+    <div><dt>何回くらい通いますか</dt><dd>目安は3〜6回です。爪の厚みや食い込みの深さで変わりますので、最初に爪を見て、そこでお伝えします。</dd></div>
+    <div><dt>受けられない場合はありますか</dt><dd>あります。出血や化膿があるときは、先に医療機関を受診していただきます。</dd></div>
+    <div><dt>高齢の家族でも大丈夫ですか</dt><dd>はい。車いすの方や、ベッドの上での施術にも対応しています。</dd></div>
+    <div><dt>予約の変更はできますか</dt><dd>できます。ご都合が変わったときは、早めにご連絡ください。</dd></div>
+  </dl>
+</section>
+
+<section data-sec="08-shop" class="pad gray">
+  <h2 class="h"><small>お店の案内</small>巻き爪矯正サロン Snail</h2>
+  <table class="shop">
+    <tr><th>場所</th><td>〒289-0334<br>千葉県香取市川頭204-1<br>シェアサロン Moriyama 内</td></tr>
+    <tr><th>受付</th><td>月・火・金・土　9:00〜18:00<br>（完全予約制）</td></tr>
+    <tr><th>お休み</th><td>水・木・日</td></tr>
+    <tr><th>電話</th><td>090-4418-0494<br>施術中は出られないことがあります。LINEかSMSなら、当日中にお返事します。</td></tr>
+    <tr><th>スタッフ</th><td>看護師のみ在籍</td></tr>
+  </table>
+</section>
+
+<section data-sec="09-last" class="last">
+  <h2>その痛み、<br>がまんしないでください。</h2>
+  <p>まずは、今の様子を聞かせてください。</p>
+  <a class="btn" href="https://lin.ee/NcuLd4KN">LINEで相談・予約する</a>
+  <div class="two"><a class="btn2" href="tel:09044180494">電話する</a><a class="btn2" href="sms:09044180494">SMSで送る</a></div>
+</section>
+
+<section data-sec="10-foot" class="foot">
+  <p>※ 当サロンの施術は、医療行為ではありません。回数や感じ方には個人差があります。</p>
+  <p>巻き爪矯正サロン Snail（運営：株式会社R356）</p>
+</section>
+
+</div>
+</body>
+</html>
