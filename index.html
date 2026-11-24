@@ -282,28 +282,32 @@ section { padding: 96px 0; }
 
 /* ========== PRICING ========== */
 .pricing { background: var(--white); }
-.est { max-width: 860px; margin: 0 auto 28px; text-align: left; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid rgba(11,79,94,0.06); padding: 28px; }
-.est-q + .est-q { margin-top: 24px; }
-.est-h { font-weight: 700; font-size: 1.05rem; margin: 0 0 10px; color: var(--teal-dark); }
+.est { max-width: 980px; margin: 0 auto 36px; text-align: left; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 44px; align-items: start; }
+.est-q + .est-q { margin-top: 34px; }
+.est-h { display: flex; align-items: baseline; gap: 14px; margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(8,80,94,0.14); font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.18rem; color: var(--teal-dark); letter-spacing: 0.04em; }
+.est-h span { font-size: 0.82rem; letter-spacing: 0.18em; color: var(--gold); }
 .est-opts { display: grid; gap: 10px; }
 .est-opts.c2 { grid-template-columns: repeat(2, 1fr); }
 .est-opts.c3 { grid-template-columns: repeat(3, 1fr); }
 .est-opts.c4 { grid-template-columns: repeat(4, 1fr); }
-.est-opts button { min-height: 64px; border: 2px solid var(--teal-pale); background: #fff; border-radius: 12px; font-size: 1rem; font-weight: 700; color: var(--text); cursor: pointer; font-family: inherit; padding: 8px 6px; line-height: 1.4; }
-.est-opts button small { display: block; font-size: 0.82rem; font-weight: 500; color: var(--text-light); }
-.est-opts button.on { background: var(--teal-dark); border-color: var(--teal-dark); color: #fff; }
-.est-opts button.on small { color: #fff; }
-.est-opts button:disabled { opacity: 0.4; cursor: default; }
-.est-out { margin-top: 26px; background: var(--teal-bg); border-radius: 12px; padding: 20px 22px; }
-.est-wait { margin: 0; font-size: 1rem; color: var(--text-light); text-align: center; }
-.est-name { margin: 0 0 8px; font-weight: 700; font-size: 1.05rem; color: var(--text); }
-.est-line { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; font-size: 1rem; }
-.est-line span:last-child { white-space: nowrap; }
-.est-total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 2px solid var(--teal-dark); margin-top: 8px; padding-top: 12px; font-weight: 700; color: var(--teal-dark); font-size: 1.05rem; }
-.est-total b { font-family: 'Shippori Mincho', serif; font-size: 1.8rem; white-space: nowrap; }
-.est-note { margin: 10px 0 0; font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+.est-opts button { position: relative; min-height: 68px; border: 1px solid rgba(8,80,94,0.2); background: #fff; border-radius: 10px; font-size: 1rem; font-weight: 500; color: var(--text); cursor: pointer; font-family: inherit; padding: 10px 8px; line-height: 1.5; letter-spacing: 0.03em; transition: border-color .25s, background .25s, box-shadow .25s, transform .25s; }
+.est-opts button small { display: block; font-size: 0.8rem; font-weight: 400; color: var(--text-light); letter-spacing: 0.05em; }
+.est-opts button:hover:not(:disabled) { border-color: var(--teal-mid); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+.est-opts button.on { background: var(--teal-bg); border-color: var(--teal-dark); box-shadow: inset 0 0 0 1px var(--teal-dark); color: var(--teal-dark); font-weight: 700; }
+.est-opts button.on::after { content: ''; position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.est-opts button:disabled { opacity: 0.38; cursor: default; }
+.est-out { position: sticky; top: 110px; background: linear-gradient(160deg, var(--teal-dark), var(--teal-darker)); color: #fff; border-radius: var(--radius); padding: 32px 30px 28px; box-shadow: var(--shadow-lg); }
+.est-cap { margin: 0 0 18px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.24em; color: var(--gold-light); }
+.est-wait { margin: 0; font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.78); }
+.est-name { margin: 0 0 16px; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.2rem; letter-spacing: 0.04em; }
+.est-line { display: flex; align-items: baseline; gap: 10px; padding: 7px 0; font-size: 0.95rem; }
+.est-line i { flex: 1; min-width: 12px; border-bottom: 1px dotted rgba(255,255,255,0.4); transform: translateY(-4px); }
+.est-line span:last-child { white-space: nowrap; font-family: 'Shippori Mincho', serif; font-size: 1.05rem; }
+.est-total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid rgba(212,188,134,0.55); margin-top: 16px; padding-top: 18px; font-size: 0.9rem; letter-spacing: 0.08em; }
+.est-total b { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 2.3rem; color: var(--gold-light); white-space: nowrap; letter-spacing: 0.02em; line-height: 1.1; }
+.est-note { margin: 16px 0 0; font-size: 0.86rem; color: rgba(255,255,255,0.78); line-height: 1.9; }
 .price-all { max-width: 860px; margin: 0 auto; }
-.price-all summary { cursor: pointer; font-weight: 700; color: var(--teal-dark); padding: 14px; font-size: 1rem; }
+.price-all summary { cursor: pointer; font-weight: 500; color: var(--teal-dark); padding: 14px; font-size: 0.95rem; letter-spacing: 0.08em; text-align: center; text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--gold); }
 .price-all .price-note { margin-top: 16px; }
 .price-table-wrap { max-width: 860px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid rgba(11,79,94,0.06); }
 .price-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
@@ -461,11 +465,11 @@ section { padding: 96px 0; }
   .flow-step-num { width: 40px; height: 40px; font-size: 1rem; }
   .flow-step { gap: 16px; }
   .price-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .est { padding: 18px 14px; }
+  .est { grid-template-columns: 1fr; gap: 28px; }
   .est-opts.c2 { grid-template-columns: 1fr; }
-  .est-opts.c4 { grid-template-columns: repeat(2, 1fr); }
-  .est-opts button { font-size: 0.95rem; }
-  .est-total b { font-size: 1.5rem; }
+  .est-opts button { font-size: 0.95rem; min-height: 64px; }
+  .est-out { position: static; padding: 26px 22px 24px; }
+  .est-total b { font-size: 2rem; }
   .price-table { font-size: 0.82rem; min-width: 0; }
   .price-table .yen, .price-table .time { white-space: nowrap; }
   .price-table thead th, .price-table tbody td { padding: 12px 8px; }
@@ -826,8 +830,9 @@ section { padding: 96px 0; }
     <h2 class="section-title fade-up">料金のご案内</h2>
     <p class="section-desc fade-up">当てはまるものを押すと、料金が出ます。表示価格はすべて消費税込みです。</p>
     <div class="est fade-up" id="est">
+      <div class="est-qs">
       <div class="est-q">
-        <p class="est-h">1. どこで受けますか</p>
+        <p class="est-h"><span>01</span>どこで受けますか</p>
         <div class="est-opts c3" data-k="place">
           <button type="button" data-v="shop">お店で</button>
           <button type="button" data-v="in">ご自宅で<small>香取市内</small></button>
@@ -835,7 +840,7 @@ section { padding: 96px 0; }
         </div>
       </div>
       <div class="est-q">
-        <p class="est-h">2. どれに当てはまりますか</p>
+        <p class="est-h"><span>02</span>どれに当てはまりますか</p>
         <div class="est-opts c2" data-k="kind">
           <button type="button" data-v="first">はじめて矯正を受ける</button>
           <button type="button" data-v="cont">矯正を続けている<small>2回目から</small></button>
@@ -844,7 +849,7 @@ section { padding: 96px 0; }
         </div>
       </div>
       <div class="est-q">
-        <p class="est-h">3. 気になる爪は何本ですか</p>
+        <p class="est-h"><span>03</span>気になる爪は何本ですか</p>
         <div class="est-opts c4" data-k="n">
           <button type="button" data-v="1">1本</button>
           <button type="button" data-v="2">2本</button>
@@ -852,7 +857,8 @@ section { padding: 96px 0; }
           <button type="button" data-v="4">4本</button>
         </div>
       </div>
-      <div class="est-out" id="estOut" aria-live="polite"><p class="est-wait">上の3つを押すと、料金が出ます。</p></div>
+      </div>
+      <div class="est-out" id="estOut" aria-live="polite"></div>
     </div>
     <details class="price-all fade-up">
       <summary>料金表をすべて見る</summary>
@@ -1115,17 +1121,18 @@ countObserver.observe(document.querySelector('.number-bar'));
   var box=document.getElementById('est'); if(!box) return;
   var out=document.getElementById('estOut'), S={place:null,kind:null,n:null};
   function yen(v){return '\u00a5'+v.toLocaleString('ja-JP');}
-  function line(a,b){return '<div class="est-line"><span>'+a+'</span><span>'+yen(b)+'</span></div>';}
+  function line(a,b){return '<div class="est-line"><span>'+a+'</span><i></i><span>'+yen(b)+'</span></div>';}
+  var CAP='<p class="est-cap">お見積り</p>';
   function draw(){
     var bs=box.querySelectorAll('button');
     for(var i=0;i<bs.length;i++){var b=bs[i],k=b.parentNode.getAttribute('data-k');
       if(k==='kind'&&b.getAttribute('data-v')==='focus') b.disabled=(S.place==='in'||S.place==='out');
       var on=String(S[k])===b.getAttribute('data-v'); b.className=on?'on':''; b.setAttribute('aria-pressed',on?'true':'false');}
-    if(!S.place||!S.kind||!S.n){out.innerHTML='<p class="est-wait">上の3つを押すと、料金が出ます。</p>';return;}
+    if(!S.place||!S.kind||!S.n){out.innerHTML=CAP+'<p class="est-wait">当てはまるものを3つ選ぶと、<br>ここに料金が出ます。</p>';return;}
     var n=S.n,L=[],name='',note='',home=S.place!=='shop';
     if(S.kind==='first'||S.kind==='cont'){
       name='B/Sスパンゲ矯正';
-      if(S.kind==='first') L.push(['カウンセリング（はじめての日だけ）',3000]);
+      if(S.kind==='first') L.push(['カウンセリング（初回のみ）',3000]);
       L.push(['矯正 1本目',8000]);
       if(n>1) L.push(['矯正 2本目から × '+(n-1)+'本',7000*(n-1)]);
       if(S.place==='out') L.push(['出張費（香取市外）',1000]);
@@ -1142,7 +1149,7 @@ countObserver.observe(document.querySelector('.number-bar'));
       if(n>1) L.push(['2枚目から × '+(n-1)+'枚',14000*(n-1)]);
       note='カウンセリングを含みます。';
     }
-    var t=0,h='<p class="est-name">'+name+'</p>';
+    var t=0,h=CAP+'<p class="est-name">'+name+'</p>';
     for(var j=0;j<L.length;j++){t+=L[j][1];h+=line(L[j][0],L[j][1]);}
     h+='<div class="est-total"><span>合計（税込）</span><b>'+yen(t)+'</b></div>';
     h+='<p class="est-note">'+note+'<br>爪の状態を見て、始める前に金額をお伝えします。</p>';
