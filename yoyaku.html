@@ -162,7 +162,7 @@ button { font-family: inherit; cursor: pointer; }
     if(dt<minD||dt>maxD) return 'range';
     if(!A) return '';
     var k=key(dt);
-    if(has(A.closedDates,k)) return 'closed';
+    if(has(A.closedDates,k)||has(A.closedWeekdays,dt.getDay())) return 'closed';
     if(S.m===FOCUS&&has(A.ownerOffDates,k)) return 'owner';
     if(isHome()&&homeDays()&&homeDays().indexOf(dt.getDay())<0) return 'weekday';
     return '';
@@ -203,6 +203,7 @@ button { font-family: inherit; cursor: pointer; }
     $('next').disabled=(y===maxD.getFullYear()&&m===maxD.getMonth());
     var L=['明日から3か月先まで選べます。'];
     if(A){
+      if(A.closedWeekdays&&A.closedWeekdays.length) L.push('毎週'+A.closedWeekdays.map(function(n){return WD[n];}).join('・')+'曜日は、お休みです。');
       if(A.closedDates&&A.closedDates.length) L.push('灰色の日は、お休みです。');
       if(S.m===FOCUS&&A.ownerOffDates&&A.ownerOffDates.length) L.push('代表がいない日も、押せません。');
       if(isHome()&&homeDays()) L.push('出張は、'+homeDays().map(function(n){return WD[n];}).join('・')+'曜日に伺います。');
